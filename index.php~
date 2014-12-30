@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type"text/css" href="../Metro-ui/min/metro-bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../Metro-ui/min/iconFont.css">
+
+<head>
+
+</head>
+<body>
+<div id="bodyWrapper" class="wrapper">
+<div class="window">
+    <div class="caption">
+        <span class="icon icon-windows"></span> //window icon, also you can use img tag
+        <div class="title">Window caption</div> // window title
+        <button class="btn-min"></button> // minimize button
+        <button class="btn-max"></button> // maximize button
+        <button class="btn-close"></button> // close button
+    </div>
+    <div class="content" id="database">
+        Window content
+    </div>
+</div>
+
+<div class="tile bg-magenta">
+    <div class="tile-content icon">
+        <i class="icon-rocket"></i>
+    </div>
+    <div class="brand bg-black">
+        <span class="label fg-white">TAC-Alert Metro</span>
+    </div>
+</div>
+
+</div> 
+<!-- //END #bodyWrapper -->
+<script type="text/javascript" src="js/jquery-2.1.1.min.js">
+<script type="text/javascript" src="js/jquery-ui-1.11.2/jquery-ui.min.js">
+<script type="text/javascript" src="../Metro-ui/metro.min.js">
+<script type="text/javascript" src="js/winScripts.js">
+</body>
+</html>
+

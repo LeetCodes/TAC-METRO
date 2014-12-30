@@ -1,0 +1,423 @@
+From:	Dan Schmitt
+Sent:	Friday, December 12, 2014 11:10 AM
+To:	dispatch; Mary Osten
+Subject:	FW: URL link for the web server
+Attachments:	pic06609.gif
+
+Mary and Dispatch,
+
+Can a ticket please be opened for this. They are claiming there are issues 
+with the web install that took place yesterday by Andrew. Mary can you ensure 
+this ticket gets looked into for Nhu.
+
+Thanks
+
+__________________________________________________?
+ISI Telemanagement Solutions, Inc.
+
+Dan Schmitt
+TAC Manager/Technology Specialist
+
+1051 Perimeter Drive, Suite 200
+Schaumburg, IL 60173
+
+Direct: 1-847-592-3293
+Technical Assistance: 1-800-326-6183
+Email:   dschmitt@isi-info.com
+Web:     www.isi-info.com
+
+
+Follow us on:
+
+        
+
+View Our Awards & Certifications
+
+Confidentiality Notice: This email message (including any attachments hereto) 
+contains information which may be confidential and privileged. Unless you are 
+the addressee (or authorized to receive for the addressee), you may not use, 
+copy or disclose to anyone this message or any information contained in the 
+message. If you have received this message in error, please advise the sender 
+by reply email and delete this message.
+
+-----Original Message-----
+From: Nhu.Vo@securian.com [mailto:Nhu.Vo@securian.com] 
+Sent: Friday, December 12, 2014 10:07 AM
+To: Dan Schmitt
+Cc: Andrew Park; Kathleen.Mueller@securian.com; Mary Osten
+Subject: RE: URL link for the web server
+
+Hi Dan -
+
+The server housing the IIS is WINNETP27.  I just realized that IIS was not 
+installed to the proper location, but that should not matter.
+
+I expect to see the Web app content in the following location, but it's empty.
+
+No rush.  Please send me a Web Ex when you can to look at this today.
+Thanks.
+
+(Embedded image moved to file: pic06609.gif)
+
+
+
+Nhu Q Vo
+Application Analyst, Corp/Invest Systems  •  Securian Financial Group
+400 Robert Street North  •  St. Paul, MN 55101-2098
+651-665-3491
+nhu.vo@securian.com  •  www.securian.com
+
+Securian Financial Group – Financial security for the long run ®
+
+
+
+From:	Dan Schmitt <dschmitt@isi-info.com>
+To:	"Nhu.Vo@securian.com" <Nhu.Vo@securian.com>,
+Cc:	"Kathleen.Mueller@securian.com"
+            <Kathleen.Mueller@securian.com>, "Mary Osten"
+            <mosten@isi-info.com>, Andrew Park <apark@isi-info.com>
+Date:	12/12/2014 10:02 AM
+Subject:	RE: URL link for the web server
+
+
+
+Nhu,
+
+I am unavailable right now to do a WebEx. I can email you when I become 
+available (hour or so).
+
+What is the server housing IIS? Andrew should have installed web apps on that 
+server and can be located at C:\Infortel Select\Programs\dashboard.
+
+If it's only working for https://winnetp27/dashboard/ then it's something to 
+do with DNS or the fact that you are forcing a secure connection to the web 
+page. (http vs https). When we install we by default install as http.
+So I would just use the https address you have because it looks like you did 
+some extra work in IIS that forces the use of https.
+
+Let me know if you have any other questions.
+
+Thanks
+
+__________________________________________________
+ISI Telemanagement Solutions, Inc.
+
+Dan Schmitt
+TAC Manager/Technology Specialist
+
+1051 Perimeter Drive, Suite 200
+Schaumburg, IL 60173
+
+Direct: 1-847-592-3293
+Technical Assistance: 1-800-326-6183
+Email:   dschmitt@isi-info.com
+Web:     www.isi-info.com
+
+
+Follow us on:
+
+
+
+View Our Awards & Certifications
+
+Confidentiality Notice: This email message (including any attachments
+hereto) contains information which may be confidential and privileged.
+Unless you are the addressee (or authorized to receive for the addressee), you 
+may not use, copy or disclose to anyone this message or any information 
+contained in the message. If you have received this message in error, please 
+advise the sender by reply email and delete this message.
+
+-----Original Message-----
+From: Nhu.Vo@securian.com [mailto:Nhu.Vo@securian.com]
+Sent: Friday, December 12, 2014 9:57 AM
+To: Dan Schmitt
+Cc: Kathleen.Mueller@securian.com; Mary Osten
+Subject: RE: URL link for the web server
+
+Hi Dan -
+
+I am at a lost as I wasn't there in the session when Andrew was 
+installing/configuring the web app.  My question right now is I don't know 
+where the content of the web app was installed/stored in.  The web link is not 
+working.  Like the email  you indicated below, it should work when we use 
+(http://170.11.193.32/dashboard).  But it's only working for 
+https://winnetp27/dashboard/
+
+I tried changing the path of the default site to point to e:\InfortelSelect 
+\Programs\Dashboard, but no success yet.
+
+Can we do a quick WebEx on this or do we need Andrew to help out on this?
+
+Nhu Q Vo
+Application Analyst, Corp/Invest Systems  •  Securian Financial Group
+400 Robert Street North  •  St. Paul, MN 55101-2098
+651-665-3491
+nhu.vo@securian.com  •  www.securian.com
+
+Securian Financial Group – Financial security for the long run ®
+
+
+
+From:		 Dan Schmitt <dschmitt@isi-info.com>
+To:		 "Nhu.Vo@securian.com" <Nhu.Vo@securian.com>,
+Cc:		 "Kathleen.Mueller@securian.com"
+            <Kathleen.Mueller@securian.com>, "Mary Osten"
+            <mosten@isi-info.com>
+Date:		 12/10/2014 01:26 PM
+Subject:		 RE: URL link for the web server
+
+
+
+I believe if IIS is installed you should be able to browse the server name or 
+IP Address and you should get the IIS splash screen which tells you that it 
+should be working OK. That is until tomorrow when we load the application web 
+pages (http://170.11.193.32/dashboard).  In regards to the redirect link DNS 
+entry, that would have to be determined by your organization, as we would not 
+be able to support that aspect of the configuration.
+
+Thanks
+
+__________________________________________________
+ISI Telemanagement Solutions, Inc.
+
+Dan Schmitt
+TAC Manager/Technology Specialist
+
+1051 Perimeter Drive, Suite 200
+Schaumburg, IL 60173
+
+Direct: 1-847-592-3293
+Technical Assistance: 1-800-326-6183
+Email:   dschmitt@isi-info.com
+Web:     www.isi-info.com
+
+
+Follow us on:
+
+
+
+View Our Awards & Certifications
+
+Confidentiality Notice: This email message (including any attachments
+hereto) contains information which may be confidential and privileged.
+Unless you are the addressee (or authorized to receive for the addressee), you 
+may not use, copy or disclose to anyone this message or any information 
+contained in the message. If you have received this message in error, please 
+advise the sender by reply email and delete this message.
+
+-----Original Message-----
+From: Nhu.Vo@securian.com [mailto:Nhu.Vo@securian.com]
+Sent: Wednesday, December 10, 2014 1:13 PM
+To: Dan Schmitt
+Cc: Kathleen.Mueller@securian.com
+Subject: Re: URL link for the web server
+
+Hi Dan -
+
+I just want to check with you if there's anything I need to do further before 
+the upgrade tomorrow.  I know that you already looked at the web server and 
+checked out all IIS configurations and features via WebEx awhile ago and gave 
+me the OK.  I have now requested the DNS address to be hooked to the new 
+server's IP address.  I also installed the certificate and enabled SSL.
+
+However, when I tried to test the web link through the new URL 
+https://phonereports.securian.com and through the physical IP address 
+(170.11.193.32), there's a connection issue.  I suspect that the link is not 
+working properly now because the server itself is just a shell and is not 
+ready to load anything yet until tomorrow.
+
+However, I just want to be sure that that is the case or if I need to do 
+anything further to get ready for tomorrow's upgrade.
+
+Thanks for responding.
+
+Nhu Q Vo
+Application Analyst, Corp/Invest Systems  •  Securian Financial Group
+400 Robert Street North  •  St. Paul, MN 55101-2098
+651-665-3491
+nhu.vo@securian.com  •  www.securian.com
+
+Securian Financial Group – Financial security for the long run ®
+
+
+
+From:		 		  Dan Schmitt <dschmitt@isi-info.com>
+To:		 		  "Nhu.Vo@securian.com" <Nhu.Vo@securian.com>,
+Date:		 		  11/21/2014 10:34 AM
+Subject:		 		  FW: (Forward to others) Join WebEx meeting
+in progress:
+ISI
+            Meeting
+
+
+
+FYI
+
+__________________________________________________
+ISI Telemanagement Solutions, Inc.
+
+Dan Schmitt
+TAC Manager/Technology Specialist
+
+1051 Perimeter Drive, Suite 200
+Schaumburg, IL 60173
+
+Direct: 1-847-592-3293
+Technical Assistance: 1-800-326-6183
+Email:   dschmitt@isi-info.com
+Web:     www.isi-info.com
+
+
+Follow us on:
+
+cid:image001.png@01CD1C83.1CEED4C0  cid:image002.png@01CD1C83.1CEED4C0
+cid:image004.png@01CD1C83.1CEED4C0  cid:image006.png@01CD1C83.1CEED4C0
+cid:image008.png@01CD1C83.1CEED4C0
+
+View Our Awards & Certifications
+
+Confidentiality Notice: This email message (including any attachments
+hereto) contains information which may be confidential and privileged.
+Unless you are the addressee (or authorized to receive for the addressee), you 
+may not use, copy or disclose to anyone this message or any information 
+contained in the message. If you have received this message in error, please 
+advise the sender by reply email and delete this message.
+
+From: Dan Schmitt [mailto:messenger@webex.com]
+Sent: Friday, November 21, 2014 10:34 AM
+To: Dan Schmitt
+Subject: (Forward to others) Join WebEx meeting in progress: ISI Meeting
+
+
+
+
+
+
+
+
+ You can forward this invitation to others.
+
+
+
+
+
+
+
+ Hello,
+
+ My WebEx meeting is in progress.
+
+ Join me now from a browser, phone, or video conferencing system or
+
+ application.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ISI Meeting
+
+ Friday, November 21, 2014
+
+ 10:34 am  |  Central Standard Time (Chicago, GMT-06:00)  |  1 hr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Join WebEx meeting
+
+
+
+
+
+
+
+ Meeting number:
+
+                 499 589 495
+
+ Meeting password:
+
+                 12345
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Join by phone
+
+ +1-415-655-0001 US TOLL
+
+ Access code: 499 589 495
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Can't join the meeting? Contact support.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ IMPORTANT NOTICE: Please note that this WebEx service allows audio and
+
+ other information sent during the session to be recorded, which may be
+
+ discoverable in a legal matter. By joining this session, you automatically
+
+ consent to such recordings. If you do not consent to being recorded,
+
+ discuss your concerns with the host or do not join the session.
+
+
+
+
+
+
