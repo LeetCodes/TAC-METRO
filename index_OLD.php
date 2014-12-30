@@ -439,6 +439,49 @@ vertical-align: top;
 </div>
 <!-- // CLOSE #bodyWrapper -->
 
+<!-- 
+//START MENU FROM WIN7 DESIGN
+
+<div id="startmenu">
+	<ul id="applications">
+	<li>
+    <a href="#" data-reveal-id="TicketWindow" data-reveal id="oTicketModal"><img src="css/img/chrome.png" alt="" />New Ticket</a></li>
+  <li><a href="#" data-reveal-id="TicketSearch" data-reveal ><img src="css/img/notepad.jpg" alt="" />Search Tickets</a></li>
+	<li><a href="#" data-reveal-id="EditTickets" data-reveal ><img src="css/img/firefox-32.png" alt="" />Ticket Editor</a></li>
+  <li><a href="http://tac-alert01/"><img src="css/img/ie.png" alt="" />Internet Explorer</a></li>
+  <li><a href="http://tac-alert01/"><img src="css/img/VS-logo.png" height=48px width=48px alt="" />Microsoft Visual Studio 2010</a></li>
+  <li><a href="http://tac-alert01/"><img src="css/img/paint.jpg" alt="" />Paint</a></li>
+		<li class="search">
+<form action='http://tac-wiki/wiki/index.php/Special:SphinxSearch' id='WikiForm' method='get' name='wSearch' target='_new'>
+<div id="SearchContainer" class="span4">  
+  <div class="searchbox">
+   <div class="span3">
+
+         <input id='sValue' name='title' type='hidden' value='Special:SphinxSearch'> 
+         <input id='search_text' maxlength='150' name='sphinxsearch' placeholder='Search the Wiki' tabindex='1' type='search'> 
+
+        <button name='Search_Wiki' id='search_button' name='fulltext' class="button info"> <i class="icon-search"></i> </button>
+      </div>
+  </div> </form>
+</div>
+	    </li>
+	</ul>
+	<ul id="sysdir">
+        <li class="user"><div class="frame">
+          <div class="frame-inner">
+          </div>
+        </div>
+      </li>
+        <li id='Log-in'></li>
+        <li><a href="http://tac-alert01/"><span>Pictures</span></a></li>
+        <li><a href="http://tac-alert01/"><span>Music</span></a></li>
+        <li><a href="http://tac-alert01/"><span>Computer</span></a></li>
+        <li><a href="http://tac-alert01/"><span>Network</span></a></li>
+        <li><a href="http://tac-alert01/"><span>Connect to</span></a></li>
+    </ul>
+</div>
+// CLOSE START MENU -->
+
 
 <div id="bottom">
 	<div class="start"></div>
@@ -451,19 +494,14 @@ vertical-align: top;
   <div class="datetime">
   </div>
 </div>
-<!-- // CLOSE #bottom -->
 
-
-<!-- 
-
-// SCRIPTS BLOCK FOR LIBRARY INTEGRATION
-
--->
 
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.11.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/jQuery_Plugins.js"></script>
 <script type="text/javascript" src="js/metro.min.js"></script>
+
+
 <!-- // Compressed version of all related vendor plug-ins used in jQuery -->
 <script type="text/javascript" src="js/TACALERT.js"></script>
 <script type="text/javascript" src="js/winScripts.js"></script>
