@@ -48,17 +48,17 @@ $(function() {
 		scroll: false,
 		stack: '.window'
 	});
-    window.resizable({
+/*    window.resizable({
 		handles: 'n, e, s, w, ne, se, sw, nw',
 		containment: '#handle_area',
 		minHeight: 80,
 		minWidth: 138,
 		maxHeight: $('#handle_area').height()-33,
 		maxWidth: $('#handle_area').width()
-	});  
+	});  */
 });
 
-var window = $(".window"), start = $(".start"), startmenu = $("#startmenu");
+var window = $(".window"), start = $(".start"), startmenu = $("#startmenu"), timer = [];
 	// Startmenu
 	start.on('click', function () {
 		 $('#sideBar').toggle("slide",{direction: "right"});
@@ -81,20 +81,33 @@ function getDB(){
       $("#database").empty().html("<center><h1>Great Job,"+ $USER +"!</h1> <h3 class='subheader'> All tickets have been called back.</h3></center>");
 	  // console.log(json);
 	} else{
-    $("#database").html("<table id='delTable'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td></tr></THEAD><TBODY id='dbb'>");
+    $("#database").html("<table id='Table'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td></tr></THEAD><TBODY id='dbb'>");
       $.each(data, function(key, value) {
     var ticket=value.Ticket,date=value.Date,starttime=value.STime,ETA=value.ETA,Priority=value.Priority,Site=value.Site,Comments=value.Comments,Contact=value.ContactPref,Deleted=value.Deleted;
-        var $Deletelink = "<a href='#' class='deleteLink'><img src='img/delete.png' alt='Delete ticket #"+ticket+"?' /></a>";
-	       $("#dbb").append("<tr><td>"+ticket+"</td><td>"+date+"</td><td>"+ETA+"</td><td>"+Priority+"</td><td>"+Site+"</td><td>"+Comments+"</td><td>"+Contact+"</td><td>"+DeleteLink+"</td></tr>");
+        var Deletelink = "<button href='#' class='btn-close deleteLink' title='Delete ticket #"+ticket+"?'/></button>";
+	       $("#dbb").append("<tr><td>"+ticket+"</td><td>"+date+"</td><td>"+ETA+"</td><td>"+Priority+"</td><td>"+Site+"</td><td>"+Comments+"</td><td>"+Contact+"</td><td>"+Deletelink+"</td></tr>");
 		 // console.log(json);
+$(document).on("click",".deleteLink",function() {
+    $.Dialog({
+	  shadow: true,
+	  overlay: false,
+	  draggable: true,
+	  flat: false,
+	  icon: '<span class="icon-checkbox"></span>',
+	  title: 'Delete Ticket?',
+	  width: 450,
+	  padding: 10,
+	  content: 'Are you sure you want to delete Ticket #'+ticket+'? <br>' +
+        '<button id="confirm" class="success">YEP!</button>',
+	  sysButtons:{
+	    btnMin: false,
+		btnMax: false,
+		btnClose: true
+      }
+    });
+  });
 	 });
       $("#database").append("</tbody></table>");
-      $("#delTable").dataTable({
-	      paging: false,
-		  "info": false,
-		  "searching": false
-	  });
-	 
     }
   }
  });
@@ -102,24 +115,8 @@ function getDB(){
 
 $("#sideBar, #startmenu").hide();
 new getDB();
-$USER = localStorage.getItem("Login");
+var $USER = localStorage.getItem("Login");
 $("#log-in").html($USER);
-
-  $(document).on("click", ".deleteLink", function() {
-    $.Dialog({
-	  shadow: true,
-	  overlay: true,
-	  icon: '<span class="icon-checkbox"></span>',
-	  title: 'Delete Ticket'+ticket+'?',
-	  width: 450,
-	  padding: 5,
-	 
-	  onShow: function(_dialog){ 
-	    var content = 'Are you sure you want to delete Ticket #'+ticket+'? <br>' +
-        '<button id="confirm" class="success">YES</button> <button id="deny" class="danger">NOPE</button>';
-      $.Dialog.content(content);
-      $.Metro.initInputs();
-	  }
-    });
-  });
+ 
 });	
+

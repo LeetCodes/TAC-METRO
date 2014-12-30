@@ -37,7 +37,7 @@ $('#delTable').fadeOut(800, function() {
       }).fadeIn(600);
     });
 new RefreshAlerts();
-$('#TicketWindow').foundation('reveal', 'close');
+
 }
 
 
@@ -58,7 +58,7 @@ var getTime = function() {
 };
 
 // Construct a timer to refresh the DB without needing the user to hit F5 //
-
+var timer =[];
     function startTimer (){
      var timer = setInterval(Continue, 250000);
       pgTimer = setInterval(pgLoad, 750000);
@@ -82,7 +82,7 @@ var getTime = function() {
     }	
 
 function weatherMan(){
-  var URL = "weatherMan.json";
+  var URL = "../../weatherMan.json";
 //  var URL = "http://api.wunderground.com/api/f4de0ee4ffd72094/geolookup/conditions/q/IL/Chicago.json?callback=?",
 //      JSONcache = JSON.parse(sessionStorage.getItem('JSONcache'));
 //  if (!JSONcache){
@@ -204,7 +204,7 @@ document.addEventListener(visibilityEvent, function(event) {
 
 */
  
-		
+ 
 $(document).ready(function () {"use strict";
      var $USER = $("#username").text(), $RowCounts = $("#delTable tr").length, $COUNT = parseInt( ($RowCounts - 1), 10); 
 	 var id, userid, data, parent, site = null; 
@@ -224,14 +224,6 @@ $(document).ready(function () {"use strict";
         new checked();
 	});
 
-var cookie = localStorage.getItem("style");
-if(cookie) {
-    $("link.theme").attr("href",cookie);
-}
-if(cookie === null) {
-	$("link.theme").attr("href", "css/production.css");
-	
-}
 
 $(document).keyup(function(e) {
 if (e.keyCode == 27) { 
@@ -242,7 +234,7 @@ console.log('Manual DB refresh call @ ' + getTime());
 
   $(document).keyup(function(e) {
     if (e.keyCode == 192) { 
-      $('.off-canvas-wrap').toggleClass('move-right');
+       $('#sideBar').toggle("slide",{direction: "right"});
     }  
   });    
 

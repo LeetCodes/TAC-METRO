@@ -7,14 +7,12 @@
 <script type="text/javascript" src="js/modernizr.js"></script>
   <!-- // LOAD MODERNIZR FIRST for legacy browser interaction -->
     <title>TAC's Alert System</title>
-
+<link rel="stylesheet" type="text/css" href="css/jqUI.css">
 <link rel="stylesheet" type="text/css" href="Metro-ui/min/metro-bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="Metro-ui/min/iconFont.min.css">
 <link rel="stylesheet" type="text/css" href="Metro-ui/min/metro-bootstrap-responsive.min.css">
-<link rel="stylesheet" type="text/css" href="css/jqUI.css">
 
 <style>
-
 html,body {
 	font-family: "Segoe UI", Arial, Sans-Serif;
 	font-size: 10pt;
@@ -29,9 +27,6 @@ html,body {
 clear: none;
 overflow: visible;
 }
-
-
-
 
 @-moz-keyframes spin {
   100% { -moz-transform: rotate(360deg); }
@@ -361,44 +356,46 @@ white-space: nowrap !important;
 #sideBar{
 float:right;
 }
+
+.noClear{
+    white-space: nowrap !important;
+	border: none !important;
+}
 </style>
 </head>
 <body class="metro">
 <nav class="sidebar bg-darkViolet fg-white span6" id="sideBar">
-	    
-<br>
+
 <ul> 
-	<li class="title">
+	<li class="title"><b>TAC-ALERT8</b></li>
+<li class="noClear">	
 <form action='http://tac-wiki/wiki/index.php/Special:SphinxSearch' id='WikiForm' method='get' name='wSearch' target='_new'>
-<div class="span6">  
-  <div class="searchbox">
-   <div class="span5">
+  <div class="span5 input-control text">
    	<!-- // Wiki Search using Sphinx - taken from legacy TACALERT code -->
 
          <input id='sValue' name='title' type='hidden' value='Special:SphinxSearch'> 
          <input id='search_text' maxlength='150' name='sphinxsearch' placeholder='Search the Wiki' tabindex='1' type='search'> 
-
-        <button name='Search_Wiki' id='search_button' name='fulltext' class="large info"> <i class="icon-search"></i> </button>
-      </div>
-  </div> </form>
+        <button name='Search_Wiki' id='search_button' name='fulltext' class="btn-search"></button>
+  </form>
 </div>
 	    </li>
-       
-        
- 
+<br>
         <li class="title">Quick Links</li>
-		<li class="stick bg-red"><a href="#"><i class="icon-cog"></i>Layouts</a></li>
-        <li class="stick bg-green"><a href="#">Thread item</a></li>
-        <li><a href="#">Other Item 1</a></li>
-        <li><a href="#">Other item 2</a></li>
-        <li><a href="#">Other item 3</a></li>
-    </ul>
+		<li class="stick bg-crimson"><a href="http://tac-alert01/CDRMS.php"> <i class="icon-rocket on-right"></i> CDRMS Clients</a></li>
+        <li class="stick bg-cyan"><a href="http://tac-alert01/Attach.php">Attach An Item</a></li>
+        <li><a href="http://tac-alert01/statistics.php">TAC-Alert Statistics</a></li>
+        <li><a href="http://thesource.isi-info.com">The Source</a></li>
+        <li class="stick bg-amber"><a href="http://badger/EngWiki/Default.aspx">The Engineering Wiki</a></li>
+</ul>	    
+
+<br>
+
 <span id="StatusBlock">
-  <div class="tile bg-emerald" id="LoginStatus">
+  <div class="tile bg-emerald bg-hover-lime" id="LoginStatus">
       <div class="tile-content icon">
           <i class="icon-user"></i>
       </div>
-      <div class="brand bg-black">
+      <div class="brand bg-black bg-hover-gray">
           <span class="label fg-white">Logged in as <b id="log-in"></b></span>
       </div>
   </div>  
@@ -493,9 +490,10 @@ float:right;
 
 
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="Metro-ui/min/metro.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.11.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/jQuery_Plugins.js"></script>
+<script type="text/javascript" src="js/metro.min.js"></script>
+
 
 <!-- // Compressed version of all related vendor plug-ins used in jQuery -->
 <script type="text/javascript" src="js/TACALERT.js"></script>
