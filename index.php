@@ -368,25 +368,35 @@ vertical-align: top;
     white-space: nowrap !important;
 	border: none !important;
 }
+.tileBar{
+position: fixed;
+bottom: 50px;
+white-space: nowrap !important;
+}
+
+.deleteLink{
+cursor: pointer;
+}
 </style>
 </head>
 <body class="metro">
+
+<!-- BEGIN SIDE-BAR -->
 <nav class="sidebar bg-darkTeal fg-white span6" id="sideBar">
 
 <ul> 
-	<li class="title"><b>TAC-ALERT8</b></li>
-<li class="noClear">	
-<form action='http://tac-wiki/wiki/index.php/Special:SphinxSearch' id='WikiForm' method='get' name='wSearch' target='_new'>
-  <div class="span5 input-control text">
-   	<!-- // Wiki Search using Sphinx - taken from legacy TACALERT code -->
-
+	<li class="title"><b class="text-center">TAC-ALERT8</b></li>
+  <br>
+    <li class="noClear">	
+  <form action='http://tac-wiki/wiki/index.php/Special:SphinxSearch' id='WikiForm' method='get' name='wSearch' target='_new'>
+      <div class="span6 input-control text">
          <input id='sValue' name='title' type='hidden' value='Special:SphinxSearch'> 
          <input id='search_text' maxlength='150' name='sphinxsearch' placeholder='Search the Wiki' tabindex='1' type='search'> 
         <button name='Search_Wiki' id='search_button' name='fulltext' class="btn-search"></button>
   </form>
-</div>
-	    </li>
-<br>
+      </div>
+    </li>
+  <br>
         <li class="title">Quick Links</li>
 		<li class="stick bg-crimson"><a href="http://tac-alert01/CDRMS.php"> <i class="icon-rocket on-right"></i> CDRMS Clients</a></li>
         <li class="stick bg-cyan"><a href="http://tac-alert01/Attach.php">Attach An Item</a></li>
@@ -398,15 +408,15 @@ vertical-align: top;
 <br>
 
 <span id="StatusBlock">
-  <div class="tile bg-emerald bg-hover-lime" id="LoginStatus">
-      <div class="tile-content icon">
+  <div class="tile bg-emerald bg-hover-red" id="LoginStatus">
+      <div class="tile-content icon">Logged in as <b id="log-in"></b>
           <i class="icon-user"></i>
       </div>
-      <div class="brand bg-black bg-hover-gray">
-          <span class="label fg-white">Logged in as <b id="log-in"></b></span>
+      <div class="brand bg-black">
+          <span class="label fg-white">Log Out?</span>
       </div>
   </div>  
-  <div class="tile bg-steel" id="Preferences">
+  <div class="tile bg-orange bg-hover-lightOrange" id="Preferences">
       <div class="tile-content icon">
           <i class="icon-cog"></i>
       </div>
@@ -415,7 +425,7 @@ vertical-align: top;
       </div>
   </div>
 </span>
-</nav>
+</nav> <!-- //CLOSE #SideBar -->
 
 <div id="bodyWrapper" class="span12">
 
@@ -434,7 +444,40 @@ vertical-align: top;
     </div>
 </div> <!-- //CLOSE Window -->
 
+<span class="tileBar">
+  <div id="weatherMan" data-role="live-tile" data-effect="slideDown" data-easing="easeInExpo" class="tile double bg-darkBlue fg-white bg-hover-amber">
+    <div class="tile-content icon">
+          <i class="icon-sun-3"></i>
+    </div>
+      <div class="brand bg-black">
+          <span class="label fg-white">Weather</span>
+      </div>
+	  <div class="tile-content image" id="Weather"></div>
+</div> <!-- //CLOSE #weatherMan -->
 
+<div id="statistics" class="tile bg-darkGreen fg-white bg-hover-emerald">
+   <a href="http://tac-alert01/statistics.php" title="Generate Ticket Statistics" target="_NEW">
+	<div class="tile-content icon">
+          <i class="icon-stats-up"></i>
+    </div>
+   </a>
+      <div class="brand bg-black">
+          <span class="label fg-white">Statistics</span>
+      </div>
+  </div> <!-- //CLOSE #statistics -->
+
+<div id="wiki" class="tile bg-darkIndigo fg-white bg-hover-indigo">
+   <a href="http://tac-wiki/wiki/index.php" title="TAC's Wiki knowledgebase" target="_NEW">
+	<div class="tile-content icon">
+          <i class="icon-lab"></i>
+    </div>
+   </a>
+      <div class="brand bg-black">
+          <span class="label fg-white">TAC-Wiki</span>
+      </div>
+  </div> <!-- //CLOSE #wiki -->
+
+</span> <!-- //CLOSE #TileBar -->
 
 </div>
 <!-- // CLOSE #bodyWrapper -->

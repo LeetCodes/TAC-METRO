@@ -82,7 +82,7 @@ var timer =[];
     }	
 
 function weatherMan(){
-  var URL = "../../weatherMan.json";
+  var URL = "weatherMan.json";
 //  var URL = "http://api.wunderground.com/api/f4de0ee4ffd72094/geolookup/conditions/q/IL/Chicago.json?callback=?",
 //      JSONcache = JSON.parse(sessionStorage.getItem('JSONcache'));
 //  if (!JSONcache){
@@ -94,12 +94,12 @@ function weatherMan(){
         var pattern=  new RegExp("^(.{26})([a-z])"), 
 	    temperF = parsed_json.current_observation.temp_f, 
 	    humidity = parsed_json.current_observation.relative_humidity, 
-	    Wreport = parsed_json.current_observation.weather, 
-	    time = parsed_json.current_observation.observation_time, 
+//	    Wreport = parsed_json.current_observation.weather, 
+//	    time = parsed_json.current_observation.observation_time, 
 	    Icon = parsed_json.current_observation.icon_url, 
-	    IconURL = Icon.replace(pattern, "$1h"), 
-	    htmlString = "<span class='small-4 left'><img id='wIcon' src='"+ IconURL +"' /><h4 id='temp'>" + temperF +    "<sup>&deg;</sup></h4></span><span id='wReport' class='small-4'><h7 class='subheader'>Humidity: <b id='humid'>"+ humidity +"</b> | <strong>"+ Wreport +".</strong><small id='time' class='left'>"+ time +"</small></h7></span>";
-   $('#Weather').html(htmlString).fadeIn(900); 
+	    IconURL = Icon.replace(pattern, "$1k"), 
+	    htmlString = "<center><h1 id='temp' class='fg-white'><img id='wIcon' src='"+ IconURL +"' />"+ temperF +"<sup><i class='icon-Fahrenheit'></i></sup></h1></center>";
+   $('#Weather').html(htmlString); 
 // JSONcache = sessionStorage.setItem('JSONcache', JSON.stringify(htmlString));
     })
     .fail(function(){
