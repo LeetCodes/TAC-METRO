@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<head>
+
+<link rel="icon" href="http://tac-alert01/favicon.ico" type="image/x-icon">
+<script type="text/javascript" src="js/modernizr.js"></script>
+  <!-- // LOAD MODERNIZR FIRST for legacy browser interaction -->
+    <title>TAC PREFERENCES</title>
+<link rel="stylesheet" type="text/css" href="css/jqUI.css">
+<link rel="stylesheet" type="text/css" href="Metro-ui/min/metro-bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="Metro-ui/min/iconFont.min.css">
+<link rel="stylesheet" type="text/css" href="Metro-ui/min/metro-bootstrap-responsive.min.css">
+
+
+</head>
+
+<body class="metro">
+
+<div class="container" id="TACPref" class="span6">
+<h1>Preferences</h1>
+
+<h3>Colors:</h3>
+<form id="setOpts" name="TACOptions" type="POST" action="#">
+
+Background:
+<div class="input-control" >
+    <label for="white">
+        <input type="radio" name="bgColor" value="#FFFFFF" data-transform="input-control" />
+    <b class='bg-white fg-black bd-black'> White</b>
+    </label>
+</div>
+
+<div class="input-control" >
+    <label for="Black">
+        <input type="radio" name="bgColor" value="#000000" data-transform="input-control" checked />
+    <b class='fg-white bg-black'>Black</b>
+    </label>
+</div>
+
+<hr>
+
+Font:
+<div class="input-control">
+    <label for="Open_Sans">
+        <input type="radio" name="fontFace" value="Open Sans"  data-transform="input-control" checked />
+    <font face="Open Sans">Open Sans</font>
+    </label>
+
+    <label for="Consolas">       
+        <input type="radio" name="fontFace" Value="Consolas" data-transform="input-control" />
+     <font face="Consolas">Consolas</font>
+    </label>
+
+    <label for="IMPACT">       
+        <input type="radio" name="fontFace" Value="Consolas" data-transform="input-control" />
+     <font face="IMPACT">IMPACT</font>
+    </label>
+</div>
+
+
+</form>
+</div> <!-- //CLOSE #TACPref -->
+
+
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jQuery_Plugins.js"></script>
+<script type="text/javascript" src="js/metro.min.js"></script>
+</body>
+</html>

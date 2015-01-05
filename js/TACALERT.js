@@ -82,7 +82,7 @@ var timer =[];
     }	
 
 function weatherMan(){
-  var URL = "weatherMan.json";
+  var URL = "../weatherMan.json";
 //  var URL = "http://api.wunderground.com/api/f4de0ee4ffd72094/geolookup/conditions/q/IL/Chicago.json?callback=?",
 //      JSONcache = JSON.parse(sessionStorage.getItem('JSONcache'));
 //  if (!JSONcache){

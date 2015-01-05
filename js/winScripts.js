@@ -48,14 +48,14 @@ $(function() {
 		scroll: false,
 		stack: '.window'
 	});
-/*    window.resizable({
-		handles: 'n, e, s, w, ne, se, sw, nw',
-		containment: '#handle_area',
-		minHeight: 80,
-		minWidth: 138,
-		maxHeight: $('#handle_area').height()-33,
-		maxWidth: $('#handle_area').width()
-	});  */
+  window.resizable({
+		handles: 'n, s, e, w, nw, sw, ne, se',
+		containment: 'body',
+		minHeight: 250,
+		minWidth: 400,
+		maxHeight: $('#mainWrap').height()-33,
+		maxWidth: $('#mainWrap').width()-250
+	});  
 });
 
 var window = $(".window"), start = $(".start"), startmenu = $("#startmenu"), timer = [];
@@ -92,12 +92,12 @@ $(document).on("click",".deleteLink",function() {
 	  shadow: true,
 	  overlay: false,
 	  draggable: true,
-	  flat: false,
+	  flat: true,
 	  icon: '<span class="icon-checkbox"></span>',
-	  title: 'Delete Ticket?',
+	  title: 'Delete Ticket '+ticket+'?',
 	  width: 450,
 	  padding: 10,
-	  content: 'Are you sure you want to delete Ticket #'+ticket+'? <br>' +
+	  content: '<h3>Are you sure you want to delete Ticket #'+ticket+'? </h3>' +
         '<button id="confirm" class="success">YEP!</button>',
 	  sysButtons:{
 	    btnMin: false,
@@ -111,12 +111,46 @@ $(document).on("click",".deleteLink",function() {
     }
   }
  });
-}	
+}
+
+/* // TEST JSON STRING IN LOCALSTORAGE//
+
+var string =JSON.stringify( {bg:"#000000", color:"#ffffff",font:"Arial"} );
+localStorage.setItem("Settings", string);
+console.log(string +" set!");
+*/	 
+ $("#mainWrap").setOptions({ 	   
+     complete: function(){ 
+	   console.log('Color applied!') 
+	 } 	  
+  });
 
 $("#sideBar, #startmenu").hide();
 new getDB();
 var $USER = localStorage.getItem("Login");
 $("#log-in").html($USER);
  
+ $(document).on('click', "#Preferences", function() {
+   $.Dialog({
+     shadow: true,
+	 overlay: false,
+	 draggable: true,
+	 flat: false,
+	 icon: '<span class="icon-checkbox"></span>',
+	 title: 'Set Preferences',
+	 width: '30%',
+	 height: '55%',
+	 padding: 5,
+	 content: function() {
+	   $(this).load("make_opts.htm");
+	   $.Metro.initInputs();
+	 },
+	 sysButtons:{
+	    btnMin: false,
+		btnMax: false,
+		btnClose: true
+      },
+ });
 });	
 
+});

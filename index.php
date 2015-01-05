@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<head>
+
 <link rel="icon" href="http://tac-alert01/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="js/modernizr.js"></script>
   <!-- // LOAD MODERNIZR FIRST for legacy browser interaction -->
@@ -23,8 +24,8 @@ html,body {
     background: #DADADA;
     color: #212121;
 }
+
 #bodyWrapper{
-clear: none;
 overflow: visible;
 }
 
@@ -60,9 +61,9 @@ animation: spin 1s linear infinite;
 }  
 
 .content{
-max-height: 800px;
+max-height: 99%;
 overflow: auto;
-padding: 5px;
+padding: 10px;
 }
 
 
@@ -356,6 +357,7 @@ white-space: nowrap !important;
 
 #sideBar{
 float:right;
+clear: none;
 }
 
 #Table td{
@@ -368,6 +370,12 @@ vertical-align: top;
     white-space: nowrap !important;
 	border: none !important;
 }
+
+#mainWrap{
+height: 95%;
+width: 100% !important;
+}
+
 .tileBar{
 position: fixed;
 bottom: 50px;
@@ -380,7 +388,7 @@ cursor: pointer;
 </style>
 </head>
 <body class="metro">
-
+<div id="mainWrap">
 <!-- BEGIN SIDE-BAR -->
 <nav class="sidebar bg-darkTeal fg-white span6" id="sideBar">
 
@@ -427,11 +435,11 @@ cursor: pointer;
 </span>
 </nav> <!-- //CLOSE #SideBar -->
 
-<div id="bodyWrapper" class="span12">
+<div id="bodyWrapper" class="offset1 span12">
 
-<div class="window active shadow">
-    <div class="caption">
-        <span class="icon icon-windows"></span>
+<div class="window shadow bd-steel ol-steel ">
+    <div class="caption fg-white ol-steel bd-steel bg-steel">
+        <span class="icon icon-windows "></span>
         <div class="title">TICKET ALERT WINDOW</div>
         <button class="btn-min"></button>
         <button class="btn-max"></button>
@@ -439,7 +447,6 @@ cursor: pointer;
     </div>
     <div class="content">
         <div id="database">
-		<p>DATABASE GOES HERE!</p>
 		</div>
     </div>
 </div> <!-- //CLOSE Window -->
@@ -497,6 +504,9 @@ cursor: pointer;
 <!-- // CLOSE #bottom -->
 
 
+</div> 
+<!-- //END #mainWrapper -->
+
 <!-- 
 
 // SCRIPTS BLOCK FOR LIBRARY INTEGRATION
@@ -508,9 +518,12 @@ cursor: pointer;
 <script type="text/javascript" src="js/jQuery_Plugins.js"></script>
 <script type="text/javascript" src="js/metro.min.js"></script>
 <!-- // Compressed version of all related vendor plug-ins used in jQuery -->
+<script type="text/javascript" src="js/setOpts.js"></script>
 <script type="text/javascript" src="js/TACALERT.js"></script>
 <script type="text/javascript" src="js/winScripts.js"></script>
 <script type="text/javascript" src="js/dataTable.min.js"></script>
+
+  
 </body>
 </html>
 

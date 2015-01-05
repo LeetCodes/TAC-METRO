@@ -1,0 +1,67 @@
+<div class="container" id="TACPref" class="span6">
+<h1>Preferences</h1>
+
+<h3>Colors:</h3>
+<form id="setOpts" name="TACOptions" type="POST" action="#">
+
+Background:
+<div class="input-control" >
+    <label for="white">
+        <input type="radio" name="bgColor" value="#FFFFFF" data-transform="input-control" />
+    <b class='bg-white fg-black bd-black'> White</b>
+    </label>
+</div>
+
+<div class="input-control" >
+    <label for="Black">
+        <input type="radio" name="bgColor" value="#000000" data-transform="input-control" checked />
+    <b class='fg-white bg-black'>Black</b>
+    </label>
+</div>
+
+<hr width="50%">
+
+Font:
+<div class="input-control">
+    <label for="Open_Sans">
+        <input type="radio" name="fontFace" value="Open Sans"  data-transform="input-control" checked />
+    <font face="Open Sans">Open Sans</font>
+    </label>
+
+    <label for="Consolas">       
+        <input type="radio" name="fontFace" Value="Consolas" data-transform="input-control" />
+     <font face="Consolas">Consolas</font>
+    </label>
+
+    <label for="IMPACT">       
+        <input type="radio" name="fontFace" Value="Consolas" data-transform="input-control" />
+     <font face="IMPACT">IMPACT</font>
+    </label>
+</div>
+
+<hr width="50%">
+
+Text:
+<div class="input-control">
+    <label>
+        <input type="radio" name="fontColor" value="White"  data-transform="input-control" checked />
+    <b class="bg-black fg-white">White Font</b>
+    </label>
+
+    <label>       
+        <input type="radio" name="fontColor" Value="Black" data-transform="input-control" />
+     <b class="bg-white fg-black">Black Font</b>
+    </label>
+
+    <label>       
+        <input type="radio" name="fontColor" Value="Consolas" data-transform="input-control" />
+     <b class="bg-black fg-red">Red Font</b>
+    </label>
+</div>
+</form>
+<button class='large primary'>Save Preferences</button> <button class="large danger">CANCEL</button>
+<br>
+<hr>
+<br>
+</div> <!-- //CLOSE #TACPref -->
+
