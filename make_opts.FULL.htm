@@ -27,40 +27,62 @@
 Background:
 <div class="input-control" >
     <label for="white">
-        <input type="radio" name="bgColor" value="#FFFFFF" data-transform="input-control" />
+        <input type="radio" name="bg" value="#FFFFFF" data-transform="input-control" />
     <b class='bg-white fg-black bd-black'> White</b>
     </label>
 </div>
 
 <div class="input-control" >
     <label for="Black">
-        <input type="radio" name="bgColor" value="#000000" data-transform="input-control" checked />
+        <input type="radio" name="bg" value="#000000" data-transform="input-control" checked />
     <b class='fg-white bg-black'>Black</b>
     </label>
 </div>
 
-<hr>
+<hr width="50%">
 
 Font:
 <div class="input-control">
     <label for="Open_Sans">
-        <input type="radio" name="fontFace" value="Open Sans"  data-transform="input-control" checked />
+        <input type="radio" name="font" value="Open Sans"  data-transform="input-control" checked />
     <font face="Open Sans">Open Sans</font>
     </label>
 
     <label for="Consolas">       
-        <input type="radio" name="fontFace" Value="Consolas" data-transform="input-control" />
+        <input type="radio" name="font" Value="Consolas" data-transform="input-control" />
      <font face="Consolas">Consolas</font>
     </label>
 
     <label for="IMPACT">       
-        <input type="radio" name="fontFace" Value="Consolas" data-transform="input-control" />
+        <input type="radio" name="font" Value="IMPACT" data-transform="input-control" />
      <font face="IMPACT">IMPACT</font>
     </label>
 </div>
 
+<hr width="50%">
 
+Text:
+<div class="input-control">
+    <label>
+        <input type="radio" name="color" value="White"  data-transform="input-control" checked />
+    <b class="bg-black fg-white">White Font</b>
+    </label>
+
+    <label>       
+        <input type="radio" name="color" Value="Black" data-transform="input-control" />
+     <b class="bg-white fg-black">Black Font</b>
+    </label>
+
+    <label>       
+        <input type="radio" name="color" Value="Red" data-transform="input-control" />
+     <b class="bg-black fg-red">Red Font</b>
+    </label>
+</div>
 </form>
+<button id="savePref" type="submit" value="submit" class='large primary'>Save Preferences</button> <button type="reset" class="large danger">CANCEL</button>
+<br>
+<hr>
+<br>
 </div> <!-- //CLOSE #TACPref -->
 
 
@@ -68,5 +90,36 @@ Font:
 <script type="text/javascript" src="js/jquery-ui-1.11.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/jQuery_Plugins.js"></script>
 <script type="text/javascript" src="js/metro.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  var testStorage = JSON.parse(localStorage.getItem("TEST")); 
+  function makeOptions(prefs) {
+    var prefs = [];
+    if (testStorage){
+      $(this).each(function(val) {
+	    prefs.push(val);
+	    console.log("Values pushed: "+ val);
+	  });
+	}else {
+        $(document).on("click","#savePref", function() {
+	      $('#setOpts input[type="radio"]:checked').each(function(){
+		  var val= $(this).val(), name= $(this).attr('name');
+	        prefs.push({
+			key: name,
+			value: val
+			});
+		    console.log("radio values: "+JSON.stringify(prefs) );
+	      });
+		  localStorage.setItem("TEST", JSON.stringify(prefs) );
+		  return false;
+	    });
+
+      }	
+ 
+    }
+makeOptions();	
+});
+</script>
 </body>
 </html>
