@@ -79,7 +79,7 @@ Text:
     </label>
 </div>
 </form>
-<button id="savePref" type="submit" value="submit" class='large primary'>Save Preferences</button> <button type="reset" class="large danger">CANCEL</button>
+<button id="savePref" type="submit" value="submit" class='large'>Save Preferences</button> <button type="reset" class="large danger">CANCEL</button>
 <br>
 <hr>
 <br>
@@ -92,33 +92,40 @@ Text:
 <script type="text/javascript" src="js/metro.min.js"></script>
 
 <script>
-$(document).ready(function(){
-  var testStorage = JSON.parse(localStorage.getItem("TEST")); 
-  function makeOptions(prefs) {
-    var prefs = [];
-    if (testStorage){
-      $(this).each(function(val) {
-	    prefs.push(val);
-	    console.log("Values pushed: "+ val);
-	  });
-	}else {
-        $(document).on("click","#savePref", function() {
-	      $('#setOpts input[type="radio"]:checked').each(function(){
-		  var val= $(this).val(), name= $(this).attr('name');
-	        prefs.push({
-			key: name,
-			value: val
-			});
-		    console.log("radio values: "+JSON.stringify(prefs) );
-	      });
-		  localStorage.setItem("TEST", JSON.stringify(prefs) );
-		  return false;
-	    });
+function setOpts() {
+var prefs = [];
+	      var promise = $('#setOpts input[type="radio"]:checked').each(function(){
+		  var val= $(this).val();
+	        prefs.push(val);
+	      }).promise();
+		  promise.done( function() {
+              localStorage.removeItem("TEST");
+            console.log("radio values: "+JSON.stringify(prefs) );
+            localStorage.setItem("TEST", JSON.stringify(prefs) );
+		  });
 
-      }	
- 
-    }
-makeOptions();	
+		  $("#savePref").prop("disabled", true);
+		  $("#tacPref").html("<h1>Preferences saved!</h1>").fadeIn(1000);
+}
+
+$(document).ready(function(){
+  var testStorage = localStorage.getItem("TEST");
+   var prefs = []; 
+    if (testStorage){  	
+      var storage = JSON.parse(testStorage);
+	    $.when( $(storage).each( function(index, data) {
+	      prefs.push(data);
+	    }) ).then(function() {
+		   JSON.stringify(prefs);
+		   console.log("Prefs stored: "+ JSON.stringify(prefs) );
+		 });		
+	    // console.log("data: "+data);
+ 	}
+
+  $(document).on("click","#savePref", function(){
+    setOpts();
+    return false;
+  });        
 });
 </script>
 </body>
