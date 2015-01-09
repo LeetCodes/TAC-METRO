@@ -155,6 +155,8 @@ $("#log-in").html($USER);
 	 flat: false,
 	 icon: '<span class="icon-checkbox"></span>',
 	 title: 'Set Preferences',
+	 width: '30%',
+	 height: '55%',
 	 padding: 5,
 	 content: '',
 	 sysButtons:{
@@ -163,12 +165,50 @@ $("#log-in").html($USER);
 		btnClose: true
       },
 	  onShow: function(_dialog){
-	  var content = '<iframe height="400" width="425" src="make_opts.full.htm" frameborder="0"></iframe>';
-	   $.Dialog.content(content);
+	  var html = '<div class="container" id="TACPref" class="span6">'+
+     '<h1>Preferences</h1>'+
+     '<h3>Colors:</h3>'+
+     '<form id="setOpts" name="TACOptions" type="POST" action="#">'+
+     'Background:'+
+     '<div class="input-control" >'+
+     '<label for="white">'+
+     '<input type="radio" name="bg" value="#FFFFFF" data-transform="input-control" />'+
+     '<b class="bg-white fg-black bd-black"> White</b>'+
+     '</label></div>'+
+     '<div class="input-control" >'+
+     '<label for="Black">'+
+     '<input type="radio" name="bg" value="#000000" data-transform="input-control" checked />'+
+     '<b class="fg-white bg-black">Black</b>'+
+     '</label></div>'+
+     '<hr width="50%">'+
+     'Font:'+
+     '<div class="input-control">'+
+     '<label for="Open_Sans">'+
+     '<input type="radio" name="font" value="Open Sans"  data-transform="input-control" checked />'+
+     '<font face="Open Sans">Open Sans</font> </label>'+
+     '<label for="Consolas">'+
+     '<input type="radio" name="font" Value="Consolas" data-transform="input-control" />'+
+     '<font face="Consolas">Consolas</font> </label>'+
+     '<label for="IMPACT">       '+
+     '<input type="radio" name="font" Value="Consolas" data-transform="input-control" />'+
+     '<font face="IMPACT">IMPACT</font>'+
+     '</label></div>'+
+     '<hr width="50%">'+
+     'Text:'+
+     '<div class="input-control">'+
+     '<label>'+
+     '<input type="radio" name="Color" value="White"  data-transform="input-control" checked />'+
+     '<b class="bg-black fg-white">White Font</b>  </label>'+
+     '<label>'+
+     '<input type="radio" name="Color" Value="Black" data-transform="input-control" />'+
+     '<b class="bg-white fg-black">Black Font</b>     </label>'+
+     '<label>'+
+     '<input type="radio" name="Color" Value="Consolas" data-transform="input-control" />'+
+     '<b class="bg-black fg-red">Red Font</b>     </label> </div> </form>'+
+     '<button type="submit" class="large">Save Preferences</button> <button type="reset" class="large danger">CANCEL</button>'+
+     '<br> <hr> <br> </div> <!-- //CLOSE #TACPref --> ';
+      $.Dialog.content(html);
 	   $.Metro.initInputs();
-	     $("#savePref").on("click", function() {
-	       $.Dialog.close();
-	     });
 	  }
  });
 });	
@@ -189,5 +229,6 @@ $("#log-in").html($USER);
   $(document).on("click","#savePref", function(){
     setOpts();
     return false;
+	$(this).parent().parent().fadeOut(1000);
   });
 });  

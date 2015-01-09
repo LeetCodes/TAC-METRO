@@ -3,7 +3,7 @@ $user="infortel";
 $pass="T3lemanagement";
 
 try {
-    $dbh = new PDO('mysql:host=localhost;dbname=dbase', $user, $pass, array( PDO::ATTR_PERSISTENT => true) );
+    $dbh = new PDO('mysql:host=localhost;dbname=dbase', $user, $pass );
 	$query = $dbh->prepare('SELECT * from Tickets where Deleted !="X" ORDER BY ticket ASC LIMIT 100 ');
     
 	
