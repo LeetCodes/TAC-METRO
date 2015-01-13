@@ -78,9 +78,9 @@ Text:
      <b class="bg-black fg-red">Red Font</b>
     </label>
 </div>
-</form>
-<button id="savePref" type="submit" value="submit" class='large'>Save Preferences</button> <button type="reset" class="large danger">CANCEL</button>
-<br>
+
+<button id="savePref" type="submit" value="submit" class='large'>Save Preferences</button> <button type="reset" class="large danger" value="reset">CANCEL</button>
+<br></form>
 <hr>
 <br>
 </div> <!-- //CLOSE #TACPref -->
@@ -109,6 +109,7 @@ var prefs = [];
 }
 
 $(document).ready(function(){
+METRO_AUTO_REINIT = true;
   var testStorage = localStorage.getItem("TEST");
    var prefs = []; 
     if (testStorage){  	
@@ -122,9 +123,10 @@ $(document).ready(function(){
 	    // console.log("data: "+data);
  	}
 
-  $(document).on("click","#savePref", function(){
+  $(document).on("click","#savePref", function(e){
+  e.preventDefault();
     setOpts();
-    return false;
+	$.Dialog.close();
   });        
 });
 </script>

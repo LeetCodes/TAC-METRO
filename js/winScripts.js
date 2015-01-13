@@ -1,4 +1,3 @@
-
 function setOpts() {
 var prefs = [];
 	      var promise = $('#setOpts input[type="radio"]:checked').each(function(){
@@ -163,7 +162,7 @@ $("#log-in").html($USER);
 		btnClose: true
       },
 	  onShow: function(_dialog){
-	  var content = '<iframe height="400" width="425" src="make_opts.full.htm" frameborder="0"></iframe>';
+	  var content = '<iframe height="400" width="425" src="make_opts.FULL.htm" frameborder="0"></iframe>';
 	   $.Dialog.content(content);
 	   $.Metro.initInputs();
 	     $("#savePref").on("click", function() {
@@ -186,8 +185,9 @@ $("#log-in").html($USER);
 	    // console.log("data: "+data);
  	}
 
-  $(document).on("click","#savePref", function(){
+  $(document).on("click","#savePref", function(e){
+    e.preventDefault();
     setOpts();
-    return false;
+	$(this).Dialog.close();
   });
 });  
