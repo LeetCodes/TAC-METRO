@@ -1,19 +1,3 @@
-function setOpts() {
-var prefs = [];
-	      var promise = $('#setOpts input[type="radio"]:checked').each(function(){
-		  var val= $(this).val();
-	        prefs.push(val);
-	      }).promise();
-		  promise.done( function() {
-              localStorage.removeItem("TEST");
-            console.log("radio values: "+JSON.stringify(prefs) );
-            localStorage.setItem("TEST", JSON.stringify(prefs) );
-		  });
-
-		  $("#savePref").prop("disabled", true);
-		  $("#tacPref").html("<h1>Preferences saved!</h1>").fadeIn(1000);
-}
-
 $(function() {
 	
 $(".taskbar").delegate("#t-explor","click",function(){
@@ -100,7 +84,7 @@ function getDB(){
     $("#database").html("<table id='Table' class='table striped bordered hovered'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td></tr></THEAD><TBODY id='dbb'>");
       $.each(data, function(key, value) {
     var ticket=value.Ticket,date=value.Date,starttime=value.STime,ETA=value.ETA,Priority=value.Priority,Site=value.Site,Comments=value.Comments,Contact=value.ContactPref,Deleted=value.Deleted;
-        var Deletelink = "<div class='deleteLink toolbar transparent' title='Delete ticket #"+ticket+"?'><i class='icon-cancel fg-hover-red'></i></div>";
+        var Deletelink = "<div class='deleteLink toolbar transparent' title='Delete ticket #"+ticket+"?'><i class='icon-remove fg-hover-red'></i></div>";
 	       $("#dbb").append("<tr><td>"+ticket+"</td><td>"+date+"</td><td>"+ETA+"</td><td>"+Priority+"</td><td>"+Site+"</td><td>"+Comments+"</td><td>"+Contact+"</td><td>"+Deletelink+"</td></tr>");
 		 // console.log(json);
 $(document).on("click",".deleteLink",function() {
@@ -114,7 +98,7 @@ $(document).on("click",".deleteLink",function() {
 	  width: 450,
 	  padding: 10,
 	  content: '<h3>Are you sure you want to delete Ticket #'+ticket+'? </h3>' +
-        '<button id="confirm" class="success">YEP!</button>',
+        '<button id="confirm" type="submit" class="success">YEP!</button> <button id="cancel" type="reset" class="warning">NOPE!</button>',
 	  sysButtons:{
 	    btnMin: false,
 		btnMax: false,
@@ -137,7 +121,7 @@ console.log(string +" set!");
 */	 
  $("#mainWrap").setOptions({ 	   
      complete: function(){ 
-	   console.log('Color applied!') 
+	   console.log('Color applied!'); 
 	 } 	  
   });
 
@@ -152,42 +136,23 @@ $("#log-in").html($USER);
 	 overlay: false,
 	 draggable: true,
 	 flat: false,
-	 icon: '<span class="icon-checkbox"></span>',
+	 width: '30%',
+	 height: '45%',
+	 icon: '<span class="icon-clipboard-2"></span>',
 	 title: 'Set Preferences',
 	 padding: 5,
-	 content: '',
+	 content: function(){
+       METRO_AUTO_REINIT = true;
+	   $(this).load("make_opts.htm");
+	 },
 	 sysButtons:{
 	    btnMin: false,
 		btnMax: false,
 		btnClose: true
-      },
-	  onShow: function(_dialog){
-	  var content = '<iframe height="400" width="425" src="make_opts.FULL.htm" frameborder="0"></iframe>';
-	   $.Dialog.content(content);
-	   $.Metro.initInputs();
-	     $("#savePref").on("click", function() {
-	       $.Dialog.close();
-	     });
-	  }
- });
-});	
+      }
 
-  var testStorage = localStorage.getItem("TEST");
-   var prefs = []; 
-    if (testStorage){  	
-      var storage = JSON.parse(testStorage);
-	    $.when( $(storage).each( function(index, data) {
-	      prefs.push(data);
-	    }) ).then(function() {
-		   JSON.stringify(prefs);
-		   console.log("Prefs stored: "+ JSON.stringify(prefs) );
-		 });		
-	    // console.log("data: "+data);
- 	}
+   });
+       
+  });	
 
-  $(document).on("click","#savePref", function(e){
-    e.preventDefault();
-    setOpts();
-	$(this).Dialog.close();
-  });
 });  

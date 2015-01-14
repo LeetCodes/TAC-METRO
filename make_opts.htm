@@ -1,22 +1,91 @@
-<div class="container" id="TACPref" class="span6">
+<div id="TACPref" class="metro span6 container">
 <h1>Preferences</h1>
 
 <h3>Colors:</h3>
 <form id="setOpts" name="TACOptions" type="POST" action="#">
 
 Background:
-<div class="input-control" >
+<div class="input-control unstyled three-columns color-stack" >
     <label for="white">
-        <input type="radio" name="bg" value="#FFFFFF" data-transform="input-control" />
-    <b class="bg-white fg-black bd-black"> White</b>
+        <input type="radio" name="bg" value="white" data-transform="input-control" />
+    <span class="square10 inline-block bg-white on-left"></span> - White
     </label>
-</div>
 
-<div class="input-control" >
     <label for="Black">
-        <input type="radio" name="bg" value="#000000" data-transform="input-control" checked />
-    <b class="fg-white bg-black">Black</b>
+        <input type="radio" name="bg" value="black" data-transform="input-control" />
+    <span class="square10 inline-block bg-black on-left"></span> Black
     </label>
+
+    <label for="Lime">
+        <input type="radio" name="bg" value="lime" data-transform="input-control"  />
+    <span class="square10 inline-block bg-lime on-left"></span> Lime
+    </label>
+
+    <label for="emerald">
+        <input type="radio" name="bg" value="emerald" data-transform="input-control"  />
+    <span class="square10 inline-block bg-emerald on-left"></span> Emerald
+    </label>
+
+    <label for="teal">
+        <input type="radio" name="bg" value="teal" data-transform="input-control"  />
+    <span class="square10 inline-block bg-teal on-left"></span> Teal
+    </label>
+
+    <label for="cyan">
+        <input type="radio" name="bg" value="cyan" data-transform="input-control"  />
+    <span class="square10 inline-block bg-cyan on-left"></span> Cyan
+    </label>
+
+    <label for="indigo">
+        <input type="radio" name="bg" value="indigo" data-transform="input-control"  />
+    <span class="square10 inline-block bg-indigo on-left"></span> Indigo
+    </label>
+
+    <label for="cobalt">
+        <input type="radio" name="bg" value="cobalt" data-transform="input-control"  />
+    <span class="square10 inline-block bg-cobalt on-left"></span> Cobalt
+    </label>
+	
+    <label for="crimson">
+        <input type="radio" name="bg" value="crimson" data-transform="input-control"  />
+    <span class="square10 inline-block bg-crimson on-left"></span> Crimson
+    </label>
+	
+    <label for="red">
+        <input type="radio" name="bg" value="red" data-transform="input-control"  />
+    <span class="square10 inline-block bg-red on-left"></span> Red
+    </label>
+	
+    <label for="darkCyan">
+        <input type="radio" name="bg" value="darkCyan" data-transform="input-control"  checked />
+    <span class="square10 inline-block bg-darkCyan on-left"></span> Dark Cyan
+    </label>
+	
+    <label for="amber">
+        <input type="radio" name="bg" value="amber" data-transform="input-control"  />
+    <span class="square10 inline-block bg-amber on-left"></span> Amber
+    </label>
+		
+    <label for="pink">
+        <input type="radio" name="bg" value="pink" data-transform="input-control"  />
+    <span class="square10 inline-block bg-pink on-left"></span> Pink
+    </label>
+			
+    <label for="mauve">
+        <input type="radio" name="bg" value="mauve" data-transform="input-control"  />
+    <span class="square10 inline-block bg-mauve on-left"></span> Mauve
+    </label>			
+	
+    <label for="magenta">
+        <input type="radio" name="bg" value="magenta" data-transform="input-control"  />
+    <span class="square10 inline-block bg-magenta on-left"></span> Magenta
+    </label>
+		
+    <label for="steel">
+        <input type="radio" name="bg" value="steel" data-transform="input-control"  />
+    <span class="square10 inline-block bg-steel on-left"></span> Steel
+    </label>
+	
 </div>
 
 <hr width="50%">
@@ -34,7 +103,7 @@ Font:
     </label>
 
     <label for="IMPACT">       
-        <input type="radio" name="font" Value="Consolas" data-transform="input-control" />
+        <input type="radio" name="font" Value="IMPACT" data-transform="input-control" />
      <font face="IMPACT">IMPACT</font>
     </label>
 </div>
@@ -44,23 +113,163 @@ Font:
 Text:
 <div class="input-control">
     <label>
-        <input type="radio" name="Color" value="White"  data-transform="input-control" checked />
+        <input type="radio" name="Color" value="white"  data-transform="input-control" />
     <b class="bg-black fg-white">White Font</b>
     </label>
 
     <label>       
-        <input type="radio" name="Color" Value="Black" data-transform="input-control" />
+        <input type="radio" name="Color" Value="black" data-transform="input-control" checked />
      <b class="bg-white fg-black">Black Font</b>
     </label>
 
     <label>       
-        <input type="radio" name="Color" Value="Consolas" data-transform="input-control" />
-     <b class="bg-black fg-red">Red Font</b>
+        <input type="radio" name="Color" Value="red" data-transform="input-control" />
+     <b class="bg-white fg-red">Red Font</b>
+    </label>
+	
+    <label>       
+        <input type="radio" name="Color" Value="blue" data-transform="input-control" />
+     <b class="bg-white fg-blue">Blue Font</b>
+    </label>	
+	
+    <label>       
+        <input type="radio" name="Color" Value="gray" data-transform="input-control" />
+     <b class="bg-white fg-gray">Gray Font</b>
     </label>
 </div>
-</form>
+
+<hr>
+
+SideBar:
+<div class="input-control unstyled three-columns color-stack">
+    <label for="darkIndigo">
+        <input type="radio" name="SideBar" value="darkIndigo" data-transform="input-control"  />
+    <span class="square10 inline-block bg-darkIndigo on-left"></span> Dark Indigo
+    </label>
+	
+    <label for="darkTeal">
+        <input type="radio" name="SideBar" value="darkTeal" data-transform="input-control"  checked />
+    <span class="square10 inline-block bg-darkTeal on-left"></span> Dark Teal
+    </label>
+	
+    <label for="darkCobalt">
+        <input type="radio" name="SideBar" value="darkCobalt" data-transform="input-control"  />
+    <span class="square10 inline-block bg-darkCobalt on-left"></span> Dark Cobalt
+    </label>
+	
+    <label for="darkGreen">
+        <input type="radio" name="SideBar" value="darkGreen" data-transform="input-control"  />
+    <span class="square10 inline-block bg-darkGreen on-left"></span> Dark Green
+    </label>
+	
+    <label for="darkRed">
+        <input type="radio" name="SideBar" value="darkRed" data-transform="input-control"  />
+    <span class="square10 inline-block bg-darkRed on-left"></span> Dark Red
+    </label>
+	
+    <label for="lightOlive">
+        <input type="radio" name="SideBar" value="lightOlive" data-transform="input-control"  />
+    <span class="square10 inline-block bg-lightOlive on-left"></span> Light Olive
+    </label>
+		
+    <label for="yellow">
+        <input type="radio" name="SideBar" value="yellow" data-transform="input-control"  />
+    <span class="square10 inline-block bg-yellow on-left"></span> Yellow
+    </label>		
+	
+    <label for="cyan">
+        <input type="radio" name="SideBar" value="cyan" data-transform="input-control"  />
+    <span class="square10 inline-block bg-cyan on-left"></span> Cyan
+    </label>
+	
+    <label for="lightBlue">
+        <input type="radio" name="SideBar" value="lightBlue" data-transform="input-control"  />
+    <span class="square10 inline-block bg-lightBlue on-left"></span> Light Blue
+    </label>
+	
+</div>
+
+<hr>
+
+Database Window:
+<div class="input-control unstyled two-columns color-stack">
+    <label for="steel">
+        <input type="radio" name="window" value="ol-steel bd-steel bg-steel" data-transform="input-control"  checked />
+    <span class="square10 inline-block bg-steel on-left"></span> Steel
+    </label>
+	
+    <label for="darkTeal">
+        <input type="radio" name="window" value="ol-pink bd-pink bg-pink" data-transform="input-control"  />
+    <span class="square10 inline-block bg-pink on-left"></span> Pink
+    </label>
+	
+    <label for="cobalt">
+        <input type="radio" name="window" value="ol-cobalt bd-cobalt bg-cobalt" data-transform="input-control"  />
+    <span class="square10 inline-block bg-cobalt on-left"></span> Cobalt
+    </label>
+	
+    <label for="emerald">
+        <input type="radio" name="window" value="ol-emerald bd-emerald bg-emerald" data-transform="input-control"  />
+    <span class="square10 inline-block bg-emerald on-left"></span> Emerald
+    </label>
+	
+    <label for="red">
+        <input type="radio" name="window" value="ol-red bd-red bg-red" data-transform="input-control"  />
+    <span class="square10 inline-block bg-red on-left"></span> Red
+    </label>
+	
+    <label for="amber">
+        <input type="radio" name="window" value="ol-amber bd-amber bg-amber" data-transform="input-control"  />
+    <span class="square10 inline-block bg-amber on-left"></span> Amber
+    </label>
+	
+</div>
+<br>	
 <button type="submit" class="large">Save Preferences</button> <button type="reset" class="large danger" value="reset">CANCEL</button>
+</form>
 <br>
 <hr>
 <br>
 </div> <!-- //CLOSE #TACPref -->
+
+<script>
+METRO_AUTO_REINIT = true;
+
+function setOpts() {
+var prefs = [];
+	      var promise = $('#setOpts input[type="radio"]:checked').each(function(){
+		  var val= $(this).val();
+	        prefs.push(val);
+	      }).promise();
+		  promise.done( function() {
+              localStorage.removeItem("Settings");
+            console.log("radio values: "+JSON.stringify(prefs) );
+            localStorage.setItem("Settings", JSON.stringify(prefs) );
+
+		  });
+		  window.location.reload();
+		  $("#savePref").prop("disabled", true);
+//		  $("#tacPref").html("<h1>Preferences saved!</h1>").fadeIn(1000);
+
+}
+
+$(document).ready(function(){
+  var testStorage = localStorage.getItem("Settings");
+   var prefs = []; 
+    if (testStorage){  	
+      var storage = JSON.parse(testStorage);
+	    $.when( $(storage).each( function(index, data) {
+	      prefs.push(data);
+	    }) ).then(function() {
+		   JSON.stringify(prefs);
+//		   console.log("Prefs stored: "+ JSON.stringify(prefs) );
+		 });		
+	    // console.log("data: "+data);
+ 	}
+       $(document).on("submit","#setOpts", function(e){
+           e.preventDefault();
+           setOpts();
+		   $.Dialog("close");
+       });	
+});
+</script>

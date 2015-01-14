@@ -437,8 +437,8 @@ cursor: pointer;
 
 <div id="bodyWrapper" class="offset1 span12">
 
-<div class="window shadow bd-steel ol-steel ">
-    <div class="caption fg-white ol-steel bd-steel bg-steel">
+<div id="dbWindow" class="window shadow bd-steel ol-steel ">
+    <div id="dbCaption" class="caption fg-white ol-steel bd-steel bg-steel">
         <span class="icon icon-windows "></span>
         <div class="title">TICKET ALERT WINDOW</div>
         <button class="btn-min"></button>

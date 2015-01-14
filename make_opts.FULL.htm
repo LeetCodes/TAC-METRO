@@ -122,12 +122,11 @@ METRO_AUTO_REINIT = true;
 		 });		
 	    // console.log("data: "+data);
  	}
-
-  $(document).on("click","#savePref", function(e){
-  e.preventDefault();
+   $("#setOpts").on("submit", function(e){
+    e.preventDefault();
     setOpts();
-	$.Dialog.close();
-  });        
+	$.Dialog("close");
+  });
 });
 </script>
 </body>
