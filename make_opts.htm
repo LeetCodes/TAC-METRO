@@ -1,14 +1,14 @@
 <div id="TACPref" class="metro span6 container">
 <h1>Preferences</h1>
 
-<h3>Colors:</h3>
+
 <form id="setOpts" name="TACOptions" type="POST" action="#">
 
-Background:
+<h3>Background Color:</h3>
 <div class="input-control unstyled three-columns color-stack" >
     <label for="white">
         <input type="radio" name="bg" value="white" data-transform="input-control" />
-    <span class="square10 inline-block bg-white on-left"></span> - White
+    <span class="square10 inline-block bg-white bd-black on-left"></span> - White
     </label>
 
     <label for="Black">
@@ -90,7 +90,7 @@ Background:
 
 <hr width="50%">
 
-Font:
+<h3>Font:</h3>
 <div class="input-control">
     <label for="Open_Sans">
         <input type="radio" name="font" value="Open Sans"  data-transform="input-control" checked />
@@ -102,15 +102,35 @@ Font:
      <font face="Consolas">Consolas</font>
     </label>
 
-    <label for="IMPACT">       
-        <input type="radio" name="font" Value="IMPACT" data-transform="input-control" />
-     <font face="IMPACT">IMPACT</font>
+    <label for="Arial Black">       
+        <input type="radio" name="font" Value="Arial Black" data-transform="input-control" />
+     <font face="Arial Black">Arial Black</font>
+    </label>
+	
+    <label for="Lobster Two">       
+        <input type="radio" name="font" Value="Lobster Two" data-transform="input-control" />
+     <font face="Lobster Two">Lobster</font>
+    </label>	
+	
+    <label for="Droid Sans">       
+        <input type="radio" name="font" Value="Droid Sans" data-transform="input-control" />
+     <font face="Droid Sans">Droid Sans</font>
+    </label>	
+	
+    <label for="Source Sans Pro">       
+        <input type="radio" name="font" Value="Source Sans Pro" data-transform="input-control" />
+     <font face="Source Sans Pro">Source Sans Pro</font>
+    </label>	
+	
+    <label for="Cabin">       
+        <input type="radio" name="font" Value="Cabin" data-transform="input-control" />
+     <font face="Cabin">Cabin</font>
     </label>
 </div>
 
 <hr width="50%">
 
-Text:
+<h3>Text:</h3>
 <div class="input-control">
     <label>
         <input type="radio" name="Color" value="white"  data-transform="input-control" />
@@ -140,7 +160,7 @@ Text:
 
 <hr>
 
-SideBar:
+<h3>SideBar color:</h3>
 <div class="input-control unstyled three-columns color-stack">
     <label for="darkIndigo">
         <input type="radio" name="SideBar" value="darkIndigo" data-transform="input-control"  />
@@ -191,7 +211,7 @@ SideBar:
 
 <hr>
 
-Database Window:
+<h3>Database Window:</h3>
 <div class="input-control unstyled two-columns color-stack">
     <label for="steel">
         <input type="radio" name="window" value="ol-steel bd-steel bg-steel" data-transform="input-control"  checked />
@@ -225,7 +245,7 @@ Database Window:
 	
 </div>
 <br>	
-<button type="submit" class="large">Save Preferences</button> <button type="reset" class="large danger" value="reset">CANCEL</button>
+<button type="submit" class="large">Save Preferences</button> <button type="reset" class="large danger" value="reset">RESET</button>
 </form>
 <br>
 <hr>
