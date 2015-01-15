@@ -257,6 +257,9 @@ padding: 10px;
 	margin-left: 10px;
 	float: left;
 }
+  #bottom .start:hover {
+      background: url(../img/win8_hover.png) no-repeat;
+  }
 
 #bottom .taskbar {
 	float: left;
@@ -314,7 +317,7 @@ box-sizing: content-box;
 	height: 100%;
 	text-align: center;
 	color: #fff;
-	padding: 5px;
+	padding-right: 1em;
 }
 
 .user .frame {
@@ -359,7 +362,7 @@ vertical-align: top;
 }
 
 #mainWrap{
-height: 95%;
+height: 94%;
 width: 100% !important;
 }
 
@@ -371,4 +374,8 @@ white-space: nowrap !important;
 
 .deleteLink{
 cursor: pointer;
+}
+
+#Table tr td{
+text-align: center;
 }

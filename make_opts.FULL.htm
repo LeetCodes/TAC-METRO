@@ -1,97 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<head>
 
-<link rel="icon" href="http://tac-alert01/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/OEM.ico" type="image/x-icon">
 <script type="text/javascript" src="js/modernizr.js"></script>
   <!-- // LOAD MODERNIZR FIRST for legacy browser interaction -->
-    <title>TAC PREFERENCES</title>
-<link rel="stylesheet" type="text/css" href="css/jqUI.css">
+    <title>TAC's Alert Options</title>
+
 <link rel="stylesheet" type="text/css" href="Metro-ui/min/metro-bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="Metro-ui/min/iconFont.min.css">
 <link rel="stylesheet" type="text/css" href="Metro-ui/min/metro-bootstrap-responsive.min.css">
-
-
 </head>
 
-<body class="metro">
+<body class="metro"> 
 
-<div class="container" id="TACPref" class="span4">
+<div id="TACPref" class="span6 container">
 <h1>Preferences</h1>
 
-<h3>Colors:</h3>
 <form id="setOpts" name="TACOptions" type="POST" action="#">
 
-Background:
-<div class="input-control" >
+<h4>Background Color:</h4>
+<div class="input-control radio three-columns" >
     <label for="white">
-        <input type="radio" name="bg" value="#FFFFFF" data-transform="input-control" />
-    <b class='bg-white fg-black bd-black'> White</b>
+        <input type="radio" name="bg" value="white" />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-white bd-black on-left"></span> - White
     </label>
-</div>
 
-<div class="input-control" >
     <label for="Black">
-        <input type="radio" name="bg" value="#000000" data-transform="input-control" checked />
-    <b class='fg-white bg-black'>Black</b>
+        <input type="radio" name="bg" value="black" />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-black on-left"></span> Black
+    </label>
+
+    <label for="Lime">
+        <input type="radio" name="bg" value="lime"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-lime on-left"></span> Lime
+    </label>
+
+    <label for="emerald">
+        <input type="radio" name="bg" value="emerald"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-emerald on-left"></span> Emerald
+    </label>
+
+    <label for="teal">
+        <input type="radio" name="bg" value="teal"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-teal on-left"></span> Teal
+    </label>
+
+    <label for="cyan">
+        <input type="radio" name="bg" value="cyan"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-cyan on-left"></span> Cyan
+    </label>
+
+    <label for="indigo">
+        <input type="radio" name="bg" value="indigo"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-indigo on-left"></span> Indigo
+    </label>
+
+    <label for="cobalt">
+        <input type="radio" name="bg" value="cobalt"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-cobalt on-left"></span> Cobalt
+    </label>
+	
+    <label for="crimson">
+        <input type="radio" name="bg" value="crimson"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-crimson on-left"></span> Crimson
+    </label>
+	
+    <label for="red">
+        <input type="radio" name="bg" value="red"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-red on-left"></span> Red
+    </label>
+	
+    <label for="darkCyan">
+        <input type="radio" name="bg" value="darkCyan"  checked />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-darkCyan on-left"></span> Dark Cyan
+    </label>
+	
+    <label for="amber">
+        <input type="radio" name="bg" value="amber"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-amber on-left"></span> Amber
+    </label>
+		
+    <label for="pink">
+        <input type="radio" name="bg" value="pink"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-pink on-left"></span> Pink
+    </label>
+			
+    <label for="mauve">
+        <input type="radio" name="bg" value="mauve"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-mauve on-left"></span> Mauve
+    </label>			
+	
+    <label for="magenta">
+        <input type="radio" name="bg" value="magenta"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-magenta on-left"></span> Magenta
+    </label>
+		
+    <label for="steel">
+        <input type="radio" name="bg" value="steel"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-steel on-left"></span> Steel
     </label>
 </div>
 
-<hr width="50%">
-
-Font:
-<div class="input-control">
+<h4>Font:</h4>
+<div class="input-control radio">
     <label for="Open_Sans">
-        <input type="radio" name="font" value="Open Sans"  data-transform="input-control" checked />
+        <input type="radio" name="font" value="Open Sans"  checked />
+		<span class="check"></span>
     <font face="Open Sans">Open Sans</font>
     </label>
 
     <label for="Consolas">       
-        <input type="radio" name="font" Value="Consolas" data-transform="input-control" />
+        <input type="radio" name="font" Value="Consolas" />
+		<span class="check"></span>
      <font face="Consolas">Consolas</font>
     </label>
 
-    <label for="IMPACT">       
-        <input type="radio" name="font" Value="IMPACT" data-transform="input-control" />
-     <font face="IMPACT">IMPACT</font>
+    <label for="Arial_Black">       
+        <input type="radio" name="font" Value="Arial Black" />
+		<span class="check"></span>
+     <font face="Arial Black">Arial Black</font>
+    </label>
+	
+    <label for="Lobster_Two">       
+        <input type="radio" name="font" Value="Lobster Two" />
+		<span class="check"></span>
+     <font face="Lobster Two">Lobster</font>
+    </label>	
+	
+    <label for="Droid_Sans">       
+        <input type="radio" name="font" Value="Droid Sans" />
+		<span class="check"></span>
+     <font face="Droid Sans">Droid Sans</font>
+    </label>	
+	
+    <label for="Source_Sans_Pro">       
+        <input type="radio" name="font" Value="Source Sans Pro" />
+		<span class="check"></span>
+     <font face="Source Sans Pro">Source Sans Pro</font>
+    </label>	
+	
+    <label for="Cabin">       
+        <input type="radio" name="font" Value="Cabin" />
+		<span class="check"></span>
+     <font face="Cabin">Cabin</font>
     </label>
 </div>
 
-<hr width="50%">
-
-Text:
-<div class="input-control">
-    <label>
-        <input type="radio" name="color" value="White"  data-transform="input-control" checked />
+<h4>Text:</h4>
+<div class="input-control radio">
+    <label for="white">
+        <input type="radio" name="Color" value="white"  />
+		<span class="check"></span>
     <b class="bg-black fg-white">White Font</b>
     </label>
 
-    <label>       
-        <input type="radio" name="color" Value="Black" data-transform="input-control" />
+    <label for="black">       
+        <input type="radio" name="Color" Value="black" checked />
+		<span class="check"></span>
      <b class="bg-white fg-black">Black Font</b>
     </label>
 
-    <label>       
-        <input type="radio" name="color" Value="Red" data-transform="input-control" />
-     <b class="bg-black fg-red">Red Font</b>
+    <label for="red">       
+        <input type="radio" name="Color" Value="red" />
+		<span class="check"></span>
+     <b class="bg-white fg-red">Red Font</b>
+    </label>
+
+    <label for="blue">       
+        <input type="radio" name="Color" Value="blue" />
+		<span class="check"></span>
+     <b class="bg-white fg-blue">Blue Font</b>
+    </label>	
+
+    <label for="gray">       
+        <input type="radio" name="Color" Value="gray" />
+		<span class="check"></span>
+     <b class="bg-white fg-gray">Gray Font</b>
     </label>
 </div>
 
-<button id="savePref" type="submit" value="submit" class='large'>Save Preferences</button> <button type="reset" class="large danger" value="reset">CANCEL</button>
-<br></form>
-<hr>
-<br>
-</div> <!-- //CLOSE #TACPref -->
+<h4>SideBar color:</h4>
+<div class="input-control radio  three-columns">
+    <label for="darkIndigo">
+        <input type="radio" name="SideBar" value="darkIndigo"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-darkIndigo on-left"></span> Dark Indigo
+    </label>
 
+    <label for="darkTeal">
+        <input type="radio" name="SideBar" value="darkTeal"  checked />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-darkTeal on-left"></span> Dark Teal
+    </label>
+
+    <label for="darkCobalt">
+        <input type="radio" name="SideBar" value="darkCobalt"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-darkCobalt on-left"></span> Dark Cobalt
+    </label>
+
+    <label for="darkGreen">
+        <input type="radio" name="SideBar" value="darkGreen"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-darkGreen on-left"></span> Dark Green
+    </label>
+
+    <label for="darkRed">
+        <input type="radio" name="SideBar" value="darkRed"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-darkRed on-left"></span> Dark Red
+    </label>
+
+    <label for="lightOlive">
+        <input type="radio" name="SideBar" value="lightOlive"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-lightOlive on-left"></span> Light Olive
+    </label>
+
+    <label for="yellow">
+        <input type="radio" name="SideBar" value="yellow"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-yellow on-left"></span> Yellow
+    </label>		
+
+    <label for="cyan">
+        <input type="radio" name="SideBar" value="cyan"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-cyan on-left"></span> Cyan
+    </label>
+
+    <label for="lightBlue">
+        <input type="radio" name="SideBar" value="lightBlue"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-lightBlue on-left"></span> Light Blue
+    </label>
+</div>
+
+<h4>Database Window:</h4>
+<div class="input-control radio  three-columns">
+    <label for="steel">
+        <input type="radio" name="window" value="ol-steel bd-steel bg-steel"  checked />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-steel on-left"></span> Steel
+    </label>
+
+    <label for="darkTeal">
+        <input type="radio" name="window" value="ol-pink bd-pink bg-pink"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-pink on-left"></span> Pink
+    </label>
+
+    <label for="cobalt">
+        <input type="radio" name="window" value="ol-cobalt bd-cobalt bg-cobalt"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-cobalt on-left"></span> Cobalt
+    </label>
+
+    <label for="emerald">
+        <input type="radio" name="window" value="ol-emerald bd-emerald bg-emerald"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-emerald on-left"></span> Emerald
+    </label>
+
+    <label for="red">
+        <input type="radio" name="window" value="ol-red bd-red bg-red"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-red on-left"></span> Red
+    </label>
+
+    <label for="amber">
+        <input type="radio" name="window" value="ol-amber bd-amber bg-amber"  />
+		<span class="check"></span>
+    <span class="square10 inline-block bg-amber on-left"></span> Amber
+    </label>
+</div>
+
+
+<button type="submit" class="large">Save Preferences</button> <button type="reset" class="large danger" value="reset">RESET</button>
+</form>
+<br>
+<hr>
+
+</div> <!-- //CLOSE #TACPref -->
 
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.11.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/jQuery_Plugins.js"></script>
 <script type="text/javascript" src="js/metro.min.js"></script>
+<script type="text/javascript" src="js/setOpts.js"></script>
+<script type="text/javascript" src="js/winScripts.js"></script>
+<script type="text/javascript" src="js/dataTable.min.js"></script>
 
-<script>
+<script type="text/javascript">
 function setOpts() {
 var prefs = [];
 	      var promise = $('#setOpts input[type="radio"]:checked').each(function(){
@@ -99,18 +318,20 @@ var prefs = [];
 	        prefs.push(val);
 	      }).promise();
 		  promise.done( function() {
-              localStorage.removeItem("TEST");
+              localStorage.removeItem("Settings");
             console.log("radio values: "+JSON.stringify(prefs) );
-            localStorage.setItem("TEST", JSON.stringify(prefs) );
-		  });
+            localStorage.setItem("Settings", JSON.stringify(prefs) );
 
+		  });
+		  window.location.reload();
 		  $("#savePref").prop("disabled", true);
-		  $("#tacPref").html("<h1>Preferences saved!</h1>").fadeIn(1000);
+//		  $("#tacPref").html("<h1>Preferences saved!</h1>").fadeIn(1000);
+
 }
 
 $(document).ready(function(){
 METRO_AUTO_REINIT = true;
-  var testStorage = localStorage.getItem("TEST");
+  var testStorage = localStorage.getItem("Settings");
    var prefs = []; 
     if (testStorage){  	
       var storage = JSON.parse(testStorage);
@@ -118,16 +339,17 @@ METRO_AUTO_REINIT = true;
 	      prefs.push(data);
 	    }) ).then(function() {
 		   JSON.stringify(prefs);
-		   console.log("Prefs stored: "+ JSON.stringify(prefs) );
+//		   console.log("Prefs stored: "+ JSON.stringify(prefs) );
 		 });		
 	    // console.log("data: "+data);
  	}
-   $("#setOpts").on("submit", function(e){
-    e.preventDefault();
-    setOpts();
-	$.Dialog("close");
-  });
+       $(document).on("submit","#setOpts", function(e){
+           e.preventDefault();
+           setOpts();
+		   $.Dialog("close");
+       });	
 });
 </script>
+
 </body>
 </html>

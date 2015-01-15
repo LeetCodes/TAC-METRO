@@ -1,11 +1,11 @@
-<div id="TACPref" class="metro span6 container">
+<div id="TACPref" class="metro span7 container">
 <h1>Preferences</h1>
 
 
 <form id="setOpts" name="TACOptions" type="POST" action="#">
 
-<h3>Background Color:</h3>
-<div class="input-control unstyled three-columns color-stack" >
+<h4>Background Color:</h4>
+<div class="input-control  three-columns color-stack" >
     <label for="white">
         <input type="radio" name="bg" value="white" data-transform="input-control" />
     <span class="square10 inline-block bg-white bd-black on-left"></span> - White
@@ -90,7 +90,7 @@
 
 <hr width="50%">
 
-<h3>Font:</h3>
+<h4>Font:</h4>
 <div class="input-control">
     <label for="Open_Sans">
         <input type="radio" name="font" value="Open Sans"  data-transform="input-control" checked />
@@ -130,13 +130,8 @@
 
 <hr width="50%">
 
-<h3>Text:</h3>
+<h4>Text:</h4>
 <div class="input-control">
-    <label>
-        <input type="radio" name="Color" value="white"  data-transform="input-control" />
-    <b class="bg-black fg-white">White Font</b>
-    </label>
-
     <label>       
         <input type="radio" name="Color" Value="black" data-transform="input-control" checked />
      <b class="bg-white fg-black">Black Font</b>
@@ -158,10 +153,10 @@
     </label>
 </div>
 
-<hr>
+<hr width="50%">
 
-<h3>SideBar color:</h3>
-<div class="input-control unstyled three-columns color-stack">
+<h4>SideBar color:</h4>
+<div class="input-control  three-columns color-stack">
     <label for="darkIndigo">
         <input type="radio" name="SideBar" value="darkIndigo" data-transform="input-control"  />
     <span class="square10 inline-block bg-darkIndigo on-left"></span> Dark Indigo
@@ -209,10 +204,10 @@
 	
 </div>
 
-<hr>
+<hr width="50%">
 
-<h3>Database Window:</h3>
-<div class="input-control unstyled two-columns color-stack">
+<h4>Database Window:</h4>
+<div class="input-control  two-columns color-stack">
     <label for="steel">
         <input type="radio" name="window" value="ol-steel bd-steel bg-steel" data-transform="input-control"  checked />
     <span class="square10 inline-block bg-steel on-left"></span> Steel
@@ -253,8 +248,6 @@
 </div> <!-- //CLOSE #TACPref -->
 
 <script>
-METRO_AUTO_REINIT = true;
-
 function setOpts() {
 var prefs = [];
 	      var promise = $('#setOpts input[type="radio"]:checked').each(function(){

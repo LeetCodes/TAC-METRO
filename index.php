@@ -36,11 +36,11 @@
     </li>
   <br>
         <li class="title">Quick Links</li>
-		<li class="stick bg-crimson"><a href="http://tac-alert01/CDRMS.php"> <i class="icon-rocket on-right"></i> CDRMS Clients</a></li>
-        <li class="stick bg-cyan"><a href="http://tac-alert01/Attach.php">Attach An Item</a></li>
+		<li><a href="http://tac-alert01/CDRMS.php"> <i class="icon-rocket on-right"></i> CDRMS Clients</a></li>
+        <li ><a href="http://tac-alert01/Attach.php">Attach An Item</a></li>
         <li><a href="http://tac-alert01/statistics.php">TAC-Alert Statistics</a></li>
         <li><a href="http://thesource.isi-info.com">The Source</a></li>
-        <li class="stick bg-amber"><a href="http://badger/EngWiki/Default.aspx">The Engineering Wiki</a></li>
+        <li ><a href="http://badger/EngWiki/Default.aspx">The Engineering Wiki</a></li>
 </ul>	    
 
 <br>
@@ -75,13 +75,13 @@
         <button class="btn-max"></button>
         <button class="btn-close"></button>
     </div>
-    <div class="content">
-        <div id="database">
+    <div class="content" class="container">
+        <div id="database" >
 		</div>
     </div>
 </div> <!-- //CLOSE Window -->
 
-<span class="tileBar">
+<div class="tileBar">
   <div id="weatherMan" data-role="live-tile" data-effect="slideDown" data-easing="easeInExpo" class="tile double bg-darkBlue fg-white bg-hover-amber">
     <div class="tile-content icon">
           <i class="icon-sun-3"></i>
@@ -114,7 +114,7 @@
       </div>
   </div> <!-- //CLOSE #wiki -->
 
-</span> <!-- //CLOSE #TileBar -->
+</div> <!-- //CLOSE #TileBar -->
 
 </div>
 <!-- // CLOSE #bodyWrapper -->
@@ -147,9 +147,11 @@
 <script type="text/javascript" src="js/jquery-ui-1.11.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/jQuery_Plugins.js"></script>
 <script type="text/javascript" src="js/metro.min.js"></script>
-<!-- // Compressed version of all related vendor plug-ins used in jQuery -->
-<script type="text/javascript" src="js/setOpts.js"></script>
+<!-- // Compressed version of all related vendor plug-ins used in jQuery
 <script type="text/javascript" src="js/TACALERT.js"></script>
+ -->
+<script type="text/javascript" src="js/setOpts.js"></script>
+
 <script type="text/javascript" src="js/winScripts.js"></script>
 <script type="text/javascript" src="js/dataTable.min.js"></script>
 
