@@ -30,22 +30,39 @@
       <div class="span6 input-control text">
          <input id='sValue' name='title' type='hidden' value='Special:SphinxSearch'> 
          <input id='search_text' maxlength='150' name='sphinxsearch' placeholder='Search the Wiki' tabindex='1' type='search'> 
-        <button name='Search_Wiki' id='search_button' name='fulltext' class="btn-search"></button>
+        <button name='Search_Wiki' id='search_button' name='fulltext' class="large btn-search"></button>
   </form>
       </div>
     </li>
-  <br>
         <li class="title">Quick Links</li>
-		<li><a href="http://tac-alert01/CDRMS.php"> <i class="icon-rocket on-right"></i> CDRMS Clients</a></li>
-        <li ><a href="http://tac-alert01/Attach.php">Attach An Item</a></li>
-        <li><a href="http://tac-alert01/statistics.php">TAC-Alert Statistics</a></li>
-        <li><a href="http://thesource.isi-info.com">The Source</a></li>
-        <li ><a href="http://badger/EngWiki/Default.aspx">The Engineering Wiki</a></li>
+		<li id="IntLinks">
+            <a class="dropdown-toggle" href="#"><i class="icon-link fg-blue on-right"></i>Internal Links</a>
+            <ul class="dropdown-menu" data-role="dropdown">
+        <li><a href="http://tac-wiki/wiki/index.php" title="TAC's Wiki knowledgebase" target="_NEW"><i class="icon-wordpress fg-steel on-right"></i> TAC Wikibase</a> </li>
+		<li><a href="http://tac-alert01/CDRMS.php"> <i class="icon-address-book fg-darkPink on-right"></i> CDRMS Clients</a></li>
+        <li ><a href="http://tac-alert01/Attach.php"><i class="icon-upload-2 fg-lightBlue on-right"></i> Attach An Item</a></li>
+		<li><a href="http://tac-alert01/attachments.php" title="Attachment File Listing" target="_NEW"><i class="icon-attachment on-right"></i>TAC Attachment Listing </a> </li>
+        <li><a href="http://thesource.isi-info.com"><i class="icon-earth fg-cobalt on-right"></i> The Source</a></li>
+        <li><a href="http://tac-alert01/tickadd.php" title="Add a Ticket back into the Queue" target="_NEW"><i class="icon-plus fg-green on-right"></i> TAC's Ticket Adder</a> </li>
+  
+            </ul>
+        </li>
+		
+		<li id="GenRes">
+           <a class="dropdown-toggle" href="#"><i class="icon-new-tab fg-amber on-right"></i>General Resources</a>
+          <ul class="dropdown-menu" data-role="dropdown">
+            <li><a href="https://isi-info.webex.com/mw0401l/mywebex/default.do?siteurl=isi-info&service=9" title="Start a WebEx Support Session" target="_NEW"><i class="icon-phone fg-lime on-right"></i> WebEx Support Center</a> </li>
+            <li ><a href="http://badger/EngWiki/Default.aspx"><i class="icon-cone fg-orange on-right"></i> The Engineering Wiki</a></li>
+        <li><a href="http://tac-alert01/tbyc.php" title="Ticket Creation Statistics" target="_NEW"><i class="icon-user-2 fg-violet"></i> Search Tickets by Creator</a> </li>
+        <li><a href="http://tac-alert01/search.php" title="Ticket  Search by Client" target="_NEW"><i class="icon-user-3 fg-cyan"></i> Search Tickets by Customer</a> </li>			
+		  </ul>
+        </li>
 </ul>	    
 
 <br>
 
-<span id="StatusBlock">
+<span id="StatusBlock" class="two-columns">
+<div class="clearfix">
   <div class="tile bg-emerald bg-hover-red" id="LoginStatus">
       <div class="tile-content icon">Logged in as <b id="log-in"></b>
           <i class="icon-user"></i>
@@ -53,16 +70,45 @@
       <div class="brand bg-black">
           <span class="label fg-white">Log Out?</span>
       </div>
-  </div>  
-  <div class="tile bg-orange bg-hover-lightOrange" id="Preferences">
+  </div>  <!-- // CLOSE #LoginStatus -->
+  
+  <div class="tile bg-orange bg-hover-amber" id="Preferences">
       <div class="tile-content icon">
           <i class="icon-cog"></i>
       </div>
       <div class="brand bg-black">
           <span class="label fg-white">Settings</span>
       </div>
-  </div>
-</span>
+  </div> <!-- //CLOSE #Preferences -->
+  
+</div> <!-- //CLOSE .clearfix -->
+<div class="clearfix">
+<div id="wiki" class="tile bg-indigo fg-white bg-hover-indigo">
+   <a href="http://tac-wiki/wiki/index.php" title="TAC's Wiki knowledgebase" target="_NEW">
+	<div class="tile-content icon">
+          <i class="icon-lab"></i>
+    </div>
+   </a>
+      <div class="brand bg-black">
+          <span class="label fg-white">TAC-Wiki</span>
+      </div>
+  </div> <!-- //CLOSE #wiki -->
+<div id="statistics" class="tile bg-darkGreen fg-white">
+   <a href="http://tac-alert01/statistics.php" title="Generate Ticket Statistics" target="_NEW">
+	<div class="tile-content icon">
+          <i class="icon-stats-up"></i>
+    </div>
+   </a>
+      <div class="brand bg-black">
+          <span class="label fg-white">Statistics</span>
+      </div>
+  </div> <!-- //CLOSE #statistics -->
+
+
+ </div> <!-- //CLOSE .clearfix -->
+ 
+</span> <!--//CLOSE #StatusBlock -->
+
 </nav> <!-- //CLOSE #SideBar -->
 
 <div id="bodyWrapper" class="offset1 span12">
@@ -82,6 +128,28 @@
 </div> <!-- //CLOSE Window -->
 
 <div class="tileBar">
+  <div class="tile ribbed-darkTeal fg-white bg-hover-teal">
+    <a href="#" id="newTicket" title="Open a new ticket.">
+	 <div class="tile-content icon">
+	   <i class="icon-new-tab-2"></i>
+	  </div>
+	 </a>
+	  <div class="brand bg-black">
+        <span class="label fg-white">New Ticket</span>
+      </div>
+  </div>  
+  
+  <div class="tile ribbed-darkOrange fg-white bg-hover-orange">
+    <a href="#" id="newTicket" title="Edit a Service Ticket.">
+	 <div class="tile-content icon">
+	   <i class="icon-new-tab-2"></i>
+	  </div>
+	 </a>
+	  <div class="brand bg-black">
+        <span class="label fg-white">Edit Tickets</span>
+      </div>
+  </div>  
+  
   <div id="weatherMan" data-role="live-tile" data-effect="slideDown" data-easing="easeInExpo" class="tile double bg-darkBlue fg-white bg-hover-amber">
     <div class="tile-content icon">
           <i class="icon-sun-3"></i>
@@ -90,30 +158,9 @@
           <span class="label fg-white">Weather</span>
       </div>
 	  <div class="tile-content image" id="Weather"></div>
-</div> <!-- //CLOSE #weatherMan -->
-
-<div id="statistics" class="tile bg-darkGreen fg-white bg-hover-emerald">
-   <a href="http://tac-alert01/statistics.php" title="Generate Ticket Statistics" target="_NEW">
-	<div class="tile-content icon">
-          <i class="icon-stats-up"></i>
-    </div>
-   </a>
-      <div class="brand bg-black">
-          <span class="label fg-white">Statistics</span>
-      </div>
-  </div> <!-- //CLOSE #statistics -->
-
-<div id="wiki" class="tile bg-darkIndigo fg-white bg-hover-indigo">
-   <a href="http://tac-wiki/wiki/index.php" title="TAC's Wiki knowledgebase" target="_NEW">
-	<div class="tile-content icon">
-          <i class="icon-lab"></i>
-    </div>
-   </a>
-      <div class="brand bg-black">
-          <span class="label fg-white">TAC-Wiki</span>
-      </div>
-  </div> <!-- //CLOSE #wiki -->
-
+  </div> <!-- //CLOSE #weatherMan -->
+  
+  
 </div> <!-- //CLOSE #TileBar -->
 
 </div>

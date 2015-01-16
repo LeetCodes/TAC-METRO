@@ -1,5 +1,5 @@
 $(function() {
-   var $USER = localStorage.getItem("Login"), timer= [];
+   var $USER = localStorage.getItem("Login"), window = $(".window"), start = $(".start"), startmenu = $("#startmenu"), timer = [];
     $("#log-in").html($USER);
     $("#sideBar, #startmenu").hide();
 	
@@ -8,6 +8,9 @@ $(".taskbar").delegate("#t-explor","click",function(){
 });
 $(".taskbar").delegate("#t-calc","click",function(){
 	$(".tileBar").toggle();
+});
+$(document).delegate(".tile","click",function(){
+	$(this).toggleClass("selected");
 });
 $(".content").delegate("#cancel","click",function(){
 	$.Dialog("close");
@@ -41,6 +44,7 @@ function Notify() {
  animation: "popFade"
  });
 favicon.badge($COUNT);
+console.log($RowCounts);
 }	
 
  //  Set up variables to report Date and Time in console.log()    //
@@ -217,7 +221,6 @@ $(function() {
 	});  
 });
 
-var window = $(".window"), start = $(".start"), startmenu = $("#startmenu"), timer = [];
 	// Startmenu
 	start.on('click', function () {
 		 $('#sideBar').toggle("slide",{direction: "right"});
@@ -280,6 +283,8 @@ function Reload() {
     $('#database').fadeOut(800, function() {
        getDB();
    }).fadeIn(1000);
+   new Notify();
+   $(".tile").removeClass("selected");
 }
 
 $(document).keyup(function(e) {
@@ -350,7 +355,6 @@ console.log(string +" set!");
     new getDB();
     new weatherMan();
     new startTimer();
-	new Notify();
 	
 // END WinScripts //  
 });  

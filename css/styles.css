@@ -2,8 +2,8 @@
 @import url('jqUI.css');
 
 html,body {
-	font-family: "Segoe UI", Arial, Sans-Serif;
-	font-size: 10pt;
+	font-family: "Open Sans", Arial, Sans-Serif;
+	font-size: 11pt;
 	margin: 0px;
 	width: 100%;
 	height: 100%;
@@ -234,7 +234,7 @@ padding: 10px;
 #bottom {
 	z-index: 1000;
 	width: 100%;
-	height: 50px;
+	height: 48px;
 	background-color: #619bb9;
 
 	background: -webkit-linear-gradient(65deg,rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.9));
@@ -362,7 +362,7 @@ vertical-align: top;
 }
 
 #mainWrap{
-height: 94%;
+height: 95%;
 width: 100% !important;
 }
 
