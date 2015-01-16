@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<link rel="icon" href="http://tac-alert01/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="js/modernizr.js"></script>
   <!-- // LOAD MODERNIZR FIRST for legacy browser interaction -->
     <title>TAC's Alert System</title>
