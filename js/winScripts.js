@@ -243,10 +243,10 @@ function getDB(){
       $("#database").empty().html("<center><h1>Great Job,"+ $USER +"!</h1> <h3 class='subheader'> All tickets have been called back.</h3></center>");
 	  // console.log(json);
 	} else{
-    $("#database").html("<table id='Table' class='table striped hovered'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td></tr></THEAD><TBODY id='dbb'>");
+    $("#database").html("<table id='Table' class='table striped hovered'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td><td><i class='icon-cancel fg-red' title='Remove Ticket'></i></td></tr></THEAD><TBODY id='dbb'>");
       $.each(data, function(key, value) {
     var ticket=value.Ticket,date=value.Date,starttime=value.STime,ETA=value.ETA,Priority=value.Priority,Site=value.Site,Comments=value.Comments,Contact=value.ContactPref,Deleted=value.Deleted;
-        var Deletelink = "<div class='deleteLink toolbar transparent' title='Delete ticket #"+ticket+"?'><i class='icon-remove fg-hover-red'></i></div>";
+        var Deletelink = "<div class='deleteLink toolbar transparent fg-red' title='Delete ticket #"+ticket+"?'><button><i class='icon-remove'></i></button></div>";
 	       $("#dbb").append("<tr><td>"+ticket+"</td><td>"+date+"</td><td>"+ETA+"</td><td>"+Priority+"</td><td>"+Site+"</td><td>"+Comments+"</td><td>"+Contact+"</td><td>"+Deletelink+"</td></tr>");
 		 // console.log(json);
 $(document).on("click",".deleteLink",function() {
@@ -255,12 +255,13 @@ $(document).on("click",".deleteLink",function() {
 	  overlay: false,
 	  draggable: true,
 	  flat: true,
-	  icon: '<span class="icon-checkbox"></span>',
+	  icon: '<span class="icon-remove fg-red"></span>',
 	  title: 'Delete Ticket '+ticket+'?',
 	  width: 450,
 	  padding: 10,
-	  content: '<h3>Are you sure you want to delete Ticket #'+ticket+'? </h3>' +
-        '<button id="confirm" type="submit" class="success">YEP!</button> <button id="cancel" type="reset" class="danger" >NOPE!</button>',
+	  content: '<h4>Are you sure you want to delete Ticket #'+ticket+'? </h4> <br>' +
+        '<button id="confirm" type="submit" class="large success"><i class="icon-thumbs-up on-left"></i> YEP!</button>'+
+		'<button id="cancel" type="reset" class="large inverse" ><i class="icon-thumbs-down on-left"></i> NOPE!</button>',
 	  sysButtons:{
 	    btnMin: false,
 		btnMax: false,
@@ -292,13 +293,11 @@ if (e.keyCode == 27) {
     new Continue();
 console.log('Manual DB refresh call @ ' + getTime());	
 }  
-});  
 
-  $(document).keyup(function(e) {
-    if (e.keyCode == 192) { 
+if (e.keyCode == 192) { 
        $('#sideBar').toggle("slide",{direction: "right"});
     }  
-  });    
+});  
 
 
 
@@ -308,6 +307,7 @@ var string =JSON.stringify( {bg:"#000000", color:"#ffffff",font:"Arial"} );
 localStorage.setItem("Settings", string);
 console.log(string +" set!");
 */	 
+
  $("#mainWrap").setOptions({ 	   
      complete: function(){ 
 	   console.log('Color applied!'); 
@@ -340,6 +340,60 @@ console.log(string +" set!");
        
   });	
 
+  // event for opening Statistics Dialog window
+  
+$(document).on('click', "#statistics", function() {
+   $.Dialog({
+     shadow: false,
+	 overlay: false,
+	 draggable: true,
+	 flat: true,
+	 width: '700',
+	 height: '475',
+	 icon: '<span class="icon-bars"></span>',
+	 title: 'Today\'s Statistics',
+	 padding: 5,
+	 content: function(){
+       METRO_AUTO_REINIT = true;
+	   $(this).html("<iframe id='chartdiv' src='../cStatPNG.php' width='625' height='425' frameborder='0'> </iframe>");
+	 },
+	 sysButtons:{
+	    btnMin: false,
+		btnMax: false,
+		btnClose: true
+      }
+
+   });
+     return false;
+});	
+
+//  event for New Ticket Dialog window
+  
+$(document).on('click', "#newTicket", function() {
+   $.Dialog({
+     shadow: true,
+	 overlay: false,
+	 draggable: true,
+	 flat: false,
+	 width: '35%',
+	 height: '65%',
+	 icon: '<span class="icon-floppy"></span>',
+	 title: 'Open a New Ticket',
+	 padding: 5,
+	 content: function(){
+       METRO_AUTO_REINIT = true;
+	   $(this).load("../Nticket.php");
+	 },
+	 sysButtons:{
+	    btnMin: false,
+		btnMax: false,
+		btnClose: true
+      }
+
+   });
+     return false;
+});	
+
  var $RowCounts = $("#Table tr").length, $COUNT = parseInt( ($RowCounts - 1), 10), favicon = new Favico({
     "type" : "rectangle",
     "bgColor" : '#FADC00',
@@ -355,6 +409,6 @@ console.log(string +" set!");
     new getDB();
     new weatherMan();
     new startTimer();
-	
+	$("#ticketCount").text($RowCounts);
 // END WinScripts //  
 });  

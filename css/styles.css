@@ -379,3 +379,7 @@ cursor: pointer;
 #Table tr td{
 text-align: center;
 }
+.deletelink:hover {
+ text-decoration: bold;
+ font-weight: heavy;
+ }

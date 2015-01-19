@@ -19,10 +19,8 @@ try {
       $dbh = null;
 	}
 } catch (PDOException $e) {
-     $db = file_get_contents(dbase2.json);
-	 print $db;
-//   print "Error!: " . $e->getMessage() . "<br/>";
-//    die();
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
 }
 
 
