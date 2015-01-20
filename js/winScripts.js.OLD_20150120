@@ -35,17 +35,21 @@ $(".drag").draggable({handle: "div.head",scroll: false,stack: "#wrapper div"});
 
 
 function Notify() {
- $RowCounts = $("#Table tbody").children().length;
- favicon = new Favico({
+ var $RowCounts = $("#Table tbody tr").length, $COUNT = parseInt( ($RowCounts ), 10), favicon = new Favico({
  "type" : "rectangle",
  "bgColor" : '#FADC00',
  "textColor" : '#000000',
  animation: "popFade"
  });
-favicon.badge($RowCounts);
-$("#ticketCount").html($RowCounts);
+favicon.badge($COUNT);
+$("#ticketCount").html($COUNT);
 }	
 
+function countTickets() {
+	
+ var $RowCounts = $("#Table > tbody").children().length, $Tickets = parseInt( ($RowCounts + 1), 10 );
+  $("#ticketCount").text($Tickets);
+}
  //  Set up variables to report Date and Time in console.log()    //
 var getTime = function() {
     var d = new Date(), curr_hour = d.getHours(), minute = d.getMinutes();
@@ -86,7 +90,7 @@ var getTime = function() {
     }	
 
 function weatherMan(){
-  var URL = "weatherMan.json";
+  var URL = "../weatherMan.json";
 //  var URL = "http://api.wunderground.com/api/f4de0ee4ffd72094/geolookup/conditions/q/IL/Chicago.json?callback=?",
 //      JSONcache = JSON.parse(sessionStorage.getItem('JSONcache'));
 //  if (!JSONcache){
@@ -120,7 +124,7 @@ function weatherMan(){
 
 
 function f() {
-    document.location.reload(true); 
+    window.location.reload(); 
 }
 
 
@@ -230,10 +234,10 @@ function getDB(){
   url : "tacDB.php",
   dataType : "json", 
   beforeSend : function(){
-    $("#database").html("<p><span class='ajaxloader'></span></p>");
+    $('#database').html("<span class='ajaxloader'>LOADING</span>");
    },
   error : function(err){
-      $("#database").html("<p> <b>Sorry</b>, something is not quite right here.<blockquote>"+ err + "</blockquote></p>");
+      $('#database').html("<b>Sorry</b>, something's not quite right here."+ err);
    },
   success : function(data) {
  var json = eval(data), $USER = localStorage.getItem("Login");
@@ -271,9 +275,6 @@ $(document).on("click",".deleteLink",function() {
 	 });
       $("#database").append("</tbody></table>");
     }
-  }, 
-  complete: function() {
-      new Notify();	
   }
  });
 }
@@ -291,21 +292,18 @@ function Reload() {
 }
 
 $(document).keyup(function(e) {
+if (e.keyCode == 27) { 
+    new Continue();
+console.log('Manual DB refresh call @ ' + getTime());	
+}  
 
-  if (e.keyCode == 27) { 
-     new Continue();
-    console.log('Manual DB refresh call @ ' + getTime());	
-  }  
-
-   if (e.keyCode == 192) { 
+if (e.keyCode == 192) { 
        $('#sideBar').toggle("slide",{direction: "right"});
     }  
 });  
 
 
-  $(document).on("click", "#RELOAD", function() {
-     Reload();
-  });
+
 /* // TEST JSON STRING IN LOCALSTORAGE//
 
 var string =JSON.stringify( {bg:"#000000", color:"#ffffff",font:"Arial"} );
@@ -387,7 +385,7 @@ $(document).on('click', "#newTicket", function() {
 	 padding: 5,
 	 content: function(){
        METRO_AUTO_REINIT = true;
-	   $(this).load("NewTicket.php");
+	   $(this).load("../Nticket.php");
 	 },
 	 sysButtons:{
 	    btnMin: false,
@@ -399,17 +397,13 @@ $(document).on('click', "#newTicket", function() {
      return false;
 });	
 
- var $RowCounts = $("#Table tr").length, $COUNT = parseInt( ($RowCounts - 1), 10), favicon = new Favico({
-    "type" : "rectangle",
-    "bgColor" : '#FADC00',
-    "textColor" : '#000000',
-    animation: "popFade"
+  $("#bottom .start").on("click", function(){
+    $(this).toggleClass("shadow");
   });
-  favicon.badge($COUNT);
 
     new getDB();
     new weatherMan();
     new startTimer();
-
+    new countTickets();
 // END WinScripts //  
 });  

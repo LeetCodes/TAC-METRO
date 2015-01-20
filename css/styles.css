@@ -200,15 +200,12 @@ padding: 10px;
 }
 
 #bottom .start {
-	background: url(../img/win8_metro.png) no-repeat;
+
 	width: 45px;
 	height: 40px;
 	margin-left: 10px;
 	float: left;
 }
-  #bottom .start:hover {
-      background: url(../img/win8_hover.png) no-repeat;
-  }
 
 #bottom .taskbar {
 	float: left;
@@ -257,6 +254,10 @@ display: inline;
 box-sizing: content-box;
 	min-width: 35px;
 	height: 35px;
+}
+
+.taskbar ul li:hover{
+cursor: pointer;
 }
 
 #bottom .datetime {
@@ -309,10 +310,7 @@ cursor: pointer;
 #Table tr td{
 text-align: center;
 }
-.deletelink:hover {
- text-decoration: bold;
- font-weight: heavy;
- }
+
 
  #refreshCode{
  display: fixed;
