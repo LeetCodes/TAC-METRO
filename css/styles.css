@@ -30,15 +30,16 @@ overflow: visible;
 
 .ajaxloader {
 position: absolute;
-width: 30px;
-height: 30px;
-left: 50%;
-top: 15%;
-margin: 0 0 0 -15px;
-border: 8px solid #fff;
+width: 45px;
+height: 45px;
+left: 45%;
+top: 45%;
+padding: 10px;
+margin: 0px;
+border: 6px solid #fff;
 border-right-color: transparent;
 border-radius: 50%;
-box-shadow: 0 0 25px 2px #eee;
+box-shadow: 0 0 15px 2px #eee;
 -webkit-animation: spin 1s linear infinite;
 -moz-animation: spin 1s linear infinite;
 -ms-animation: spin 1s linear infinite;
@@ -178,58 +179,6 @@ padding: 10px;
 }
 
 
-#sysdir {
-	margin: 7px;
-	margin-top: -30px;
-	float: left;
-	display: block;
-	padding: 0;
-	list-style: none;
-}
-
-#sysdir li a {
-	border: solid 1px transparent;
-	display: block;
-	margin: 5px 0;
-	position: relative;
-	color: #fff;
-	text-decoration: none;
-	min-width: 120px;
-}
-
-#sysdir li a:hover {
-	border-radius: 3px;
-
-	-webkit-box-shadow: inset 0 0 1px #fff;
-	box-shadow: inset 0 0 1px #fff;
-	border: solid 1px #000;
-	background-color: #658da0;
-
-	background: -webkit-linear-gradient(center left, rgba(81,115,132,0.55), rgba(121,163,184,0.55) 50%, rgba(81,115,132,0.55));
-	background: -moz-linear-gradient(center left, rgba(81,115,132,0.55), rgba(121,163,184,0.55) 50%, rgba(81,115,132,0.55));
-	background: -o-linear-gradient(center left, rgba(81,115,132,0.55), rgba(121,163,184,0.55) 50%, rgba(81,115,132,0.55));
-	background: -ms-linear-gradient(center left, rgba(81,115,132,0.55), rgba(121,163,184,0.55) 50%, rgba(81,115,132,0.55));
-	background: linear-gradient(center left, rgba(81,115,132,0.55), rgba(121,163,184,0.55) 50%, rgba(81,115,132,0.55));
-}
-
-#sysdir li a span {
-	padding: 5px;
-	display: block;
-}
-
-#sysdir li a:hover span {
-	background: -webkit-linear-gradient(center top, transparent, transparent 49%, rgba(2,37,58,0.5) 50%, rgba(63,111,135,0.5));
-	background: -moz-linear-gradient(center top, transparent, transparent 49%, rgba(2,37,58,0.5) 50%, rgba(63,111,135,0.5));
-	background: -o-linear-gradient(center top, transparent, transparent 49%, rgba(2,37,58,0.5) 50%, rgba(63,111,135,0.5));
-	background: -ms-linear-gradient(center top, transparent, transparent 49%, rgba(2,37,58,0.5) 50%, rgba(63,111,135,0.5));
-	background: linear-gradient(center top, transparent, transparent 49%, rgba(2,37,58,0.5) 50%, rgba(63,111,135,0.5));
-}
-
-#sysdir li.user {
-	text-align: center;
-}
-
-
 /*start Button Buttom*/
 #bottom {
 	z-index: 1000;
@@ -320,25 +269,6 @@ box-sizing: content-box;
 	padding-right: 1em;
 }
 
-.user .frame {
-	padding: 3px 5px 5px 3px;
-	height: 48px;
-	width: 48px;
-	border-radius: 5px;
-
-	-webkit-box-shadow: 0px 0px 13px #333;
-	box-shadow: 0px 0px 13px #333;
-	border: 1px solid #272848;
-	margin: 0 auto;
-}
-
-.user .frame-inner {
-	background: url("../img/isi48.png") no-repeat;
-	border: 1px solid #333;
-	height: 100%;
-	width: 100%;
-}
-
 .searchbox{
 clear: none;
 float: left;
@@ -383,3 +313,12 @@ text-align: center;
  text-decoration: bold;
  font-weight: heavy;
  }
+
+ #refreshCode{
+ display: fixed;
+ bottom: 0px;
+ vertical-align: bottom;
+ 
+ }
+ 
+ 

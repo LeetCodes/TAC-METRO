@@ -35,16 +35,15 @@ $(".drag").draggable({handle: "div.head",scroll: false,stack: "#wrapper div"});
 
 
 function Notify() {
- $RowCounts = $("#Table tr").length;
- $COUNT = parseInt( ($RowCounts - 1), 10);	
+ $RowCounts = $("#Table tbody").children().length;
  favicon = new Favico({
  "type" : "rectangle",
  "bgColor" : '#FADC00',
  "textColor" : '#000000',
  animation: "popFade"
  });
-favicon.badge($COUNT);
-console.log($RowCounts);
+favicon.badge($RowCounts);
+$("#ticketCount").html($RowCounts);
 }	
 
  //  Set up variables to report Date and Time in console.log()    //
@@ -87,7 +86,7 @@ var getTime = function() {
     }	
 
 function weatherMan(){
-  var URL = "../weatherMan.json";
+  var URL = "weatherMan.json";
 //  var URL = "http://api.wunderground.com/api/f4de0ee4ffd72094/geolookup/conditions/q/IL/Chicago.json?callback=?",
 //      JSONcache = JSON.parse(sessionStorage.getItem('JSONcache'));
 //  if (!JSONcache){
@@ -228,13 +227,13 @@ $(function() {
 	
 function getDB(){
  $.ajax({
-  url : "tacDB.php",
+  url : "homeDB.php",
   dataType : "json", 
   beforeSend : function(){
-    $('#database').html("<span class='ajaxloader'>LOADING</span>");
+    $("#database").html("<p><span class='ajaxloader'></span></p>");
    },
   error : function(err){
-      $('#database').html("<b>Sorry</b>, something's not quite right here."+ err);
+      $("#database").html("<p> <b>Sorry</b>, something is not quite right here.<blockquote>"+ err + "</blockquote></p>");
    },
   success : function(data) {
  var json = eval(data), $USER = localStorage.getItem("Login");
@@ -272,6 +271,9 @@ $(document).on("click",".deleteLink",function() {
 	 });
       $("#database").append("</tbody></table>");
     }
+  }, 
+  complete: function() {
+      new Notify();	
   }
  });
 }
@@ -382,7 +384,7 @@ $(document).on('click', "#newTicket", function() {
 	 padding: 5,
 	 content: function(){
        METRO_AUTO_REINIT = true;
-	   $(this).load("../Nticket.php");
+	   $(this).load("NewTicket.php");
 	 },
 	 sysButtons:{
 	    btnMin: false,
@@ -409,6 +411,6 @@ $(document).on('click', "#newTicket", function() {
     new getDB();
     new weatherMan();
     new startTimer();
-	$("#ticketCount").text($RowCounts);
+
 // END WinScripts //  
 });  
