@@ -2,20 +2,20 @@
 	$.fn.setOptions = function( options ) {
 
 	
-    function getOpts(key) { 
-	  return  localStorage.getItem(key);
-	  console.log(key);
-	};
+    function getOpts(key) {
+//		console.log(key);
+      return  localStorage.getItem(key);
+
+	}
 	
     var getJSON=[], JSONopts= {}, getPrefs = localStorage.getItem("Settings"), storage =JSON.parse(getPrefs);
 	var promise = $(storage).each( function(index, data){
-	    getJSON.push(data); 		
-	  }).promise();
-	  
-	  promise.done( function() {
-		  return JSONopts= getJSON;
+        getJSON.push(data);
+    }).promise();
 
-        });
+	promise.done( function() {
+          return JSONopts= getJSON;
+    });
     
 	if (getPrefs) {
 	// Re-build values from Local Storage settings

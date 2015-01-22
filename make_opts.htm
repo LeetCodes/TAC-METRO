@@ -279,7 +279,7 @@ var prefs = [];
             localStorage.setItem("Settings", JSON.stringify(prefs) );
 
 		  });
-		  window.location.reload();
+		  document.location.reload(true);
 		  $("#savePref").prop("disabled", true);
 //		  $("#tacPref").html("<h1>Preferences saved!</h1>").fadeIn(1000);
 

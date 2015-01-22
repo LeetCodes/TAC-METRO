@@ -116,10 +116,10 @@
 
 <div id="bodyWrapper" class="offset1 span12">
 
-<div id="dbWindow" class="window shadow bd-steel ol-steel ">
+<div id="dbWindow" class="window shadow bd-steel ol-steel">
     <div id="dbCaption" class="caption fg-white ol-black bd-steel bg-steel">
         <span class="icon icon-windows "></span>
-        <div class="title">TICKET ALERT WINDOW</div>
+        <div class="title fg-white">TICKET ALERT WINDOW</div>
         <button class="btn-min"></button>
         <button class="btn-max"></button>
         <button class="btn-close"></button>
@@ -129,8 +129,11 @@
         <div id="database" class="bg-white">
 		</div>
     </p>
-		<p id="refreshCode" class="fg-white code-text text-right"><small class="text-muted">Press <button id="RELOAD" class="mini">ESC</button> to refresh.</small></p>
+		
     </div>
+  <p id="refreshCode" class="code-text text-left"><small class="muted-text fg-white">
+      Press <button id="RELOAD" class="mini rounded">ESC</button> to refresh.</small>
+  </p>
 </div> <!-- //CLOSE Window -->
 
 <div class="tileBar row">

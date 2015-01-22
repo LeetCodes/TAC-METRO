@@ -316,7 +316,11 @@ text-align: center;
  display: fixed;
  bottom: 0px;
  vertical-align: bottom;
- 
+ margin: 0px;
  }
  
- 
+ .ui-autocomplete, .ui-menu-item{
+   background: #ffffff;
+   color: #212121;
+   z-index: 999999;
+ }

@@ -96,13 +96,13 @@ function weatherMan(){
     })
     .done(function(parsed_json) {
         var pattern=  new RegExp("^(.{26})([a-z])"), 
-	    temperF = parsed_json.current_observation.temp_f, 
-	    humidity = parsed_json.current_observation.relative_humidity, 
-//	    Wreport = parsed_json.current_observation.weather, 
-//	    time = parsed_json.current_observation.observation_time, 
-	    Icon = parsed_json.current_observation.icon_url, 
-	    IconURL = Icon.replace(pattern, "$1k"), 
-	    htmlString = "<center><h1 id='temp' class='fg-white'><img id='wIcon' src='"+ IconURL +"' />"+ temperF +"<sup><i class='icon-Fahrenheit'></i></sup></h1></center>";
+        temperF = parsed_json.current_observation.temp_f, 
+        humidity = parsed_json.current_observation.relative_humidity, 
+//      Wreport = parsed_json.current_observation.weather, 
+//      time = parsed_json.current_observation.observation_time, 
+        Icon = parsed_json.current_observation.icon_url, 
+        IconURL = Icon.replace(pattern, "$1k"), 
+        htmlString = "<center><h1 id='temp' class='fg-white'><img id='wIcon' src='"+ IconURL +"' />"+ temperF +"<sup><i class='icon-Fahrenheit'></i></sup></h1></center>";
    $('#Weather').html(htmlString); 
 // JSONcache = sessionStorage.setItem('JSONcache', JSON.stringify(htmlString));
     })
@@ -123,7 +123,9 @@ function f() {
     document.location.reload(true); 
 }
 
-
+// Get Browser Prefix
+var prefix = getBrowserPrefix(), hidden = hiddenProperty(prefix), visibilityState = visibilityState(prefix), visibilityEvent = visibilityEvent(prefix);
+ 
 // Get Browser-Specifc Prefix
 function getBrowserPrefix() {
    
@@ -176,9 +178,7 @@ function visibilityEvent(prefix) {
 
 // ::BROWSER TAB ONFOCUS EVENT::
 
-// Get Browser Prefix
-var prefix = getBrowserPrefix(), hidden = hiddenProperty(prefix), visibilityState = visibilityState(prefix), visibilityEvent = visibilityEvent(prefix);
- 
+
 document.addEventListener(visibilityEvent, function(event) {
   if (!document[hidden]) {
     new Continue();
@@ -192,7 +192,7 @@ document.addEventListener(visibilityEvent, function(event) {
 function checkTime(i) {
 	if (i < 10) { i="0" + i; }
 	return i;
-};
+}
 
 // Clock
 	setInterval( function() {
@@ -222,7 +222,7 @@ $(function() {
 
 	// Startmenu
 	start.on('click', function () {
-		 $('#sideBar').toggle("slide",{direction: "right"});
+        $('#sideBar').toggle("slide",{direction: "right"});
 	});	
 	
 function getDB(){
@@ -240,40 +240,40 @@ function getDB(){
  
    if ($.isEmptyObject(json)){
       $("#database").empty().html("<center><h1>Great Job,"+ $USER +"!</h1> <h3 class='subheader'> All tickets have been called back.</h3></center>");
-	  // console.log(json);
+  // console.log(json);
 	} else{
     $("#database").html("<table id='Table' class='table striped hovered'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td><td><i class='icon-cancel fg-red' title='Remove Ticket'></i></td></tr></THEAD><TBODY id='dbb'>");
       $.each(data, function(key, value) {
     var ticket=value.Ticket,date=value.Date,starttime=value.STime,ETA=value.ETA,Priority=value.Priority,Site=value.Site,Comments=value.Comments,Contact=value.ContactPref,Deleted=value.Deleted;
         var Deletelink = "<div class='deleteLink toolbar transparent fg-red' title='Delete ticket #"+ticket+"?'><button><i class='icon-remove'></i></button></div>";
-	       $("#dbb").append("<tr><td>"+ticket+"</td><td>"+date+"</td><td>"+ETA+"</td><td>"+Priority+"</td><td>"+Site+"</td><td>"+Comments+"</td><td>"+Contact+"</td><td>"+Deletelink+"</td></tr>");
-		 // console.log(json);
+          $("#dbb").append("<tr><td>"+ticket+"</td><td>"+date+"</td><td>"+ETA+"</td><td>"+Priority+"</td><td>"+Site+"</td><td>"+Comments+"</td><td>"+Contact+"</td><td>"+Deletelink+"</td></tr>");
+  // console.log(json);
 $(document).on("click",".deleteLink",function() {
     $.Dialog({
-	  shadow: true,
-	  overlay: false,
-	  draggable: true,
-	  flat: true,
-	  icon: '<span class="icon-remove fg-red"></span>',
-	  title: 'Delete Ticket '+ticket+'?',
-	  width: 450,
-	  padding: 10,
-	  content: '<h4>Are you sure you want to delete Ticket #'+ticket+'? </h4> <br>' +
+      shadow: true,
+      overlay: false,
+      draggable: true,
+      flat: true,
+      icon: '<span class="icon-remove fg-red"></span>',
+      title: 'Delete Ticket '+ticket+'?',
+      width: 450,
+      padding: 10,
+      content: '<h4>Are you sure you want to delete Ticket #'+ticket+'? </h4> <br>' +
         '<button id="confirm" type="submit" class="large success"><i class="icon-thumbs-up on-left"></i> YEP!</button>'+
 		'<button id="cancel" type="reset" class="large inverse" ><i class="icon-thumbs-down on-left"></i> NOPE!</button>',
-	  sysButtons:{
-	    btnMin: false,
-		btnMax: false,
-		btnClose: true
+      sysButtons:{
+        btnMin: false,
+        btnMax: false,
+        btnClose: true
       }
     });
   });
-	 });
-      $("#database").append("</tbody></table>");
+     });
+       $("#database").append("</tbody></table>");
     }
   }, 
   complete: function() {
-      new Notify();	
+     new Notify();	
   }
  });
 }
@@ -313,62 +313,59 @@ localStorage.setItem("Settings", string);
 console.log(string +" set!");
 */	 
 
- $("#mainWrap").setOptions({ 	   
+ $("#mainWrap").setOptions({
      complete: function(){ 
-	   console.log('Color applied!'); 
-	 } 	  
+      console.log('Color applied!'); 
+    }
   });
 
  
  $(document).on('click', "#Preferences", function() {
    $.Dialog({
      shadow: true,
-	 overlay: true,
-	 draggable: true,
-	 flat: false,
-	 width: '30%',
-	 height: '55%',
-	 icon: '<span class="icon-clipboard-2"></span>',
-	 title: 'Set Preferences',
-	 padding: 5,
-	 content: function(){
+     overlay: true,
+     draggable: true,
+     flat: false,
+     width: '30%',
+     height: '55%',
+     icon: '<span class="icon-clipboard-2"></span>',
+     title: 'Set Preferences',
+     padding: 5,
+     content: function(){
        METRO_AUTO_REINIT = true;
-	   $(this).load("make_opts.htm");
-	 },
-	 sysButtons:{
-	    btnMin: false,
-		btnMax: false,
-		btnClose: true
-      }
-
+       $(this).load("make_opts.htm");
+     },
+     sysButtons:{
+        btnMin: false,
+        btnMax: false,
+        btnClose: true
+     }
    });
-       
   });	
-
+  
   // event for opening Statistics Dialog window
   
 $(document).on('click', "#statistics", function() {
    $.Dialog({
      shadow: false,
-	 overlay: false,
-	 draggable: true,
-	 flat: true,
-	 width: '700',
-	 height: '475',
-	 icon: '<span class="icon-bars"></span>',
-	 title: 'Today\'s Statistics',
-	 padding: 5,
-	 content: function(){
+     overlay: false,
+     draggable: true,
+     flat: true,
+     width: '700',
+     height: '475',
+     icon: '<span class="icon-bars"></span>',
+     title: 'Today\'s Statistics',
+     padding: 5,
+     content: function(){
        METRO_AUTO_REINIT = true;
-	   $(this).html("<iframe id='chartdiv' src='../cStatPNG.php' width='625' height='425' frameborder='0'> </iframe>");
-	 },
-	 sysButtons:{
-	    btnMin: false,
-		btnMax: false,
-		btnClose: true
-      }
-
-   });
+       $(this).html("<iframe id='chartdiv' src='../cStatPNG.php' width='625' height='425' frameborder='0'> </iframe>");
+     },
+     sysButtons:{
+        btnMin: false,
+        btnMax: false,
+        btnClose: true
+     }
+    });
      return false;
 });	
 
@@ -377,27 +374,26 @@ $(document).on('click', "#statistics", function() {
 $(document).on('click', "#newTicket", function() {
    $.Dialog({
      shadow: true,
-	 overlay: false,
-	 draggable: true,
-	 flat: false,
-	 width: '35%',
-	 height: '65%',
-	 icon: '<span class="icon-floppy"></span>',
-	 title: 'Open a New Ticket',
-	 padding: 5,
-	 content: function(){
+     overlay: false,
+     draggable: true,
+     flat: false,
+     width: '350px',
+     height: '475px',
+     icon: '<span class="icon-floppy"></span>',
+     title: 'Open a New Ticket',
+     padding: 5,
+     content: function(){
        METRO_AUTO_REINIT = true;
-	   $(this).load("NewTicket.php");
-	 },
-	 sysButtons:{
-	    btnMin: false,
-		btnMax: false,
-		btnClose: true
-      }
-
-   });
+       $(this).load("ticketPost.htm");
+     },
+     sysButtons:{
+        btnMin: false,
+        btnMax: false,
+        btnClose: true
+     }
+    });
      return false;
-});	
+});
 
  var $RowCounts = $("#Table tr").length, $COUNT = parseInt( ($RowCounts - 1), 10), favicon = new Favico({
     "type" : "rectangle",

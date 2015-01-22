@@ -1,30 +1,51 @@
-<div id="formContainer" class="container">
+<div id="formContainer" class="metro span4 container">
 
-<FORM name="Tsubmit"  id="ticketForm" TYPE="POST">
-  <span id='buttonDiv' class="button-set" data-role="button-group">
-    <button NAME="priority" id="radio1" VALUE="2" class="active" />2</button>
-    <button NAME="priority" id="radio2" VALUE="4"  />4</button>
-    <button NAME="priority" id="radio3" VALUE="9"  />9</button>
-  </span>
-  <INPUT TYPE="number" NAME="ticket" id="TicketNumber" tabindex="1" MAXLENGTH=6  placeholder="Ticket Number" required pattern="[0-9]{6}" >
-<br>
-  <INPUT TYPE="text" NAME="siteName" id="SiteName" MAXLENGTH=45 placeholder="Site Name" tabindex="2" required pattern="^.*$">
-<br>
-  <TEXTAREA type="text" id="comments" NAME="Comments" cols=20 rows=5 scrolling="no" VALUE="COMMENTS" tabindex="3" placeholder="Please enter any comments."></TEXTAREA>
+<FORM name="Tsubmit"  id="ticketForm" TYPE="POST" class="input-control">
+  <label for="priority">Priority:
+  <span id='buttonDiv' class="button-set input-control" data-role="button-group">
+    <button NAME="priority" id="radio1" VALUE="2" class="active" data-transform="input-control">2</button>
+    <button NAME="priority" id="radio2" VALUE="4" data-transform="input-control" >4</button>
+    <button NAME="priority" id="radio3" VALUE="9" data-transform="input-control" >9</button>
+  </span> </label>
+<label for="ticket">Ticket Number:</label>
+  <INPUT TYPE="number" NAME="ticket" id="ticketNumber" class="input-control text size3" tabindex="1" MAXLENGTH=6  placeholder="Ticket Number" required pattern="[0-9]{6}" >
+<label for="siteName">Site Name:</label>
+  <INPUT TYPE="text" NAME="siteName" id="siteName" class="input-control text size4" MAXLENGTH=45 placeholder="Site Name" tabindex="2" required pattern="^.*$">
+<label for="Comments">Comments: </label>
+  <TEXTAREA type="text" id="comments" NAME="Comments" class="input-control textarea" cols=20 rows=5 scrolling="no" VALUE="COMMENTS" tabindex="3" placeholder="Please enter any comments."></TEXTAREA>
 
-<br> 
-  <label id='Ccontact' for='picker' class="primary label">Contact via:
-   <select name='ContactPref' id='cPreference' tabindex='4'>
+  <label id='Ccontact' for='picker'>Contact via:
+   <select name='ContactPref' id='cPreference' tabindex='4' class="input-control">
     <option value='phone' selected>Phone</option>
     <option value='email'>E-mail</option>
-   </select></label>
+   </select>
+  </label>
 <br>
 
-<button class="large" type="submit" id="postTicket">Submit!</button> <button name="RESET" class="large danger" type="RESET" value="reset">Cancel</button>
+<button class="large primary" type="submit" id="postTicket"><i class="icon-floppy on-right"></i> Submit!</button> <button name="RESET" class="large inverse" type="RESET" value="reset"><i class="icon-cancel on-right"></i> Reset</button>
   </form>
 </div>
 
+
 <script type="text/javascript">
+  function postTicket() {
+    var JSONdata = {}, data={};
+        JSONdata["Ticket"] =  $("#ticketNumber").val();
+        JSONdata["Priority"] = $("#buttonDiv").find(".active").val();
+        JSONdata["Site"]= $("#siteName").val();
+        JSONdata["Comments"] = $("#comments").val();
+        JSONdata["ContactPref"] = $("#cPreference option:selected").val();
+		var data= JSON.stringify(JSONdata);
+      $.when(data).done( function() {
+		   console.log("Ticket values: "+ data );
+    	 	  $("#formContainer").fadeOut(800, function() {
+	     		  $(this).html("<h1>Ticket Submitted!</h1>");
+		     	}).fadeIn(600);
+       }); 
+          $("#postTicket").prop("disabled", true);
+
+  }
+
 $(function() {
 $("#buttonDiv").buttongroup();
 
@@ -225,31 +246,15 @@ $("#buttonDiv").buttongroup();
 "Wyndham VAC ownership","WYNDHAM VACATION OWNERSHIP ","XL GROUP PLC","XTRA LEASE, LLC ","YAVAPAI REGIONAL MEDICAL CTR ","YUSEN LOGISTICS  ","ZEBRA TECHNOLOGIES CORP ",+
 "ZIRMED, INC"];
 
-    $("#SiteName").autocomplete({
+    $("#siteName").autocomplete({
       source: availableTags
     });
-    $(document).on("click","#postTicket", function(event) {
-      var ticketInfo = [], comments = $("#comments").val(), priority= $("#buttonDiv").find(".active").val(), preference= $("#cPreference option:selected").val();
-		    var promise = $('#ticketForm input').each(function(){
-		  var val= $(this).val();
-	        ticketInfo.push(val);
-	      }).promise();
-		  promise.done( function() {
-		    ticketInfo.push(priority, comments, preference);
-            console.log("Ticket values: "+JSON.stringify(ticketInfo) );
-		  });
-
-		  $("#postTicket").prop("disabled", true);
-		  $("#formContainer")
-		    .fadeOut(1900)
-		    .html("<h1>Ticket Submitted!</h1>")
-			.fadeIn(1000);
-
-    event.preventDefault();
-  });
-
+	
+      $(document).on("submit","#ticketForm", function(e) {
+	    e.preventDefault();   
+         postTicket();
+		 
+	  });
 
 });
-
-
 </script>  
