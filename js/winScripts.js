@@ -246,29 +246,9 @@ function getDB(){
       $.each(data, function(key, value) {
     var ticket=value.Ticket,date=value.Date,starttime=value.STime,ETA=value.ETA,Priority=value.Priority,Site=value.Site,Comments=value.Comments,Contact=value.ContactPref,Deleted=value.Deleted;
         var Deletelink = "<div class='deleteLink toolbar transparent fg-red' title='Delete ticket #"+ticket+"?'><button><i class='icon-remove'></i></button></div>";
-          $("#dbb").append("<tr><td>"+ticket+"</td><td>"+date+"</td><td>"+ETA+"</td><td>"+Priority+"</td><td>"+Site+"</td><td>"+Comments+"</td><td>"+Contact+"</td><td>"+Deletelink+"</td></tr>");
+          $("#dbb").append("<tr id="+ticket+"><td>"+ticket+"</td><td>"+date+"</td><td>"+ETA+"</td><td>"+Priority+"</td><td>"+Site+"</td><td>"+Comments+"</td><td>"+Contact+"</td><td>"+Deletelink+"</td></tr>");
   // console.log(json);
 
-$(document).on("click",".deleteLink",function() {
-    $.Dialog({
-      shadow: true,
-      overlay: false,
-      draggable: true,
-      flat: true,
-      icon: '<span class="icon-remove fg-red"></span>',
-      title: 'Delete Ticket '+ticket+'?',
-      width: 450,
-      padding: 10,
-      content: '<h4>Are you sure you want to delete Ticket #'+ticket+'? </h4> <br>' +
-        '<button id="confirm" type="submit" class="large success"><i class="icon-thumbs-up on-left"></i> YEP!</button>'+
-		'<button id="cancel" type="reset" class="large inverse" ><i class="icon-thumbs-down on-left"></i> NOPE!</button>',
-      sysButtons:{
-        btnMin: false,
-        btnMax: false,
-        btnClose: true
-      }
-    });
-  });
      });
        $("#database").append("</tbody></table>");
     }
@@ -279,7 +259,19 @@ $(document).on("click",".deleteLink",function() {
  });
 }
 
+//Remove Ticket Functionality
+function removeTicket(data) {
+	console.log(data);
+    data.fadeOut(800, function() {
+      $(this).remove();
+    });
+  new Reload();
+}
 
+function closeDialog(){
+	($.Dialog).close();
+}
+ 
 // Reload function to refresh database
 
 function Reload() { 
@@ -290,6 +282,35 @@ function Reload() {
    new Notify();
    $(".tile").removeClass("selected");
 }
+
+$(document).on("click",".deleteLink",function() {
+	var ticket = $(this).parent().parent("tr").attr('id'), login = $("#log-in").text();
+    $.Dialog({
+      shadow: true,
+      overlay: false,
+      draggable: true,
+      flat: true,
+      icon: '<span class="icon-remove fg-red"></span>',
+      title: 'Delete Ticket '+ticket+'?',
+      width: 450,
+      padding: 10,
+      content: '<h4>Are you sure you want to delete Ticket #'+ticket+'? </h4> <br>' +
+        '<button id="confirm" type="submit" class="large primary" ><i class="icon-thumbs-up on-left"></i> Yes!</button>'+
+		'<button id="cancel" type="reset" class="large inverse" ><i class="icon-thumbs-down on-left"></i> NOPE!</button>',
+      sysButtons:{
+        btnMin: false,
+        btnMax: false,
+        btnClose: true
+      }
+    });
+	$("#confirm").on("click", function(ticket) {
+       removeTicket(ticket);
+    });
+	$("#cancel").on("click", function() {
+       closeDialog();
+    });
+});
+  
 
 $(document).keyup(function(e) {
 
@@ -307,12 +328,8 @@ $(document).keyup(function(e) {
   $(document).on("click", "#RELOAD", function() {
      Reload();
   });
-/* // TEST JSON STRING IN LOCALSTORAGE//
 
-var string =JSON.stringify( {bg:"#000000", color:"#ffffff",font:"Arial"} );
-localStorage.setItem("Settings", string);
-console.log(string +" set!");
-*/	 
+
 
  $("#mainWrap").setOptions({
      complete: function(){ 
