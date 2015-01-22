@@ -36,14 +36,12 @@
         JSONdata["Comments"] = $("#comments").val();
         JSONdata["ContactPref"] = $("#cPreference option:selected").val();
 		var data= JSON.stringify(JSONdata);
-      $.when(data).done( function() {
+      $.when(data).then( function() {
 		   console.log("Ticket values: "+ data );
     	 	  $("#formContainer").fadeOut(800, function() {
 	     		  $(this).html("<h1>Ticket Submitted!</h1>");
-		     	}).fadeIn(600);
-       }); 
-          $("#postTicket").prop("disabled", true);
-
+		     	}).fadeIn(600); });
+       $("#postTicket").prop("disabled", true);
   }
 
 $(function() {
@@ -251,9 +249,11 @@ $("#buttonDiv").buttongroup();
     });
 	
       $(document).on("submit","#ticketForm", function(e) {
-	    e.preventDefault();   
-         postTicket();
-		 
+	    e.preventDefault();
+        e.stopPropagation();
+          postTicket();
+        ($.Dialog).close();
+          $("#RELOAD").trigger("click");
 	  });
 
 });

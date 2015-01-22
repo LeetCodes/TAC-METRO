@@ -248,6 +248,7 @@ function getDB(){
         var Deletelink = "<div class='deleteLink toolbar transparent fg-red' title='Delete ticket #"+ticket+"?'><button><i class='icon-remove'></i></button></div>";
           $("#dbb").append("<tr><td>"+ticket+"</td><td>"+date+"</td><td>"+ETA+"</td><td>"+Priority+"</td><td>"+Site+"</td><td>"+Comments+"</td><td>"+Contact+"</td><td>"+Deletelink+"</td></tr>");
   // console.log(json);
+
 $(document).on("click",".deleteLink",function() {
     $.Dialog({
       shadow: true,
