@@ -260,10 +260,11 @@ function getDB(){
 }
 
 //Remove Ticket Functionality
-function removeTicket(data) {
-	console.log(data);
-    data.fadeOut(800, function() {
+function removeTicket(ticket) {
+	console.log(ticket);
+    $("#"+ticket).fadeOut(800, function() {
       $(this).remove();
+	  ($.Dialog).close();
     });
   new Reload();
 }
@@ -303,7 +304,7 @@ $(document).on("click",".deleteLink",function() {
         btnClose: true
       }
     });
-	$("#confirm").on("click", function(ticket) {
+	$("#confirm").on("click", function() {
        removeTicket(ticket);
     });
 	$("#cancel").on("click", function() {
