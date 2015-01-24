@@ -166,7 +166,9 @@
 
 
 <div id="bottom">
+	<a href="#" data-hint="START|Click here to open the SideBar" data-hint-position="top">
 	<div class="start"><h2 class="bg-transparent fg-white fg-hover-cyan"><i class="icon-windows on-right-more"></i></h2></div>
+	</a>
   <div class="taskbar">
     <ul>
       <li id="t-explor"><img src="img/Explorer128.png" title="Show / Hide the Ticket Window."><small class="fg-white on-right">Tickets</small> </li>

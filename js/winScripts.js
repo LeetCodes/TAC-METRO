@@ -224,6 +224,9 @@ $(function() {
 	start.on('click', function () {
         $('#sideBar').toggle("slide",{direction: "right"});
 	});	
+
+
+//Load Database from JSON string pulled out of database request in MySQL
 	
 function getDB(){
  $.ajax({
@@ -260,8 +263,14 @@ function getDB(){
 }
 
 //Remove Ticket Functionality
-function removeTicket(ticket) {
-	console.log(ticket);
+function removeTicket(ticket, login) {
+// console.log("Ticket #"+ticket+" was removed by "+login+".");
+	var not = $.Notify({
+    	caption: "Ticket Cleared!",
+        content: "Ticket #"+ticket+" was removed by "+login+"!",
+		style: {background: "#0073EA", color: "#F5FFFA"},
+        timeout: 5000 // 5 seconds
+    });
     $("#"+ticket).fadeOut(800, function() {
       $(this).remove();
 	  ($.Dialog).close();
@@ -295,7 +304,7 @@ $(document).on("click",".deleteLink",function() {
       title: 'Delete Ticket '+ticket+'?',
       width: 450,
       padding: 10,
-      content: '<h4>Are you sure you want to delete Ticket #'+ticket+'? </h4> <br>' +
+      content: '<h4>Are you sure you want to delete Ticket #'+ticket+', '+login+'? </h4> <br>' +
         '<button id="confirm" type="submit" class="large primary" ><i class="icon-thumbs-up on-left"></i> Yes!</button>'+
 		'<button id="cancel" type="reset" class="large inverse" ><i class="icon-thumbs-down on-left"></i> NOPE!</button>',
       sysButtons:{
@@ -305,7 +314,7 @@ $(document).on("click",".deleteLink",function() {
       }
     });
 	$("#confirm").on("click", function() {
-       removeTicket(ticket);
+       removeTicket(ticket, login);
     });
 	$("#cancel").on("click", function() {
        closeDialog();
