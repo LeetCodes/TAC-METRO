@@ -173,7 +173,7 @@
     <ul>
       <li id="t-explor"><img src="img/Explorer128.png" title="Show / Hide the Ticket Window."><small class="fg-white on-right">Tickets</small> </li>
       <li id="t-calc"><img src="img/cpanel.png" title="Show / Hide the TAC Toolbar."><small class="fg-white on-right">Toolbar</small> </li>
-      <li id="t-restore"><img src="img/network.png" title="See Logged in Users for today."><small class="fg-white on-right">Users</small> </li>      
+      <li id="t-network"><img src="img/network.png" title="See Logged in Users for today."><small class="fg-white on-right">Users</small> </li>      
 	  <li id="t-search"><img src="img/searchPC.png" title="Search for Tickets."><small class="fg-white on-right">Search</small> </li>
     </ul>
   </div>

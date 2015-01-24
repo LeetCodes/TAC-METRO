@@ -30,8 +30,8 @@ overflow: visible;
 
 .ajaxloader {
 position: absolute;
-width: 45px;
-height: 45px;
+width: 25px;
+height: 25px;
 left: 45%;
 top: 45%;
 padding: 10px;
