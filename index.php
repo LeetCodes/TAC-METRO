@@ -124,8 +124,8 @@
         <button class="btn-max"></button>
         <button class="btn-close"></button>
     </div>
-    <div class="content" class="container">
-	<p>
+    <div class="content">
+	<p class="container">
         <div id="database" class="bg-white">
 		</div>
     </p>
@@ -136,7 +136,8 @@
   </p>
 </div> <!-- //CLOSE Window -->
 
-<div class="tileBar row">
+<div class="tileBar">
+  <div class="row">
   <button id="newTicket" title="Open a New Ticket" class="shortcut fg-white ribbed-black bg-hover-darkTeal">
     <i class="icon-new"></i> 
 	  New Ticket
@@ -158,7 +159,7 @@
 	  <div class="tile-content image" id="Weather"></div>
   </div> <!-- //CLOSE #weatherMan -->
   
-  
+  </div> <!-- //CLOSE .row -->
 </div> <!-- //CLOSE #TileBar -->
 
 </div>
@@ -166,9 +167,7 @@
 
 
 <div id="bottom">
-	<a href="#" data-hint="START|Click here to open the SideBar" data-hint-position="top">
 	<div class="start"><h2 class="bg-transparent fg-white fg-hover-cyan"><i class="icon-windows on-right-more"></i></h2></div>
-	</a>
   <div class="taskbar">
     <ul>
       <li id="t-explor"><img src="img/Explorer128.png" title="Show / Hide the Ticket Window."><small class="fg-white on-right">Tickets</small> </li>

@@ -2,12 +2,62 @@ $(function() {
    var $USER = localStorage.getItem("Login"), window = $(".window"), start = $(".start"), startmenu = $("#startmenu"), timer = [];
     $("#log-in").html($USER);
     $("#sideBar, #startmenu").hide();
-	
+
+
+function closeDialog(){
+	($.Dialog).close();
+}
+ 	
 $(".taskbar").delegate("#t-explor","click",function(){
 	$(".window").toggle();
 });
 $(".taskbar").delegate("#t-calc","click",function(){
 	$(".tileBar").toggle();
+});
+$(".taskbar").delegate("#t-network","click",function(){
+    $.Dialog({
+      shadow: false,
+      overlay: false,
+      draggable: true,
+      flat: true,
+      icon: '<span class="icon-info fg-cobalt"></span>',
+      title: 'TAC Users logged in today',
+      width: 450,
+	  height: 150,
+      padding: 15,
+      content: function() {
+        $(this).load("../WhoIsLogged.php");
+	  },
+      sysButtons:{
+        btnMin: false,
+        btnMax: false,
+        btnClose: true
+      }
+    });	
+});
+$(".taskbar").delegate("#t-search","click",function(){
+    $.Dialog({
+      shadow: false,
+      overlay: true,
+      draggable: false,
+      flat: true,
+      icon: '<span class="icon-search fg-darkTeal"></span>',
+      title: 'Search TAC Tickets',
+      width: 400,
+	  height: 450,
+      padding: 15,
+      content: function() {
+        $(this).load("t-search.php", function(){
+		  $("#datepicker").datepicker();
+		});
+	  },
+      sysButtons:{
+        btnMin: false,
+        btnMax: false,
+        btnClose: true
+      }
+    });
+
 });
 $(document).delegate(".tile","click",function(){
 	$(this).toggleClass("selected");
@@ -77,6 +127,10 @@ $(this).children().delegate("click");
 $( ".taskbar ul" ).disableSelection();
 $(".drag").draggable({handle: "div.head",scroll: false,stack: "#wrapper div"});
 
+  $(document).on("submit", "#datepickr", function(e){ 
+    e.preventDefault();
+    closeDialog();
+  });
 
 function Notify() {
  $RowCounts = $("#Table tbody").children().length;
@@ -228,6 +282,7 @@ document.addEventListener(visibilityEvent, function(event) {
     new Continue();
   } else {
      new stopTimer();
+	 closeDialog();
   }
 });
 
@@ -289,7 +344,7 @@ function getDB(){
       $("#database").empty().html("<center><h1>Great Job,"+ $USER +"!</h1> <h3 class='subheader'> All tickets have been called back.</h3></center>");
   // console.log(json);
 	} else{
-    $("#database").html("<table id='Table' class='table striped hovered'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td><td><i class='icon-cancel fg-red' title='Remove Ticket'></i></td></tr></THEAD><TBODY id='dbb'>");
+    $("#database").html("<table id='Table' class='table striped'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td><td><i class='icon-cancel fg-red' title='Remove Ticket'></i></td></tr></THEAD><TBODY id='dbb'>");
       $.each(data, function(key, value) {
     var ticket=value.Ticket,date=value.Date,starttime=value.STime,ETA=value.ETA,Priority=value.Priority,Site=value.Site,Comments=value.Comments,Contact=value.ContactPref,Deleted=value.Deleted;
         var Deletelink = "<div class='deleteLink toolbar transparent fg-red' title='Delete ticket #"+ticket+"?'><button><i class='icon-remove'></i></button></div>";
@@ -308,24 +363,20 @@ function getDB(){
 
 //Remove Ticket Functionality
 function removeTicket(ticket, login) {
+	($.Dialog).close();
 // console.log("Ticket #"+ticket+" was removed by "+login+".");
-	var not = $.Notify({
-    	caption: "Ticket Cleared!",
-        content: "Ticket #"+ticket+" was removed by "+login+"!",
-		style: {background: "#0073EA", color: "#F5FFFA"},
-        timeout: 5000 // 5 seconds
-    });
     $("#"+ticket).fadeOut(800, function() {
       $(this).remove();
-	  ($.Dialog).close();
+    });
+  var not = $.Notify({
+    	caption: "Great Job, "+login+ "!",
+        content: "You removed ticket #"+ticket+"!",
+		style: {background: "#005A5A", color: "#F5FFFA"},
+        timeout: 5000 // 5 seconds
     });
   new Reload();
 }
 
-function closeDialog(){
-	($.Dialog).close();
-}
- 
 // Reload function to refresh database
 
 function Reload() { 

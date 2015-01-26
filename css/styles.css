@@ -311,6 +311,13 @@ cursor: pointer;
 text-align: center;
 }
 
+#dbWindow{
+overflow: hidden;
+}
+
+#Search-T{
+min-height: 350px;
+}
 
  #refreshCode{
  display: fixed;
