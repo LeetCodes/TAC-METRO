@@ -18,9 +18,6 @@ try {
     $dbh = new PDO('mysql:host=localhost;dbname=dbase', $user, $pass );
 	$query = $dbh->prepare("INSERT INTO tickets (Ticket,Date,STime,ETA,Priority,Site,Comments,Deleted,Removed_Datetime,removedby,Creator,ContactPref) VALUES (:ticket, DATE_FORMAT(CURDATE(),'%c/%e/%Y'), CURTIME(),ADDTIME(CURTIME(),'02:00:00'),:priority,:site,:comments,:removed,:creator,:contact");
     $query->bindParam(":ticket", $Ticket);
-    $query->bindParam(":date", $date);
-    $query->bindParam(":stime", $stime);
-    $query->bindParam(":eta", $eta);
     $query->bindParam(":priority", $priority);
     $query->bindParam(":site", $site);
     $query->bindParam(":removed", $removed);

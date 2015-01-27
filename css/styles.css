@@ -2,7 +2,7 @@
 @import url('jqUI.css');
 
 html,body {
-	font-family: "Open Sans", Arial, Sans-Serif;
+	font-family: "Open Sans", Consolas, "Droid Sans", Roboto, Cabin, "Arial Black", Lobster, Arial, Sans-Serif;
 	font-size: 11pt;
 	margin: 0px;
 	width: 100%;
@@ -30,8 +30,8 @@ overflow: visible;
 
 .ajaxloader {
 position: absolute;
-width: 25px;
-height: 25px;
+width: 45px;
+height: 45px;
 left: 45%;
 top: 45%;
 padding: 10px;
@@ -297,10 +297,19 @@ height: 95%;
 width: 100% !important;
 }
 
+
 .tileBar{
 position: fixed;
 bottom: 50px;
-white-space: nowrap !important;
+vertical-align: bottom;
+clear: none;
+}
+
+#weatherMan{
+vertical-align: bottom;
+clear:none;
+float:right;
+margin-left:5px;
 }
 
 .deleteLink{

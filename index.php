@@ -21,7 +21,7 @@
 
 <div id="mainWrap" class="grid fluid">
 <!-- BEGIN SIDE-BAR -->
-<nav class="sidebar bg-darkTeal fg-white span6 container" id="sideBar">
+<nav class="sidebar bg-darkTeal fg-white span5 container" id="sideBar">
 
 <ul> 
 	<li class="title"><b class="text-center">TAC-ALERT8</b></li>
@@ -136,8 +136,8 @@
   </p>
 </div> <!-- //CLOSE Window -->
 
-<div class="tileBar">
-  <div class="row">
+<div class="tileBar grid fluid">
+  <div class="span6 row">
   <button id="newTicket" title="Open a New Ticket" class="shortcut fg-white ribbed-black bg-hover-darkTeal">
     <i class="icon-new"></i> 
 	  New Ticket
@@ -149,7 +149,7 @@
       Edit Tickets
   </button>
   
-  <div id="weatherMan" data-role="live-tile" data-effect="slideDown" data-easing="easeInExpo" class="tile double bg-darkBlue fg-white bg-hover-amber" style="clear:none;float:right;margin-left:5px;">
+  <div id="weatherMan" data-role="live-tile" data-effect="slideDown" data-easing="easeInExpo" class="tile double bg-darkBlue fg-white bg-hover-amber">
     <div class="tile-content icon">
           <i class="icon-sun-3"></i>
     </div>

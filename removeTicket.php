@@ -4,11 +4,11 @@ $pass="T3lemanagement";
 $Request = file_get_contents('php://input');
 $DELETE = json_decode($Request, true);
 $Ticket = $DELETE["Ticket"];
-$User = $DELETE["User"];
+$User = $DELETE["Login"];
 
 try {
     $dbh = new PDO('mysql:host=localhost;dbname=dbase_backup', $user, $pass );
-	$query = $dbh->prepare('UPDATE Tickets SET Deleted="X",Removedby=:user,Removed_Datetime= DATE_FORMAT(CURDATE(),"%c/%e/%Y") WHERE ticket=:ticket');
+	$query = $dbh->prepare('UPDATE tickets SET Deleted="X",removedby= :user,Removed_Datetime=NOW() WHERE Ticket= :ticket');
     $query->bindParam(':ticket', $Ticket);
     $query->bindParam(':user', $User);
 	

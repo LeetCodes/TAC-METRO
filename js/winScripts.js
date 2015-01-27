@@ -71,50 +71,6 @@ $('.caption').delegate(".btn-min","click",function(){
 $('.caption').delegate(".btn-close","click",function(){
 	$(this).parent().parent().hide();
 });
-// Click event for showing logged-in users and recently taken tickets.
-$('.taskbar').delegate("#t-network","click",function(){
-    $.Dialog({
-      shadow: false,
-      overlay: false,
-      draggable: true,
-      flat: true,
-      icon: '<span class="icon-accessibility"></span>',
-      title: 'Users logged in to TAC-ALERT',
-      width: 450,
-      padding: 10,
-      content: function() {
-          $(this).load('viewFetch.php');
-      },
-      sysButtons:{
-        btnMin: false,
-        btnMax: false,
-        btnClose: true
-      }
-    });
-});
-
-$('.taskbar').delegate("#t-search","click",function(){
-    $.Dialog({
-      shadow: false,
-      overlay: true,
-      draggable: false,
-      flat: false,
-      icon: '<span class="icon-search"></span>',
-      title: 'Search Tickets',
-      width: 500,
-	  height: 350,
-      padding: 10,
-      content: function() {
-          $(this).load('editTicket.php');
-      },
-      sysButtons:{
-        btnMin: false,
-        btnMax: false,
-        btnClose: true
-      }
-    });
-});
-
 $( ".taskbar ul" ).sortable({scroll: false,containment: "parent",
 revert: true,
 start:function(){
@@ -329,10 +285,10 @@ $(function() {
 	
 function getDB(){
  $.ajax({
-  url : "homeDB.php",
+  url : "tacDB.php",
   dataType : "json", 
   beforeSend : function(){
-    $("#database").html("<p class='clearfix'><span class='ajaxloader'></span></p>");
+    $("#database").html("<p><span class='ajaxloader'></span></p>");
    },
   error : function(err){
       $("#database").html("<p> <b>Sorry</b>, something is not quite right here.<blockquote>"+ err + "</blockquote></p>");
@@ -363,18 +319,37 @@ function getDB(){
 
 //Remove Ticket Functionality
 function removeTicket(ticket, login) {
-	($.Dialog).close();
+var jsonData = JSON.stringify( {"Ticket":ticket,"Login":login} );
+
+	$.ajax({
+		url: 'removeTicket.php',
+		type: 'POST',
+		dataType: 'json',
+		data: jsonData,
+		error: function(err){
+			alert('Sorry, your ticket could not be removed.'+ err);
+		},
+		success: function(response) {
+			if (response == '1'){
+              $("#"+ticket).fadeOut(800, function() {
+                $(this).remove();
+              });
+            var not = $.Notify({
+    	      caption: "Great Job, "+login+ "!",
+              content: "You removed ticket #"+ticket+"!",
+		      style: {background: "#005A5A", color: "#F5FFFA"},
+              timeout: 5000 // 5 seconds
+            });
+            ($.Dialog).close();
 // console.log("Ticket #"+ticket+" was removed by "+login+".");
-    $("#"+ticket).fadeOut(800, function() {
-      $(this).remove();
-    });
-  var not = $.Notify({
-    	caption: "Great Job, "+login+ "!",
-        content: "You removed ticket #"+ticket+"!",
-		style: {background: "#005A5A", color: "#F5FFFA"},
-        timeout: 5000 // 5 seconds
-    });
-  new Reload();
+            } else {
+				alert('I was not able to process your request.');
+			}
+		},
+       complete: function() {
+		     new Reload();
+	   }
+	});
 }
 
 // Reload function to refresh database
@@ -449,7 +424,7 @@ $(document).keyup(function(e) {
      overlay: true,
      draggable: true,
      flat: false,
-     width: '30%',
+     width: '33%',
      height: '55%',
      icon: '<span class="icon-clipboard-2"></span>',
      title: 'Set Preferences',
