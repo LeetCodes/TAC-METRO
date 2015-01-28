@@ -28,9 +28,9 @@
   <br>
     <li class="noClear">	
   <form action='http://tac-wiki/wiki/index.php/Special:SphinxSearch' id='WikiForm' method='get' name='wSearch' target='_new'>
-      <div class="span6 input-control text">
-         <input id='sValue' name='title' type='hidden' value='Special:SphinxSearch'> 
-         <input id='search_text' maxlength='150' name='sphinxsearch' placeholder='Search the Wiki' tabindex='1' type='search'> 
+      <div class="span5 input-control text">
+         <input type='hidden' id='sValue' name='title' value='Special:SphinxSearch'> 
+         <input type='text' id='search_text' maxlength='150' name='sphinxsearch' placeholder='Search the Wiki' tabindex='1'  > 
         <button name='Search_Wiki' id='search_button' name='fulltext' class="large btn-search"></button>
   </form>
       </div>
@@ -117,21 +117,21 @@
 <div id="bodyWrapper" class="offset1 span12">
 
 <div id="dbWindow" class="window shadow bd-steel ol-steel">
-    <div id="dbCaption" class="caption fg-white ol-black bd-steel bg-steel">
+    <div id="dbCaption" class="caption fg-black ol-black bd-steel bg-steel">
         <span class="icon icon-windows "></span>
-        <div class="title fg-white">TICKET ALERT WINDOW</div>
+        <div class="title">TICKET ALERT WINDOW</div>
         <button class="btn-min"></button>
         <button class="btn-max"></button>
         <button class="btn-close"></button>
     </div>
     <div class="content">
 	<p class="container">
-        <div id="database" class="bg-white">
+        <div id="database" class="bg-transparent">
 		</div>
     </p>
 		
     </div>
-  <p id="refreshCode" class="code-text text-left"><small class="muted-text fg-white">
+  <p id="refreshCode" class="code-text text-left"><small class="muted-text">
       Press <button id="RELOAD" class="mini rounded">ESC</button> to refresh.</small>
   </p>
 </div> <!-- //CLOSE Window -->

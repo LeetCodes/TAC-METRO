@@ -48,9 +48,9 @@
 		      }
 			  
 			if (settings.color ) {
-				$('#mainWrap').css( 'color', settings.color );
+				$('#mainWrap, #dbWindow .icon, #dbWindow .title').css( 'color', settings.color );
 			} else {
-				$('#mainWrap').color( settings.color );
+				$('#mainWrap, #dbWindow .icon, #dbWindow .title').color( settings.color );
 		      }  
 			  
 			if ( settings.font ) {
@@ -70,12 +70,10 @@
 		      $("#dbWindow").removeClass('bd-steel ol-steel');
 		      $('#dbCaption').removeClass('ol-steel bd-steel bg-steel');
 			  $('#dbCaption').addClass( settings.window );
-			  $('#dbCaption, #dbWindow').addClass(  settings.window );
-			  $('#dbCaption, #dbWindow').addClass(  settings.window );
+			  $('#dbCaption, #dbWindow, #database').addClass(  settings.window );
 			} else {
 			    $('#dbCaption').addClass(  settings.window );
-			    $('#dbCaption, #dbWindow').addClass(  settings.window );
-			    $('#dbCaption, #dbWindow').addClass(  settings.window );
+			    $('#dbCaption, #dbWindow, #database').addClass(  settings.window );
 		      }
 
 			if ( $.isFunction( settings.complete ) ) {

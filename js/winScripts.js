@@ -300,10 +300,10 @@ function getDB(){
       $("#database").empty().html("<center><h1>Great Job,"+ $USER +"!</h1> <h3 class='subheader'> All tickets have been called back.</h3></center>");
   // console.log(json);
 	} else{
-    $("#database").html("<table id='Table' class='table striped'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td><td><i class='icon-cancel fg-red' title='Remove Ticket'></i></td></tr></THEAD><TBODY id='dbb'>");
+    $("#database").html("<table id='Table' class='table hovered bg-transparent'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td><td><i class='icon-cancel fg-red' title='Remove Ticket'></i></td></tr></THEAD><TBODY id='dbb'>");
       $.each(data, function(key, value) {
     var ticket=value.Ticket,date=value.Date,starttime=value.STime,ETA=value.ETA,Priority=value.Priority,Site=value.Site,Comments=value.Comments,Contact=value.ContactPref,Deleted=value.Deleted;
-        var Deletelink = "<div class='deleteLink toolbar transparent fg-red' title='Delete ticket #"+ticket+"?'><button><i class='icon-remove'></i></button></div>";
+        var Deletelink = "<div class='deleteLink toolbar transparent fg-black fg-hover-red' title='Delete ticket #"+ticket+"?'><button><i class='icon-remove'></i></button></div>";
           $("#dbb").append("<tr id="+ticket+"><td>"+ticket+"</td><td>"+date+"</td><td>"+ETA+"</td><td>"+Priority+"</td><td>"+Site+"</td><td>"+Comments+"</td><td>"+Contact+"</td><td>"+Deletelink+"</td></tr>");
   // console.log(json);
 
