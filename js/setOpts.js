@@ -32,11 +32,11 @@
      } else{
 				// Establish our default settings
 		var settings = $.extend({
-		    bg : '#008080',
+		    bg : 'dark',
 			font : 'Open Sans',
 			color : '#212121',
-			sideBar: '#004050',
-			window: 'ol-steel bd-steel bg-steel',
+			sideBar: 'darker',
+			window: 'ol-black',
 			complete : null
 		}, options);
     }
@@ -44,7 +44,7 @@
 			if ( settings.bg ) {
 				$(this).addClass( 'bg-'+ settings.bg );
 			} else {
-				$(this).bg( settings.bg );
+				$('#mainWrap').addClass('bg-'+ settings.bg );
 		      }
 			  
 			if (settings.color ) {
@@ -56,14 +56,14 @@
 			if ( settings.font ) {
 			  $('#database').css( 'fontFamily', settings.font );
 			} else {
-				$('#database').font( settings.font );
+				$('#database').css('fontFamily', settings.font );
 		      }
 			  
            if ( settings.sideBar ) {
 		      $('#sideBar').removeClass('bg-darkTeal');
 			  $('#sideBar').addClass( 'bg-'+ settings.sideBar );
 			} else {
-				$('#sideBar').css( settings.sideBar );
+				$('#sideBar').addClass('bg-'+ settings.sideBar );
 		      }			
 			  
            if ( settings.window ) {

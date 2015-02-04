@@ -131,9 +131,9 @@
     </p>
 		
     </div>
-  <p id="refreshCode" class="code-text text-left"><small class="muted-text">
+  <span id="refreshCode" class="code-text text-left"><small class="muted-text">
       Press <button id="RELOAD" class="mini rounded">ESC</button> to refresh.</small>
-  </p>
+  </span>
 </div> <!-- //CLOSE Window -->
 
 <div class="tileBar grid fluid">

@@ -14,6 +14,9 @@ $(".taskbar").delegate("#t-explor","click",function(){
 $(".taskbar").delegate("#t-calc","click",function(){
 	$(".tileBar").toggle();
 });
+
+// Clicking the Network item in the taskbar will pop open a $.Dialog showing who is logged in and the most recent ticket activity.
+
 $(".taskbar").delegate("#t-network","click",function(){
     $.Dialog({
       shadow: false,
@@ -35,6 +38,9 @@ $(".taskbar").delegate("#t-network","click",function(){
       }
     });	
 });
+
+// Clicking the Search item in the Taskbar will pop open a $.Dialog showing the datePicker and a submit button that will open a new tab/page with results displayed.
+
 $(".taskbar").delegate("#t-search","click",function(){
     $.Dialog({
       shadow: false,
@@ -138,6 +144,8 @@ var getTime = function() {
       console.log('Page Reloaded. '+ getTime() ); 
       new f(); 
     }	
+
+// function used to display Weather information in the #weather live tile
 
 function weatherMan(){
   var URL = "weatherMan.json";
@@ -267,7 +275,7 @@ $(function() {
 	});
   window.resizable({
 		handles: 'n, s, e, w, nw, sw, ne, se',
-		containment: 'body',
+		containment: '#mainWrap',
 		minHeight: 250,
 		minWidth: 400,
 		maxHeight: $('#mainWrap').height()-33,
@@ -417,6 +425,7 @@ $(document).keyup(function(e) {
     }
   });
 
+// event to set TAC-ALERT Options using setOpts.js library extension
  
  $(document).on('click', "#Preferences", function() {
    $.Dialog({

@@ -329,10 +329,11 @@ min-height: 350px;
 }
 
  #refreshCode{
- display: fixed;
+ display: absolute;
  bottom: 0px;
  vertical-align: bottom;
  margin: 0px;
+ padding: 0px;
  }
  
  .ui-autocomplete, .ui-menu-item{
