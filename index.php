@@ -23,6 +23,20 @@
 <!-- BEGIN SIDE-BAR -->
 <nav class="sidebar bg-darkTeal fg-white span5 container" id="sideBar">
 
+<div class="row">
+ <a class="dropdown-toggle fg-white" href="#">
+   <div class="user-id bg-darker bg-hover-gray">
+     <div class="user-id-image"> <i class="icon-user"></i> </div>
+     <div class="user-id-name">
+	   <b id="log-in" class="first-name"></b>
+	 </div>
+   </div>
+ </a>   
+            <ul class="dropdown-menu place-right" data-role="dropdown">
+                <li><a href="#" id="TAClogin"> <i class="icon-user-3 on-left"></i> <b class="text-success">Log in</b> </a></li>
+                <li><a href="TAClogout.php" id="TAClogout"><b class="text-alert"><i class="icon-cancel on-left"></i> Log out </b> </a></li>
+            </ul>
+</div>
 <ul> 
 	<li class="title"><b class="text-center">TAC-ALERT8</b></li>
   <br>
@@ -64,16 +78,8 @@
 
 <span id="StatusBlock" class="two-columns">
 <div class="clearfix">
-  <div class="tile bg-emerald bg-hover-red" id="LoginStatus">
-      <div class="tile-content icon">Logged in as <b id="log-in"></b>
-          <i class="icon-user"></i>
-      </div>
-      <div class="brand bg-black">
-          <span class="label fg-white">Log Out?</span>
-      </div>
-  </div>  <!-- // CLOSE #LoginStatus -->
   
-  <div class="tile bg-orange bg-hover-amber" id="Preferences">
+  <div class="tile ribbed-darkIndigo bg-hover-indigo" id="Preferences">
       <div class="tile-content icon">
           <i class="icon-cog"></i>
       </div>
@@ -81,21 +87,9 @@
           <span class="label fg-white">Settings</span>
       </div>
   </div> <!-- //CLOSE #Preferences -->
-  
-</div> <!-- //CLOSE .clearfix -->
-<div class="clearfix">
-<div id="wiki" class="tile bg-indigo fg-white bg-hover-indigo">
-   <a href="http://tac-wiki/wiki/index.php" title="TAC's Wiki knowledgebase" target="_NEW">
-	<div class="tile-content icon">
-          <i class="icon-lab"></i>
-    </div>
-   </a>
-      <div class="brand bg-black">
-          <span class="label fg-white">TAC-Wiki</span>
-      </div>
-  </div> <!-- //CLOSE #wiki -->
-<div id="statistics" class="tile bg-darkGreen fg-white">
-   <a href="#" title="Generate Ticket Statistics" target="_NEW">
+ 
+<div id="statistics" class="tile bg-darkMagenta fg-white bg-hover-magenta">
+   <a href="#" title="Generate Ticket Statistics" >
 	<div class="tile-content icon">
           <i class="icon-stats-up"></i>
     </div>

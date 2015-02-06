@@ -149,24 +149,16 @@ var getTime = function() {
 
 function weatherMan(){
   var URL = "weatherMan.json";
-//  var URL = "http://api.wunderground.com/api/f4de0ee4ffd72094/geolookup/conditions/q/IL/Chicago.json?callback=?",
-//      JSONcache = JSON.parse(sessionStorage.getItem('JSONcache'));
-//  if (!JSONcache){
-
     $.getJSON(URL, function() {
-//   console.log("weatherMan() generating report...");
     })
     .done(function(parsed_json) {
         var pattern=  new RegExp("^(.{26})([a-z])"), 
         temperF = parsed_json.current_observation.temp_f, 
         humidity = parsed_json.current_observation.relative_humidity, 
-//      Wreport = parsed_json.current_observation.weather, 
-//      time = parsed_json.current_observation.observation_time, 
         Icon = parsed_json.current_observation.icon_url, 
         IconURL = Icon.replace(pattern, "$1k"), 
         htmlString = "<center><h1 id='temp' class='fg-white'><img id='wIcon' src='"+ IconURL +"' />"+ temperF +"<sup><i class='icon-Fahrenheit'></i></sup></h1></center>";
    $('#Weather').html(htmlString); 
-// JSONcache = sessionStorage.setItem('JSONcache', JSON.stringify(htmlString));
     })
     .fail(function(){
         $('#Weather').empty().html("<b>Sorry</b>, something's not quite right here.");
@@ -175,10 +167,34 @@ function weatherMan(){
     console.log("weatherMan() has completed updating.");
     });
   }
-//  else {
-//  htmlString = JSONcache;
-//     $('#Weather').html(htmlString).fadeIn(900); 
-//  }
+
+
+// FORECAST() to be added later that updates conditions when #Weather live tile is clicked
+/*
+function foreCast(){
+  var URL = "../forecast.json";
+
+    $.getJSON(URL, function() {
+
+    })
+    .done(function(parsed_json) {
+        var pattern=  new RegExp("^(.{26})([a-z])"), 
+        temperF = parsed_json.current_observation.temp_f, 
+        humidity = parsed_json.current_observation.relative_humidity, 
+        Icon = parsed_json.current_observation.icon_url, 
+        IconURL = Icon.replace(pattern, "$1k"), 
+        htmlString = "<center><h1 id='temp' class='fg-white'><img id='wIcon' src='"+ IconURL +"' />"+ temperF +"<sup><i class='icon-Fahrenheit'></i></sup></h1></center>";
+   $('#Weather').html(htmlString); 
+    })
+    .fail(function(){
+        $('#Weather').empty().html("<b>Sorry</b>, something's not quite right here.");
+      })
+    .always(function(){
+    console.log("weatherMan() has completed updating.");
+    });
+  }
+
+*/
 
 
 function f() {
@@ -474,7 +490,8 @@ $(document).on('click', "#statistics", function() {
      }
     });
      return false;
-});	
+});	 
+
 
 //  event for New Ticket Dialog window
   
@@ -502,6 +519,33 @@ $(document).on('click', "#newTicket", function() {
      return false;
 });
 
+//event for logging in a TAC user
+
+$(document).on('click', "#TAClogin", function() {
+   $.Dialog({
+     shadow: false,
+     overlay: false,
+     draggable: true,
+     flat: true,
+     width: '333',
+     height: '555',
+     icon: '<span class="icon-user"></span>',
+     title: 'Log in to TACAlert',
+     padding: 15,
+     content: function(){
+       METRO_AUTO_REINIT = true;
+       $(this).load("TAClogin.php");
+     },
+     sysButtons:{
+        btnMin: false,
+        btnMax: false,
+        btnClose: true
+     }
+    });
+     return false;
+});	
+
+// initialize the Favico numbering system
  var $RowCounts = $("#Table tr").length, $COUNT = parseInt( ($RowCounts - 1), 10), favicon = new Favico({
     "type" : "rectangle",
     "bgColor" : '#FADC00',
