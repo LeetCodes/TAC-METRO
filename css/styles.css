@@ -282,7 +282,7 @@ clear: none;
 }
 
 #Table td{
-align: center;
+text-align: center;
 vertical-align: top;
 }
 
@@ -356,6 +356,7 @@ min-height: 350px;
   float: right;
   clear: both;
 }
+
 .metro .user-id .user-id-image {
   width: 40px;
   height: 40px;
@@ -365,7 +366,9 @@ min-height: 350px;
   background-color: #555;
   text-align: center;
   vertical-align: middle;
+  border-radius: 20px;
 }
+
 .metro .user-id .user-id-image img,
 .metro .user-id .user-id-image [class*="icon-"] {
   color: inherit;
@@ -378,6 +381,7 @@ min-height: 350px;
 }
 .metro .user-id .user-id-image [class*="icon-"] {
   padding: 10px;
+
 }
 .metro .user-id .user-id-name {
   float: right;
@@ -401,7 +405,3 @@ min-height: 350px;
 .metro .user-id .user-id-name .last-name {
   font-size: 12pt;
 }
-
-.metro .user-id:hover {
-  background-color: #404040;
-} 

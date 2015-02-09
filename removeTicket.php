@@ -7,7 +7,7 @@ $Ticket = $DELETE["Ticket"];
 $User = $DELETE["Login"];
 
 try {
-    $dbh = new PDO('mysql:host=localhost;dbname=dbase_backup', $user, $pass );
+    $dbh = new PDO('mysql:host=localhost;dbname=dbase', $user, $pass );
 	$query = $dbh->prepare('UPDATE tickets SET Deleted="X",removedby= :user,Removed_Datetime=NOW() WHERE Ticket= :ticket');
     $query->bindParam(':ticket', $Ticket);
     $query->bindParam(':user', $User);

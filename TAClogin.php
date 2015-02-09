@@ -1,4 +1,5 @@
 <div id='wrap'>
+<script type="text/javascript" src="js/metro.min.js"></script>
 <?php 
 require_once("database.php"); 
 include("autologin.php");
@@ -8,7 +9,7 @@ include("autologin.php");
 			$USER = $_SERVER["REMOTE_ADDR"];
 			$success = "#FFCCCC";
 ?>
-		<div id='out'>
+		<div id='out' class="input-control">
 		<form id='form1' name='form1' method='post' action='checklogin.php'>
 <?php	
  $IP = $_SERVER['REMOTE_ADDR'];
@@ -18,47 +19,64 @@ include("autologin.php");
   $MyPass = $checkup[1];
   ?>
 
-<span id='chkbx'><input type="checkbox" id="auto" name="autologin" value="1"> Remember Me</span> &nbsp; &nbsp; 
-<label for="Username">Username: </label><input name="myusername" type="text" id="myusername"  required>&nbsp;
-<label for="Password">Password: </label><input name="mypassword" type="password" id="mypassword">&nbsp;
-<button type="submit" name="Submit" value="Login"><img src='icons/user_go.png' border='0' /> Log In</button>
-</form>
-</span>
+<div class="input-control text">
+  <input name="myusername" type="text" id="myusername"  placeholder="Username" />
+ </div>
+<div class="input-control password" data-role="input-control">
+  <input name="mypassword" type="password" value="" id="mypassword" placeholder="Password"/> 
+  <button class="btn-reveal"></button>
+</div>
 
-</div><span id="RegUser"><a href="RegUsr.php" target="_NEW">Click here <br> to register.</a></span>
+<br><br>
+<div id="chkbx" class="input-control switch margin10" data-role="input-control">
+    <label>Remember Me
+  <input type="checkbox" id="auto" name="autologin" value="1" />
+  <span class="check"></span>
+    </label>
+</div> 
+
+<br>
+<button type="submit" name="Submit" value="Login" class="large button"><i class="icon-user on-right"></i> Log In</button>
+</form>
+
+
+</div>
+<span id="RegUser"><a href="RegUsr.php" target="_NEW">Click here to register.</a></span>
+
+<script type="text/javascript">
+$(function() {
+    $("#form1").on("submit", function(){
+      var loginName = "<?php echo $USER;?>";
+        localStorage.setItem("Login", loginName);
+    });
+});
+</script>
 <?php
 };
-
-
 function LoggedIn() {
 		$IP = $_SERVER['REMOTE_ADDR'];
 		date_default_timezone_set('America/Chicago');
 		$LastLogged = date('n/j/Y \@ g:i A');
 		$_SESSION['myusername'] = $_COOKIE['LoggedInAs'];
-		
-
-		/*	*** 
-				Update a SQL table to denote the last time a user has logged in to the Alert System.		
-																																			***	*/
 
 		$USER = $_SESSION['myusername'];
 		$Uuser = $_COOKIE['LoggedInAs'];
 		$user = $_SESSION['myusername'];
-?>
 
+		mysql_query("UPDATE dbase.members SET IP='$IP', LastLoggedIn='$LastLogged' WHERE username='$user'") or die("Could not update LastLoggedIn!". mysql_error() );
+?>
+		<div id='in' >		
+You have been logged in as <b id="LoggedIn" >  <?php echo ucwords($Uuser) ;?> </b> - <small>Thank you</small>. 
+
+</div><a href='TAClogout.php'><span id='outlog'> <b>Log Out?</b> </a></span>
 <script type="text/javascript">
 $(function() {
 var loginName = "<?php echo $USER;?>";
 localStorage.setItem("Login", loginName);
+
+setTimeout( window.location.reload(true), 10000);
 });
 </script>
-<?php
-		mysql_query("UPDATE dbase.members SET IP='$IP', LastLoggedIn='$LastLogged' WHERE username='$user'") or die("Could not update LastLoggedIn!". mysql_error() );
-?>
-		<div id='in' >		
-You are already logged in as <b id="LoggedIn" >  <?php echo ucwords($Uuser) ;?> </b> - <small>Thank you</small>. 
-
-</div><a href='TAClogout.php'><span id='outlog'> <b>Log Out?</b> </a></span>
 <?php
 };
 
@@ -70,15 +88,10 @@ You are already logged in as <b id="LoggedIn" >  <?php echo ucwords($Uuser) ;?> 
   }
 	
 	if($cookie) {
-/***	
-		LOGGED IN WITH COOKIES
-													****/	
-													LoggedIn();
-		
+        LoggedIn();
 	}
 	else {
-		NotLoggedIn();
+        NotLoggedIn();
 	}
-	
 ?>	
 </div>

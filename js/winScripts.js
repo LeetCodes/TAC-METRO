@@ -1,7 +1,13 @@
 $(function() {
-   var $USER = localStorage.getItem("Login"), window = $(".window"), start = $(".start"), startmenu = $("#startmenu"), timer = [];
-    $("#log-in").html($USER);
+  var $USER = localStorage.getItem("Login"), window = $(".window"), start = $(".start"), startmenu = $("#startmenu"), timer = [];
     $("#sideBar, #startmenu").hide();
+    
+	if($USER != null) {
+	$("#log-in").html($USER);
+	} else{
+	  var loginName = $("#IPADDRESS").text();
+	  $("#log-in").html(loginName);
+    }
 
 
 function closeDialog(){
@@ -474,8 +480,8 @@ $(document).on('click', "#statistics", function() {
      overlay: false,
      draggable: true,
      flat: true,
-     width: '700',
-     height: '475',
+     width: '700px',
+     height: '475px',
      icon: '<span class="icon-bars"></span>',
      title: 'Today\'s Statistics',
      padding: 5,
@@ -523,12 +529,12 @@ $(document).on('click', "#newTicket", function() {
 
 $(document).on('click', "#TAClogin", function() {
    $.Dialog({
-     shadow: false,
+     shadow: true,
      overlay: false,
      draggable: true,
      flat: true,
-     width: '333',
-     height: '555',
+     width: '300px',
+     height: '355px',
      icon: '<span class="icon-user"></span>',
      title: 'Log in to TACAlert',
      padding: 15,
@@ -542,7 +548,6 @@ $(document).on('click', "#TAClogin", function() {
         btnClose: true
      }
     });
-     return false;
 });	
 
 // initialize the Favico numbering system

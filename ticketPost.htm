@@ -37,12 +37,31 @@
         JSONdata["ContactPref"] = $("#cPreference option:selected").val();
 		var data= JSON.stringify(JSONdata);
       $.when(data).then( function() {
-		   console.log("Ticket values: "+ data );
-    	 	  $("#formContainer").fadeOut(800, function() {
-	     		  $(this).html("<h1>Ticket Submitted!</h1>");
-		     	}).fadeIn(600); });
-       $("#postTicket").prop("disabled", true);
+               $.ajax({
+                 type: "POST",
+                 url:  "postTicket.php",
+                 data: data, 
+				 dataType: 'json',
+                 success: function(response){
+                  if (response == '1'){
+                    $("#formContainer").fadeOut(800, function() {
+                      $(this).html("<h1>Ticket Submitted!</h1>");
+                    }).fadeIn(600);
+                    $("#postTicket").prop("disabled", true);
+                  } else {
+			         $("#formContainer").fadeOut(800, function(err){
+			           $(this).html("Sorry, the following error occurred: "+err);
+			         });
+                    }
+	            },
+				complete: function() {
+				        ($.Dialog).close();
+                        $("#RELOAD").trigger("click");
+                }
+        });
+    });
   }
+  
 
 $(function() {
 $("#buttonDiv").buttongroup();
@@ -252,8 +271,6 @@ $("#buttonDiv").buttongroup();
 	    e.preventDefault();
         e.stopPropagation();
           postTicket();
-        ($.Dialog).close();
-          $("#RELOAD").trigger("click");
 	  });
 
 });

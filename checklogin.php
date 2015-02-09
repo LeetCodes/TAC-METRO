@@ -21,18 +21,10 @@ include_once 'do_login.php';
 
 
 // Connect to server and select databse.
-mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
-mysql_select_db("$db_name")or die("cannot select DB");
+mysql_connect($host, $username, $password)or die("cannot connect"); 
+mysql_select_db($db_name)or die("cannot select DB");
 
-/* ATTEMPTED COOKIE LOGIC
-	if(isSet($_COOKIE['LoggedInAs'])) {
-  $check = mysql_query("select username,password from members where IP='$IP'");
-  $chkp = mysql_fetch_row($check);
-  $LoginName = $chkp[0];
-  $LoginPass= $chkp[1];
-  
-}
-else { */
+
 // username and password sent from form 
 $myusername=$_POST['myusername']; 
 $password=$_POST['mypassword'];
@@ -69,8 +61,6 @@ if($count==1){
 $_SESSION['myusername'] =$myusername;
 $_SESSION['mypassword'] = $mypassword;
 $_SESSION['auth'] = 1;
-//		$sql2= "UPDATE $tbl_name SET IP='$IP', LastLoggedIn='$LastLogged' WHERE username='$myusername'";
-//			mysql_query($sql2);
 
 setcookie("LoginNum", $LoginID, $Expires); 
 setcookie("LoggedInAs", $myusername, $Expires); 
@@ -83,16 +73,16 @@ localStorage.setItem('Login', loginName);
 });
 </script>
 <?php
-header("refresh:1; url=".$_SERVER['HTTP_REFERER']);
+header("refresh:2; url=".$_SERVER['HTTP_REFERER']);
 	exit;
 }
 else {
 ?>
-<body bgcolor=#000000>
-<font face='Lucida Console' color=#FF0000>
+<body bgcolor="#000000">
+<font face='Lucida Console' color="#FF0000">
 <?php
-echo "<center><span style='vertical-align:middle; text-align:center; padding:2px;'> <img src='lesko.jpg' title='Lesko has questions for you.' /></span><br>";
-echo "<center> <big><h1>Wrong Username or Password</h1></big> </font>
+print "<center><span style='vertical-align:middle; text-align:center; padding:2px;'> <img src='lesko.jpg' title='Lesko has questions for you.' /></span><br>";
+print "<center> <big><h1>Wrong Username or Password</h1></big> </font>
 <span style='display:block;padding:25px;background:#888888;color:#f5fffa;border-radius:4px;border: 5px dotted #000000;'>
 <h2>Not Registered?</h2>
 <h3><a href='RegUsr.php'>Click here</a> to add yourself to the User Database.</h3>
