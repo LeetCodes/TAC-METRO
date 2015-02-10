@@ -205,6 +205,7 @@ padding: 10px;
 	height: 40px;
 	margin-left: 10px;
 	float: left;
+	cursor: pointer;
 }
 
 #bottom .taskbar {
@@ -341,6 +342,10 @@ min-height: 350px;
    color: #212121;
    z-index: 999999;
  }
+ 
+#dbCaption{
+cursor: move;
+}
 
 /* 
 // .sideBar Login block

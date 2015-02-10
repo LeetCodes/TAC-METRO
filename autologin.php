@@ -28,7 +28,7 @@ if(isSet($_COOKIE[$cookie_name]))
 				include_once 'do_login.php';
 				}
 				else {
-				header("Location: index.php");
+				header("refresh:1; url=". $_SERVER['HTTP_REFERER']);
 				}
 		exit;
 		}

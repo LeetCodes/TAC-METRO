@@ -28,9 +28,9 @@ try {
 	if($query->execute() ){
 	  print "1";
 	  //print "<br>". var_dump($Ticket);
-    } else {
-	    print "OH NO!";
-	  }
+    } else{
+		var_dump($CREATE);
+      }
       $dbh = null;
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
