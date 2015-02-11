@@ -236,7 +236,7 @@ $("#buttonDiv").buttongroup();
 
 
   function postTicket() {
-    var JSONdata = {}, dataString=[];
+    var JSONdata = [], dataString = [];
         JSONdata["Ticket"] =  $("#ticketNumber").val();
         JSONdata["Priority"] = $("#buttonDiv").find(".active").val();
         JSONdata["Site"]= $("#siteName").val();
@@ -247,7 +247,7 @@ $("#buttonDiv").buttongroup();
       $.when(dataString).then( function() {
                $.ajax({
                  type: "POST",
-                 url:  "postTicket.php?",
+                 url:  "postTicket.php",
                  data: dataString, 
 				 dataType: 'json',
                  success: function(response){

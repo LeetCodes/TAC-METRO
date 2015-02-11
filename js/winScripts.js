@@ -1,18 +1,8 @@
 $(function() {
-  var $USER = localStorage.getItem("Login"), window = $(".window"), start = $(".start"), startmenu = $("#startmenu"), timer = [];
-    $("#sideBar, #startmenu").hide();
-    
-	if($USER != null) {
+  var window = $(".window"), start = $(".start"), startmenu = $("#startmenu"), timer = [];
+  var $USER =  localStorage.getItem("Login") ? localStorage.getItem("Login") : $("#IPADDRESS").text();
 	$("#log-in").html($USER);
-	} else{
-	  var loginName = $("#IPADDRESS").text();
-	  $("#log-in").html(loginName);
-    }
-
-
-function closeDialog(){
-	($.Dialog).close();
-}
+    $("#sideBar, #startmenu").hide();
  	
 $(".taskbar").delegate("#t-explor","click",function(){
 	$(".window").toggle();
@@ -20,6 +10,10 @@ $(".taskbar").delegate("#t-explor","click",function(){
 $(".taskbar").delegate("#t-calc","click",function(){
 	$(".tileBar").toggle();
 });
+
+function closeDialog(){
+	($.Dialog).close();
+}
 
 // Clicking the Network item in the taskbar will pop open a $.Dialog showing who is logged in and the most recent ticket activity.
 
@@ -137,7 +131,6 @@ var getTime = function() {
     
     function stopTimer (){
       clearInterval( timer );
-      console.log('DB Refresh Timer stopped. '+ getTime() );
     }	
    
 	function Continue (){
@@ -175,33 +168,28 @@ function weatherMan(){
   }
 
 
-// FORECAST() to be added later that updates conditions when #Weather live tile is clicked
-/*
-function foreCast(){
-  var URL = "../forecast.json";
-
-    $.getJSON(URL, function() {
-
-    })
-    .done(function(parsed_json) {
-        var pattern=  new RegExp("^(.{26})([a-z])"), 
-        temperF = parsed_json.current_observation.temp_f, 
-        humidity = parsed_json.current_observation.relative_humidity, 
-        Icon = parsed_json.current_observation.icon_url, 
-        IconURL = Icon.replace(pattern, "$1k"), 
-        htmlString = "<center><h1 id='temp' class='fg-white'><img id='wIcon' src='"+ IconURL +"' />"+ temperF +"<sup><i class='icon-Fahrenheit'></i></sup></h1></center>";
-   $('#Weather').html(htmlString); 
-    })
-    .fail(function(){
-        $('#Weather').empty().html("<b>Sorry</b>, something's not quite right here.");
-      })
-    .always(function(){
-    console.log("weatherMan() has completed updating.");
-    });
-  }
-
-*/
-
+// FORECAST() updates conditions when #Weather live tile is clicked
+  $(".tileBar").delegate("#weatherMan","click",function(){
+     $.Dialog({
+          shadow: false,
+          overlay: false,
+          draggable: true,
+          flat: true,
+          icon: '<span class="icon-cloudy-3"></span>',
+          title: 'Weather Forecast',
+          width: '555px',
+	      height: '200px',
+          padding: 10,
+          content: function() {
+            $(this).load("TACforecast.html");
+	      },
+          sysButtons:{
+            btnMin: false,
+            btnMax: false,
+            btnClose: true
+          }
+      });
+  });
 
 function f() {
     document.location.reload(true); 

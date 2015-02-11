@@ -16,7 +16,7 @@ $contact = $CREATE["ContactPref"];
 
 try {
     $dbh = new PDO('mysql:host=localhost;dbname=dbase', $user, $pass );
-	$query = $dbh->prepare("INSERT INTO tickets (Ticket,Date,STime,ETA,Priority,Site,Comments,Deleted,Removed_Datetime,removedby,Creator,ContactPref) VALUES (:ticket, DATE_FORMAT(CURDATE(),'%c/%e/%Y'), CURTIME(),ADDTIME(CURTIME(),'02:00:00'),:priority,:site,:comments,:removed,:creator,:contact");
+$query = $dbh->prepare("INSERT INTO tickets (Ticket,Date,STime,ETA,Priority,Site,Comments,Deleted,Creator,ContactPref) VALUES (:ticket, DATE_FORMAT(CURDATE(),'%c/%e/%Y'), CURTIME(),ADDTIME(CURTIME(),'02:00:00'),:priority,:site,:comments,:removed,:creator,:contact)");
     $query->bindParam(":ticket", $Ticket);
     $query->bindParam(":priority", $priority);
     $query->bindParam(":site", $site);
@@ -26,10 +26,10 @@ try {
     $query->bindParam(":contact", $contact);
 	
 	if($query->execute() ){
-	  print "1";
+	  print '1';
 	  //print "<br>". var_dump($Ticket);
     } else{
-		var_dump($CREATE);
+		echo "<pre>". var_dump($CREATE) ."</pre>";
       }
       $dbh = null;
 } catch (PDOException $e) {

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<body class="metro">
+<div id="weatherTXT"> </div>
+
+<script>
+$(function() {
+   var URL = "http://api.wunderground.com/api/f4de0ee4ffd72094/geolookup/forecast/q/IL/Chicago.json";
+// http://api.wunderground.com/api/f4de0ee4ffd72094/geolookup/forecast/q/IL/Chicago.json   
+   
+          $.getJSON(URL)
+            .done(function(parsed_json) {
+              var pattern=  new RegExp("^(.{26})([a-z])"),
+			  date = parsed_json.forecast.txt_forecast.date,			   
+              day = parsed_json.forecast.txt_forecast.forecastday[0].title,
+              Icon = parsed_json.forecast.txt_forecast.forecastday[0].icon_url, 
+              IconURL = Icon.replace(pattern, "$1k"), 
+			  weatherText = parsed_json.forecast.txt_forecast.forecastday[0].fcttext, 
+              weatherLater =parsed_json.forecast.txt_forecast.forecastday[1].fcttext, 		
+htmlString="<dl class='horizontal'><dt><h4><img id='wIcon' src='"+ IconURL +"' />"+ day +"</h4></dt><dd><h4 class='tertiary-text'>"+ weatherText +"</h4></dd><dd><h4 class='tertiary-text-secondary'><b>Later:</b> "+ weatherLater +"</h4></dd></dl>";
+          $("#weatherTXT").html(htmlString); 
+            })
+            .fail(function(){
+               $(this).empty().html("<b>Sorry</b>, something's not quite right here.");
+            });
+});
+</script>
+</body>
+<html>		  

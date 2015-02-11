@@ -13,7 +13,7 @@ try {
     $query->bindParam(':user', $User);
 	
 	if($query->execute() ){
-	  print "1";
+	  print '1';
 	  //print "<br>". var_dump($Ticket);
     } else {
 	    print "OH NO!";
