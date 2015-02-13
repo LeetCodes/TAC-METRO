@@ -25,7 +25,7 @@
 
 <div class="row">
  <a class="dropdown-toggle fg-white" href="#">
-   <div class="user-id bg-darker bg-hover-gray">
+   <div id="userid" class="user-id bg-darker bg-hover-gray">
      <div class="user-id-image"> <i class="icon-user"></i> </div>
      <div class="user-id-name">
 	   <b id="log-in" class="first-name"></b>

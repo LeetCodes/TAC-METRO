@@ -1,8 +1,8 @@
 <?php 
 			// list out our first-accessed variables for connecting to the database.
 $db_host = 'localhost';
-$db_user = 'root';
-$db_pwd = '';
+$db_user = 'infortel';
+$db_pwd = 'T3lemanagement';
 $database = 'dbase';
 $table = 'tickets';
 $ticket = 'Ticket';
@@ -16,23 +16,17 @@ if(!mysql_connect($db_host, $db_user, $db_pwd))
 
 ?>
 
-	<div id="pgTitle">
-		<h2>Edit a Ticket in Real-time!</h2>
-		<sub>Submit a ticket, then click the fields to edit them.</sub>
+	<div id="pgTitle" class="row">
+		<h2>Edit a Ticket in Real-time!</h2> <hr style="border:2px dashed #bbbbbb;">
 	</div>
-<br>
-<div id="divtop">
 
-<form name="Zticket" METHOD="GET" action="tickedit.php" target="new" id="EditForm">
-<input type="text" name="TicNum" id="Ticket" placeholder="Ticket Number" MAXLENGTH=6 TABINDEX=1 class='outline' required/> &nbsp;&nbsp;
+<div id="divtop" class="clearfix input-control">
 
-<button type="submit" id="Lookup"  border="0" class='metro warning btn icon-right'  >Submit <img src="/icons/bullet_go.png" border="0" alt="" /></button> &nbsp;
-</form>
+<form name="Zticket" METHOD="GET" action="ticketEdit.php" target="new" id="EditForm">
+<div class="input-control text">
+<input type="text" name="TicNum" id="Ticket" placeholder="Ticket Number" MAXLENGTH=6 TABINDEX=1 required />
 </div>
 
-<hr style="border:2px dashed #bbbbbb;">
-<script>
-$( function() {
-	$("button").button();
-});
-</script>
+<button type="submit" id="Lookup"  border="0" class='large primary'> Submit <i class="icon-arrow-right-5 on-right"></i></button>
+</form>
+</div>

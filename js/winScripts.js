@@ -44,9 +44,9 @@ $(".taskbar").delegate("#t-network","click",function(){
 $(".taskbar").delegate("#t-search","click",function(){
     $.Dialog({
       shadow: false,
-      overlay: true,
-      draggable: false,
-      flat: true,
+      overlay: false,
+      draggable: true,
+      flat: false,
       icon: '<span class="icon-search fg-darkTeal"></span>',
       title: 'Search TAC Tickets',
       width: 400,
@@ -125,7 +125,6 @@ var getTime = function() {
 // Construct a timer to refresh the DB without needing the user to hit F5 //
     function startTimer (){
      var timer = setInterval(Continue, 250000);
-      pgTimer = setInterval(pgLoad, 750000);
         console.log('Timer started. '+ getTime() );
     }
     
@@ -137,12 +136,7 @@ var getTime = function() {
 	new stopTimer();
       console.log('DB Refreshed. '+ getTime() ); 
         new Reload(); 
-	new startTimer();
     }
-   function pgLoad (){
-      console.log('Page Reloaded. '+ getTime() ); 
-      new f(); 
-    }	
 
 // function used to display Weather information in the #weather live tile
 
@@ -177,9 +171,9 @@ function weatherMan(){
           flat: true,
           icon: '<span class="icon-cloudy-3"></span>',
           title: 'Weather Forecast',
-          width: '555px',
-	      height: '200px',
-          padding: 10,
+          width: '550px',
+	      height: '250px',
+          padding: 15,
           content: function() {
             $(this).load("TACforecast.html");
 	      },
@@ -384,15 +378,15 @@ function Reload() {
 $(document).on("click",".deleteLink",function() {
 	var ticket = $(this).parent().parent("tr").attr('id'), login = $("#log-in").text();
     $.Dialog({
-      shadow: true,
-      overlay: false,
+      shadow: false,
+      overlay: true,
       draggable: true,
       flat: true,
       icon: '<span class="icon-remove fg-red"></span>',
       title: 'Delete Ticket '+ticket+'?',
       width: 450,
       padding: 10,
-      content: '<h4>Are you sure you want to delete Ticket #'+ticket+', '+login+'? </h4> <br>' +
+      content: '<h3>Are you sure you want to delete Ticket #<b class="fg-red">'+ticket+'</b>, '+login+'? </h3> <br>' +
         '<button id="confirm" type="submit" class="large primary" ><i class="icon-thumbs-up on-left"></i> Yes!</button>'+
 		'<button id="cancel" type="reset" class="large inverse" ><i class="icon-thumbs-down on-left"></i> NOPE!</button>',
       sysButtons:{
@@ -440,7 +434,7 @@ $(document).keyup(function(e) {
  $(document).on('click', "#Preferences", function() {
    $.Dialog({
      shadow: true,
-     overlay: true,
+     overlay: false,
      draggable: true,
      flat: false,
      width: '33%',
@@ -513,6 +507,32 @@ $(document).on('click', "#newTicket", function() {
      return false;
 });
 
+//  event for Edit Ticket Dialog window
+  
+$(document).on('click', "#editTicket", function() {
+   $.Dialog({
+     shadow: true,
+     overlay: false,
+     draggable: true,
+     flat: false,
+     width: '350px',
+     height: '300px',
+     icon: '<span class="icon-wrench"></span>',
+     title: 'Edit a TAC Ticket',
+     padding: 10,
+     content: function(){
+       METRO_AUTO_REINIT = true;
+       $(this).load("editTicket.php");
+     },
+     sysButtons:{
+        btnMin: false,
+        btnMax: false,
+        btnClose: true
+     }
+    });
+     return false;
+});
+
 //event for logging in a TAC user
 
 $(document).on('click', "#TAClogin", function() {
@@ -520,7 +540,7 @@ $(document).on('click', "#TAClogin", function() {
      shadow: true,
      overlay: false,
      draggable: true,
-     flat: true,
+     flat: false,
      width: '300px',
      height: '355px',
      icon: '<span class="icon-user"></span>',

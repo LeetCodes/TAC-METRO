@@ -61,7 +61,9 @@
 			  
            if ( settings.sideBar ) {
 		      $('#sideBar').removeClass('bg-darkTeal');
+		      $('#userid').removeClass('bg-darker');
 			  $('#sideBar').addClass( 'bg-'+ settings.sideBar );
+			  $('#userid').addClass( 'bg-'+ settings.sideBar );
 			} else {
 				$('#sideBar').addClass('bg-'+ settings.sideBar );
 		      }			
