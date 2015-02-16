@@ -26,7 +26,7 @@ $query = $dbh->prepare("INSERT INTO tickets (Ticket,Date,STime,ETA,Priority,Site
     $query->bindParam(":contact", $contact);
 	
 	if($query->execute() ){
-	  print '1';
+	  echo '1';
 	  //print "<br>". var_dump($Ticket);
     } else{
 		echo "<pre>". var_dump($CREATE) ."</pre>";

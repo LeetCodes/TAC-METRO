@@ -1,21 +1,8 @@
 <!DOCTYPE html>
-<head>
-<style>
-#bottomTable{
-font-family: Courier, Lucida Bright, Arial, sans-serif;
-background: rgba(20,20,20,.25);
-size: 10pt;
-color: #f1f7f9;
-padding: 5px;
-}
-</style>
-</head>
 <body>
 <div id="topTable">
 <?php
- global $conn;
- global $user;
- global $myusername;
+
 
 $dbtype		= "mysql";
 $dbhost 	= "localhost";
@@ -25,12 +12,12 @@ $dbpass		= "T3lemanagement";
 
 try {
 $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
-
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     /*** The SQL SELECT statement ***/
     $sql = "SELECT Ticket, Site, Deleted, removedby, NOW() FROM today_tickets ORDER BY UNIX_TIMESTAMP(Removed_Datetime) DESC LIMIT 1";
 
     /*** fetch into an PDOStatement object ***/
-    $stmt = $dbh->query($sql);
+   $stmt = $dbh->query($sql);
 
     /*** echo number of columns ***/
     $result = $stmt->fetch(PDO::FETCH_NUM);
@@ -58,7 +45,7 @@ catch(PDOException $e)
 ?>
 </div>
 
-<div id="bottomTable">
+<div id="bottomTable" >
 <b>Latest Activity: </b><?php echo substr($NOW, 10); ?> 
 <br>
 <type>

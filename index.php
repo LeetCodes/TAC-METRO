@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
+<html lang="en">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -197,7 +197,8 @@
 <script type="text/javascript" src="js/winScripts.js"></script>
 <script type="text/javascript" src="js/dataTable.min.js"></script>
 
-<div id="IPADDRESS" style="color:transparent;background:transparent;"> <?php echo $_SERVER['REMOTE_ADDR']; ?> </div>  
+<div id="IPADDRESS" style="color:transparent;background:transparent;"> <?php echo $_SERVER['REMOTE_ADDR']; ?> </div> 
+		
 </body>
 </html>
 

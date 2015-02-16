@@ -236,7 +236,7 @@ $("#buttonDiv").buttongroup();
 
 
   function postTicket() {
-    var JSONdata = [], dataString = [];
+    var JSONdata = {}, dataString = {};
         JSONdata["Ticket"] =  $("#ticketNumber").val();
         JSONdata["Priority"] = $("#buttonDiv").find(".active").val();
         JSONdata["Site"]= $("#siteName").val();
@@ -245,9 +245,10 @@ $("#buttonDiv").buttongroup();
         JSONdata["Creator"] = $("#log-in").text();
 		var dataString= JSON.stringify(JSONdata);
       $.when(dataString).then( function() {
+	  console.log("Ticket details sent:" + dataString);
                $.ajax({
                  type: "POST",
-                 url:  "postTicket.php",
+                 url:  "postTicket.php?",
                  data: dataString, 
 				 dataType: 'json',
                  success: function(response){
@@ -275,9 +276,8 @@ $("#buttonDiv").buttongroup();
   
 	
       $(document).on("submit","#ticketForm", function(e) {
-	    e.preventDefault();
-        e.stopPropagation();
           postTicket();
+	    e.preventDefault();
 	  });
 
 });

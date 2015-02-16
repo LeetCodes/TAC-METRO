@@ -437,7 +437,7 @@ $(document).keyup(function(e) {
      overlay: false,
      draggable: true,
      flat: false,
-     width: '33%',
+     width: '45%',
      height: '55%',
      icon: '<span class="icon-clipboard-2"></span>',
      title: 'Set Preferences',
@@ -462,11 +462,11 @@ $(document).on('click', "#statistics", function() {
      overlay: false,
      draggable: true,
      flat: true,
-     width: '700px',
-     height: '475px',
+     width: '650px',
+     height: '450px',
      icon: '<span class="icon-bars"></span>',
      title: 'Today\'s Statistics',
-     padding: 5,
+     padding: 10,
      content: function(){
        METRO_AUTO_REINIT = true;
        $(this).html("<iframe id='chartdiv' src='../cStatPNG.php' width='625' height='425' frameborder='0'> </iframe>");
@@ -490,7 +490,7 @@ $(document).on('click', "#newTicket", function() {
      draggable: true,
      flat: false,
      width: '350px',
-     height: '475px',
+     height: '500px',
      icon: '<span class="icon-floppy"></span>',
      title: 'Open a New Ticket',
      padding: 5,

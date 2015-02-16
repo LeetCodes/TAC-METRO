@@ -3,13 +3,13 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">  
 <script type="text/javascript" src="Foundation/js/vendor/modernizr.js"></script>
   <!-- // LOAD MODERNIZR FIRST for legacy browser interaction -->
-<script type="text/javascript" src="jQuery/jquery-2.0.0.js"></script>  
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 </head>
 
 <body>
 
 <?php
-require('session.php');
+require_once('session.php');
 
 $dbtype		= "mysql";
 $dbhost 	= "localhost";
@@ -75,8 +75,8 @@ catch(PDOException $e)
 
 <script type="text/javascript">
     $(document).ready(function() {
-      var $RowCounts = $("#removed_tickets  tr").length;
-      var $COUNT = parseInt( ($RowCounts - 1), 10);
+      var $RowCounts = $("#removed_tickets tbody  tr").length;
+      var $COUNT = parseInt( ($RowCounts), 10);
       $('#rowCount').html("<h1> Total Tickets:"+ $COUNT +"</h1>");
     });
 </script>  
