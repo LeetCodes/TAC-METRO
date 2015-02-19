@@ -3,10 +3,10 @@
 <html>
 	<head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">  
-<link rel="icon" href="http://tac-alert01/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="Foundation/js/vendor/modernizr.js"></script>
   <!-- // LOAD MODERNIZR FIRST for legacy browser interaction -->
-<script type="text/javascript" src="jQuery/jquery-2.0.0.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 	
 
 
@@ -16,8 +16,6 @@
 		<title>CDRMS Server Locator</title>
 <script src="js/jquery.zeroclipboard.js"></script>  
 <style>
-@import('css/structure.css');
-
 		body {
 		font-family: Share, Segoe UI, Arial, Tahoma, Verdana, sans-serif;
 		font-size: 11pt;
@@ -82,8 +80,8 @@
 			text-align: center;
 		}
 		#listing tr td{
-		  background: #f1f7f9; 
-		  color: #212121;
+		  background: transparent; 
+		  color: #212121 !important;
 		}
 
 		#toppathwrap { 
@@ -104,8 +102,8 @@
 		vertical-align: bottom;
 	}
 	#customer{
-	background: rgba(25,45,75, 0.8);
-	color: #FFFFCC;
+	background: #005A5A;
+	color: #F5FFFA;
 	border-radius:8px;
 	padding: 0.5em;
 	display: inline-block;
@@ -201,6 +199,7 @@ MakeFields();
 </div>
 	
 <script type="text/javascript" src="Foundation/js/foundation.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.11.2/jquery-ui.min.js"></script>
 <script type="text/javascript">	
  $(document).foundation();
  
@@ -228,7 +227,6 @@ $('button').button();
             });
     });
 
-$('#hi tr :odd').css({'background': '#f5fffa', 'color': '#F0F8FF' });
   
 $('body').on('copy', '.zclip', function(e){
         var CPY = $(this).data("zclip-text");
@@ -249,6 +247,5 @@ $('body').on('copy', '.zclip', function(e){
    });
 });	
 </script>
-<script type="text/javascript" src="jQuery/jquery-ui-1.10.3/ui/jquery-ui.js"></script>
 </body>
 </html>

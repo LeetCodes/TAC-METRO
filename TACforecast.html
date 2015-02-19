@@ -16,7 +16,7 @@ $(function() {
               IconURL = Icon.replace(pattern, "$1k"), 
 			  weatherText = parsed_json.forecast.txt_forecast.forecastday[0].fcttext, 
               weatherLater =parsed_json.forecast.txt_forecast.forecastday[1].fcttext, 		
-htmlString="<dl class='horizontal'><dt><h1>"+ day +"</h1><h6>"+date+"</h6></dt><dd><h4 class='tertiary-text'><img id='wIcon' src='"+ IconURL +"' style='float:left;clear:none;' /> "+ weatherText +"</h4></dd><dd><h4 class='tertiary-text-secondary'><b>Later:</b> "+ weatherLater +"</h4> </dd><br> </dl>";
+htmlString="<dl class='horizontal'><dt><h2 class='text-center'>"+ day +"</h2><h6>"+date+"</h6></dt><dd><h4 class='tertiary-text'><img id='wIcon' src='"+ IconURL +"' style='float:left;clear:none;' /> "+ weatherText +"</h4></dd><dd><h4 class='tertiary-text-secondary'><b>Later:</b> "+ weatherLater +"</h4> </dd><br> </dl>";
           $("#weatherTXT").html(htmlString); 
             })
             .fail(function(){

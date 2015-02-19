@@ -309,13 +309,14 @@ function getDB(){
  var json = eval(data), $USER = localStorage.getItem("Login");
  
    if ($.isEmptyObject(json)){
-      $("#database").empty().html("<center><h1>Great Job,"+ $USER +"!</h1> <h3 class='subheader'> All tickets have been called back.</h3></center>");
+	          METRO_AUTO_REINIT = true;
+      $("#dbContent").empty().html("<span class='text-center noResults'><h1 class='noResults'>Great Job,"+ $USER +"!</h1> <h3 class='subheader noResults'> All tickets have been called back.</h3> </span>");
   // console.log(json);
 	} else{
     $("#database").html("<table id='Table' class='table hovered bg-transparent'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td><td><i class='icon-cancel fg-red' title='Remove Ticket'></i></td></tr></THEAD><TBODY id='dbb'>");
       $.each(data, function(key, value) {
     var ticket=value.Ticket,date=value.Date,starttime=value.STime,ETA=value.ETA,Priority=value.Priority,Site=value.Site,Comments=value.Comments,Contact=value.ContactPref,Deleted=value.Deleted;
-        var Deletelink = "<div class='deleteLink toolbar transparent fg-black fg-hover-red' title='Delete ticket #"+ticket+"?'><button><i class='icon-remove'></i></button></div>";
+        var Deletelink = "<div class='deleteLink toolbar transparent fg-hover-red' title='Delete ticket #"+ticket+"?'><button><i class='icon-remove'></i></button></div>";
           $("#dbb").append("<tr id="+ticket+"><td>"+ticket+"</td><td>"+date+"</td><td>"+ETA+"</td><td>"+Priority+"</td><td>"+Site+"</td><td>"+Comments+"</td><td>"+Contact+"</td><td>"+Deletelink+"</td></tr>");
   // console.log(json);
 
@@ -534,10 +535,9 @@ $(document).on('click', "#editTicket", function() {
 });
 
 //event for logging in a TAC user
-
-$(document).on('click', "#TAClogin", function() {
-   $.Dialog({
-     shadow: true,
+function autoLogIn(){
+	 $.Dialog({
+     shadow: false,
      overlay: false,
      draggable: true,
      flat: false,
@@ -556,6 +556,9 @@ $(document).on('click', "#TAClogin", function() {
         btnClose: true
      }
     });
+}
+$(document).on('click', "#TAClogin", function() {
+      autoLogIn();
 });	
 
 // initialize the Favico numbering system
@@ -570,6 +573,5 @@ $(document).on('click', "#TAClogin", function() {
     new getDB();
     new weatherMan();
     new startTimer();
-
 // END WinScripts //  
 });  

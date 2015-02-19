@@ -270,7 +270,7 @@ $(document).ready(function() {
 				var content = [C0, C1, C2, C3, C4, C5];
 								
 					$.ajax({
-						url: 'save.php',
+						url: 'save.php?',
 						type: 'POST',
 						data: {
 							content: content

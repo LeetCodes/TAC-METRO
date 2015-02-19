@@ -159,11 +159,10 @@ $addys = "Email.txt";
 	$emails = implode(',', $fh);
 	$email = explode(',', $emails);
 	
-	list($allen,$dennis,$dino,$dan,$jim,$jon,$matt,$mike,$victor,$tom,$patrick,$terry,$susan,$jimm) = $email;
+	list($allen,$dennis,$dino,$jim,$jon,$matt,$mike,$victor,$tom,$patrick,$terry,$susan,$jimm) = $email;
 				$mail->AddAddress($allen);
 				$mail->AddAddress($dennis);
 				$mail->AddAddress($dino);
-				$mail->AddAddress($dan);
 				$mail->AddAddress($jim);
 				$mail->AddAddress($jon);
 				$mail->AddAddress($matt);

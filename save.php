@@ -32,7 +32,7 @@ global $content;
 //    $result = "INSERT into dbase.tickets (Ticket,Priority,Site,Comments,ContactPref,Deleted,Creator) VALUES ('$T','$P','$S','$C','$cP','R','$user') ON DUPLICATE KEY UPDATE Ticket=VALUES(Ticket),Priority=VALUES(Priority),Site=VALUES(Site),Comments=VALUES(Comments),ContactPref=VALUES(ContactPref),Deleted=VALUES(Deleted),Creator=VALUES(Creator)";
   $result ="UPDATE tickets SET Ticket='$T',Priority='$P',Site='$S',Comments='$C',ContactPref='$cP',Deleted='R',Creator='$user' WHERE Ticket='$c4' ";
 			if (mysql_query($result, $con)){
-				echo '1';
+				print '1';
 /* 			*** RUN THIS IF THE TICKET SHOULD BE BROUGHT BACK INTO THE ALERT SYSTEM ***				
 				mysql_query("UPDATE tickets SET Deleted='R' WHERE Ticket='$C4'",$con);
 */

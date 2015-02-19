@@ -118,14 +118,14 @@
         <button class="btn-max"></button>
         <button class="btn-close"></button>
     </div>
-    <div class="content">
+    <div id="dbContent" class="content">
 	<p class="container">
         <div id="database" class="bg-transparent">
 		</div>
     </p>
 		
     </div>
-  <span id="refreshCode" class="code-text text-left"><small class="muted-text">
+  <span id="refreshCode" class="code-text text-left"><small class="text-muted">
       Press <button id="RELOAD" class="mini rounded">ESC</button> to refresh.</small>
   </span>
 </div> <!-- //CLOSE Window -->
