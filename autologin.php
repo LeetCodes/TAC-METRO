@@ -28,7 +28,7 @@ if(isSet($_COOKIE[$cookie_name]))
 				include_once 'do_login.php';
 				}
 				else {
-				header("refresh:1; url=". $_SERVER['HTTP_REFERER']);
+				header("refresh:5; url=". $_SERVER['HTTP_REFERER']);
 				}
 		exit;
 		}

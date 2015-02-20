@@ -48,9 +48,9 @@
 		      }
 			  
 			if (settings.color ) {
-				$('#mainWrap, #dbWindow .icon, #dbWindow .title, #dbWindow .content, .noResults').addClass('fg-'+ settings.color );
+				$('#mainWrap, #dbWindow .icon, #dbWindow .title, .content').css('color', settings.color );
 			} else {
-				$('#mainWrap, #dbWindow .icon, #dbWindow .title, #dbWindow .content, .noResults').addClass('fg-'+  settings.color );
+				$('#mainWrap, #dbWindow .icon, #dbWindow .title, .content').css('color',  settings.color );
 		      }  
 			  
 			if ( settings.font ) {

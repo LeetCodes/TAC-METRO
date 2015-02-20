@@ -3,8 +3,9 @@ session_start();
 require_once("database.php"); 
 include("autologin.php");
 ?>
-<div id='wrap'>
+
 <script type="text/javascript" src="js/metro.min.js"></script>
+<div id='wrap' class='metro'>
 <?php
 
 	function NotLoggedIn() {
@@ -12,12 +13,13 @@ include("autologin.php");
 			$user = "Not Logged In";
 			$USER = $_SERVER["REMOTE_ADDR"];
 			$success = "#FFCCCC";
+			$IP = $_SERVER['REMOTE_ADDR'];	
+            $_SESSION['myusername'] = $IP;
 ?>
 		<div id='out' class="input-control">
 		<form id='form1' name='form1' method='post' action='checklogin.php'>
 <?php	
- $IP = $_SERVER['REMOTE_ADDR'];	
- $_SESSION['myusername'] = $IP;
+
   $check = mysql_query("select username, password from dbase.members where IP='$IP'");
   $checkup = mysql_fetch_row($check);
   $MyLogin = $checkup[0];

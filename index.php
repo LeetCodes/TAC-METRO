@@ -1,3 +1,4 @@
+<?php require_once("autologin.php"); ?>
 <!DOCTYPE html>
 <head>
 <html lang="en">
