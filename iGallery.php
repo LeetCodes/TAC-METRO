@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">  
-<link rel="icon" href="http://tac-alert01/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="Foundation/js/vendor/modernizr.js"></script>
   <!-- // LOAD MODERNIZR FIRST for legacy browser interaction -->
-<script type="text/javascript" src="jQuery/jquery-2.0.0.js"></script>  
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
   <link rel="stylesheet" href="Foundation/css/foundation.min.css" type="text/css">
   <link rel="stylesheet" href="Foundation/icons/foundation-icons.css" type="text/css">
   <title>Recent Image Uploads</title>
@@ -172,7 +172,7 @@ else {
 </div>
 <script type="text/javascript" src="Foundation/js/foundation.min.js"></script>
   <!-- // jQuery and Foundation frameworks apply before DOM load -->
-<script type="text/javascript" src="jQuery/jquery-ui-1.10.3/ui/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.11.2/jquery-ui.min.js"></script>
   <!-- // Load Foundation vendor-specific library additions -->
 <script type="text/javascript" src="js/jQuery_Plugins.js"></script>
 <!-- // Compressed version of all related vendor plug-ins used in jQuery -->  

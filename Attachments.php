@@ -15,7 +15,9 @@
 <link rel="icon" href="http://tac-alert01/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="Foundation/js/vendor/modernizr.js"></script>
   <!-- // LOAD MODERNIZR FIRST for legacy browser interaction -->
-<script type="text/javascript" src="jQuery/jquery-2.0.0.js"></script>  
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+
+  
     <title>Attachments in TAC Alert</title>
   <!-- // Style sheets loaded in succession for structure elements and button layout configuration --> 
   <link rel="stylesheet" type="text/css" href="css/production.css" class="theme">
@@ -156,12 +158,12 @@ print ("<h2 class='right'> $indexCount total attachments available.</h2> \n");
 
 <!-- // Per the FOUNDATION docs, load all external libraries near the end of BODY in the DOM -->
 <script type="text/javascript" src="Foundation/js/foundation.min.js"></script>
-<script type="text/javascript" src="js/jquery.dataTables.js"></script>
   <!-- // Foundation.min contains all modules in the event of expansion being needed into other library functions -->
 <script type="text/javascript" src="Foundation/Tables/responsive-tables.js"></script>
   <!-- // Responsive Tables Plug-in provided by Foundation Framework // -->
   <!-- // jQuery and Foundation frameworks apply before DOM load -->
-<script type="text/javascript" src="jQuery/jquery-ui-1.10.3/ui/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.js"></script>
 <script type="text/javascript">
 $(document).foundation();
 

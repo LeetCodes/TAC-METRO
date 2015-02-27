@@ -9,8 +9,6 @@
 <body>
 
 <?php
-require_once('session.php');
-
 $dbtype		= "mysql";
 $dbhost 	= "localhost";
 $dbname		= "dbase";

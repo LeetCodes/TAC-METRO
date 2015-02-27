@@ -4,7 +4,6 @@
 <link rel="icon" href="http://tac-alert01/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="Foundation/js/vendor/modernizr.js"></script>
   <!-- // LOAD MODERNIZR FIRST for legacy browser interaction -->
-<script type="text/javascript" src="jQuery/jquery-2.0.0.js"></script>  
   <title>Attachment Upload</title>
   <link href="css/production.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="Foundation/css/foundation.min.css" type="text/css">
@@ -134,10 +133,10 @@ if ($result) {
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
-
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="Foundation/js/foundation.min.js"></script>
   <!-- // jQuery and Foundation frameworks apply before DOM load -->
-<script type="text/javascript" src="jQuery/jquery-ui-1.10.3/ui/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.11.2/jquery-ui.min.js"></script>
   <!-- // Load Foundation vendor-specific library additions -->
 <script type="text/javascript" src="js/jQuery_Plugins.js"></script>
 <!-- // Compressed version of all related vendor plug-ins used in jQuery -->  

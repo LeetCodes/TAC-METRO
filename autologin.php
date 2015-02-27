@@ -19,7 +19,7 @@ if(isSet($_COOKIE[$cookie_name]))
 		// Register the session
 		$_SESSION['myusername'] = $usr;
 		$_SESSION['auth'] = 1;
-		$UPDATE= mysql_query("UPDATE members SET IP='$IP', LastLoggedIn='$LastLogged' WHERE username='$user'") or die("Could not update LastLoggedIn" . mysql_error() );
+		$UPDATE= mysql_query("UPDATE dbase.members SET IP='$IP', LastLoggedIn='$LastLogged' WHERE username='$usr'") or die("Could not update LastLoggedIn" . mysql_error() );
 				if($UPDATE == 1){
 						$Uuser = ucwords($user);
 				$do_login = true;
