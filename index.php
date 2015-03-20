@@ -9,7 +9,9 @@
 <script type="text/javascript" src="js/modernizr.js"></script>
   <!-- // LOAD MODERNIZR FIRST for legacy browser interaction -->
     <title>TAC's Alert System</title>
+<link rel="stylesheet" type="text/css" href="css/fontFace.css">
 <link rel="stylesheet" type="text/css" href="css/styles.css">
+
 <link rel="stylesheet" type="text/css" href="Metro-ui/min/metro-bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="Metro-ui/min/iconFont.min.css">
 <link rel="stylesheet" type="text/css" href="Metro-ui/min/metro-bootstrap-responsive.min.css">
