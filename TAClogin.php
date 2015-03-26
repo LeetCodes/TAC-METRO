@@ -1,5 +1,5 @@
 <?php 
-session_start();
+if( session_id() === null ) { session_start(); };
 require_once("database.php"); 
 include("autologin.php");
 ?>
@@ -51,7 +51,7 @@ include("autologin.php");
 <script type="text/javascript">
 $(function() {
     $("#form1").on("submit", function(){
-      var loginName = "<?php echo $USER;?>";
+      var loginName = "<?php echo $MyLogin;?>";
         localStorage.setItem("Login", loginName);
     });
 });

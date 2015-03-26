@@ -192,10 +192,12 @@
 <script type="text/javascript" src="js/jquery-ui-1.11.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/jQuery_Plugins.js"></script>
 <script type="text/javascript" src="js/metro.min.js"></script>
+<script type="text/javascript" src="js/pubsub.min.js"></script>
 <!-- // Compressed version of all related vendor plug-ins used in jQuery
 <script type="text/javascript" src="js/TACALERT.js"></script>
  -->
 <script type="text/javascript" src="js/setOpts.js"></script>
+
 
 <script type="text/javascript" src="js/winScripts.js"></script>
 <script type="text/javascript" src="js/dataTable.min.js"></script>

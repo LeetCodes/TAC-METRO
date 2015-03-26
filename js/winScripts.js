@@ -329,7 +329,12 @@ function getDB(){
   }
  });
 }
-
+function createLogger(name) {
+  return function(_, a, b) {
+    // Skip the first argument (event object) but log the name and other args.
+    console.log(name, a, b);
+  };
+}
 //Remove Ticket Functionality
 function removeTicket(ticket, login) {
 var jsonData = JSON.stringify( {"Ticket":ticket,"Login":login} );
@@ -353,6 +358,7 @@ var jsonData = JSON.stringify( {"Ticket":ticket,"Login":login} );
 		      style: {background: "#005A5A", color: "#F5FFFA"},
               timeout: 5000 // 5 seconds
             });
+		   $.publish('TAC-ALERT', not );			
             ($.Dialog).close();
 // console.log("Ticket #"+ticket+" was removed by "+login+".");
             } else {
@@ -573,5 +579,6 @@ $(document).on('click', "#TAClogin", function() {
     new getDB();
     new weatherMan();
     new startTimer();
+    $.subscribe('TAC-ALERT', createLogger('TAC-ALERT'));	
 // END WinScripts //  
 });  

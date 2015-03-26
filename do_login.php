@@ -21,8 +21,11 @@ if($post_autologin == 1)
 	{
 	$password_hash = md5($config_password); // will result in a 32 characters hash
 	$PASS = $config_password;
+	$cookie_name = "LoggedInAs";
+	$cookie_value = $post_username;
+	$cookie_time = (86400 * 30);
 
-	setcookie ($cookie_name, 'usr='.$config_username.'&hash='.$PASS, time() + $cookie_time);
+	setcookie ($cookie_name, $cookie_value, time() + $cookie_time);
 	}
 
 header("refresh:1; url=". $_SERVER['HTTP_REFERER']);

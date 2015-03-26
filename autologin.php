@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('database.php');
 
 if(isSet($_COOKIE['LoggedInAs']))
@@ -26,10 +27,15 @@ if(isSet($_COOKIE[$cookie_name]))
 				$_POST['username'] = $_COOKIE['LoggedInAs'];
 				$_POST['password'] = $_COOKIE['LoginPass'];
 				include_once 'do_login.php';
-				}
-				else {
-				header("refresh:5; url=". $_SERVER['HTTP_REFERER']);
-				}
+ ?>
+  <script type="text/javascript">
+    $(function() {
+      var loginName = "<?php echo ucwords($usr);?>";
+      localStorage.setItem("Login", loginName);
+    });
+  </script>			
+ <?php
+                }
 		exit;
 		}
 	}
