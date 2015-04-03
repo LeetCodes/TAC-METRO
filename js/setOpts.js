@@ -34,7 +34,7 @@
 		var settings = $.extend({
 		    bg : 'dark',
 			font : 'Open Sans',
-			color : 'darker',
+			color : 'white',
 			sideBar: 'darker',
 			window: 'ol-black',
 			complete : null
@@ -48,9 +48,10 @@
 		      }
 			  
 			if (settings.color ) {
-				$('#mainWrap, #dbWindow .icon, #dbWindow .title, .content, .noResults').css('color', settings.color );
+				$('#mainWrap, #dbWindow .icon, #dbWindow .title, #database, .noResults').removeClass('fg-black');
+				$('#mainWrap, #dbWindow .icon, #dbWindow .title, #database table, #dbb, .noResults').addClass( settings.color );
 			} else {
-				$('#mainWrap, #dbWindow .icon, #dbWindow .title, .content, .noResults').css('color',  settings.color );
+				$('#mainWrap, #dbWindow .icon, #dbWindow .title, #database table, #dbb, .noResults').css('color',  settings.color );
 		      }  
 			  
 			if ( settings.font ) {

@@ -1,5 +1,5 @@
 <?php
-require('database.php');
+require_once('database.php');
 if(!$do_login) exit;
 
 // declare post fields
@@ -9,7 +9,7 @@ $post_password = trim($_POST['password']);
 
 $post_autologin = $_POST['autologin'];
 
-if(($post_username == $config_username) && ($post_password == $config_password))
+if(($post_username != $config_username) && ($post_password == $config_password))
 {
 $login_ok = true;
 

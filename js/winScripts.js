@@ -313,7 +313,7 @@ function getDB(){
       $("#database").empty().html("<span class='text-center'><h1 class='noResults'>Great Job,"+ $USER +"!</h1> <h3 class='subheader noResults'> All tickets have been called back.</h3> </span>");
   // console.log(json);
 	} else{
-    $("#database").html("<table id='Table' class='table hovered bg-transparent'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td><td><i class='icon-cancel fg-red' title='Remove Ticket'></i></td></tr></THEAD><TBODY id='dbb'>");
+    $("#database").html("<table id='Table' class='table bg-transparent'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td><td><i class='icon-cancel fg-red' title='Remove Ticket'></i></td></tr></THEAD><TBODY id='dbb'>");
       $.each(data, function(key, value) {
     var ticket=value.Ticket,date=value.Date,starttime=value.STime,ETA=value.ETA,Priority=value.Priority,Site=value.Site,Comments=value.Comments,Contact=value.ContactPref,Deleted=value.Deleted;
         var Deletelink = "<div class='deleteLink toolbar transparent fg-hover-red' title='Delete ticket #"+ticket+"?'><button><i class='icon-remove'></i></button></div>";
@@ -325,7 +325,12 @@ function getDB(){
     }
   }, 
   complete: function() {
-     new Notify();	
+    new Notify();	
+     $("#mainWrap").setOptions({
+       complete: function(){ 
+        console.log('Color re-applied!'); 
+        }
+     });
   }
  });
 }
@@ -380,7 +385,7 @@ function Reload() {
    }).fadeIn(1000);
    new Notify();
    $(".tile").removeClass("selected");
-}
+   }
 
 $(document).on("click",".deleteLink",function() {
 	var ticket = $(this).parent().parent("tr").attr('id'), login = $("#log-in").text();
@@ -429,12 +434,6 @@ $(document).keyup(function(e) {
   });
 
 
-
- $("#mainWrap").setOptions({
-     complete: function(){ 
-      console.log('Color applied!'); 
-    }
-  });
 
 // event to set TAC-ALERT Options using setOpts.js library extension
  
@@ -579,6 +578,7 @@ $(document).on('click', "#TAClogin", function() {
     new getDB();
     new weatherMan();
     new startTimer();
+
     $.subscribe('TAC-ALERT', createLogger('TAC-ALERT'));	
 // END WinScripts //  
 });  

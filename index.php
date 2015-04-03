@@ -1,4 +1,4 @@
-<?php require("autologin.php"); ?>
+<?php require_once('autologin.php'); ?>
 <!DOCTYPE html>
 <head>
 <html lang="en">
@@ -122,11 +122,8 @@
         <button class="btn-close"></button>
     </div>
     <div id="dbContent" class="content">
-	<p class="container">
         <div id="database" class="bg-transparent">
 		</div>
-    </p>
-		
     </div>
   <span id="refreshCode" class="code-text text-left"><small class="text-muted">
       Press <button id="RELOAD" class="mini rounded">ESC</button> to refresh.</small>
