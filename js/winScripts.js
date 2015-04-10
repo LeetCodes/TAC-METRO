@@ -281,7 +281,7 @@ $(function() {
 		handles: 'n, s, e, w, nw, sw, ne, se',
 		containment: '#mainWrap',
 		minHeight: 250,
-		minWidth: 400,
+		minWidth: 350,
 		maxHeight: $('#mainWrap').height()-33,
 		maxWidth: $('#mainWrap').width()-250
 	});  

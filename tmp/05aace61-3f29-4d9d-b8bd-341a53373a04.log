@@ -1,0 +1,312 @@
+03:00:02   MainImportClass.AutoCall: Start
+03:00:02   TraceMode=False
+03:00:02   BEFORE: Record counts:
+03:00:02   Number of People: 5,000
+03:00:02   Number of Department(s): 173
+03:00:02   Number of Extensions: 5,715
+03:00:02   Number of AuthCodes: 0
+03:00:02   Number of Devices: 1,486
+03:00:02   
+03:00:02   Cisco Import Started
+03:00:02   Verifying Connection to Cisco Call Manager
+03:00:02     VerifyConnection Checking CUCM connection
+03:00:02       sch_DirImp, Version=10.0.5052.15836, Culture=neutral, PublicKeyToken=null
+03:00:02       SQLServer: https://10.10.3.121:8443/axl/; SQLUser: infortelrdr;
+03:00:02       Checking Server Interface: https://10.10.3.121:8443/axl/
+03:00:02       TestQuery: <?xml version="1.0" encoding="utf-8"?> <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.cisco.com/AXL/API/10.0"> <SOAP-ENV:Header/> <SOAP-ENV:Body> <ns:executeSQLQuery sequence="1234"> <sql>SELECT version AS CCMVersion FROM ComponentVersion WHERE softwarecomponent IN ('ccm.exe', 'cm-ver') AND fkProcessNode IN (SELECT pkid FROM ProcessNode WHERE name != 'EnterpriseWideData')</sql>  </ns:executeSQLQuery> </SOAP-ENV:Body> </SOAP-ENV:Envelope>
+03:00:03   ERROR IN sendSOAP: ERROR IN sendSOAP(9;ErrNbr:5;ErrCnt:1;Error GetResponse):
+03:00:03   The remote server returned an error: (599).
+03:00:03   
+03:00:03       Unable to connect to CUCM using AXL Schema version 10. Will re-attempt using an older AXL version. ERROR IN sendSOAP(9;ErrNbr:5;ErrCnt:1;Error GetResponse): The remote server returned an error: (599). 
+03:00:03     Connected to CUCM via: https://10.10.3.121:8443/axl/
+03:00:03     CUCM version: 9.1.2.11900(12) detected
+03:00:03   Cisco Connection Verified
+03:00:03     GetCUCMData querying CUCM
+03:00:03       EndUserDeviceMap querying count
+03:00:03       EndUserDeviceMap contains 1908 records
+03:00:03       EndUserDeviceMap querying data
+03:00:03       SQL: SELECT FIRST 12079 EUDM.PKID AS EUDMID, EUDM.fkEndUser AS EUID, 
+03:00:03   EUDM.fkDevice AS DID, D.Name, D.Description AS Desc, NP.DNorPattern AS DN, 
+03:00:03   MAP.NumPlanIndex AS DN_NDX 
+03:00:03   FROM EndUserDeviceMap AS EUDM 
+03:00:03   LEFT OUTER JOIN Device AS D ON EUDM.fkDevice = D.PKID 
+03:00:03   LEFT OUTER JOIN DeviceNumPlanMap AS MAP ON D.PKID = MAP.fkDevice 
+03:00:03   LEFT OUTER JOIN NumPlan AS NP ON MAP.fkNumPlan=NP.PKID 
+03:00:03   WHERE D.tkClass IN ('1','254') AND EUDM.tkUserAssociation=1 
+03:00:03   ORDER BY EUDM.PKID, EUDM.tkUserAssociation 
+03:00:03   
+03:00:04       EndUserDeviceMap retrieved 2132 records
+03:00:04       EndUser querying count
+03:00:04       EndUser contains 7558 records
+03:00:04       SQL: SELECT FIRST 4354 EndUser.PKID, UserID, FirstName, MiddleName, LastName, 
+03:00:04   NickName, Title, EndUser.Status, Building, TelephoneNumber, Mobile, HomePhone, 
+03:00:04   MailID, Manager, Department, Site, AssocPC, 
+03:00:04   EnableEMCC, EnableMobileVoice, EnableMobility, UniqueIdentifier, 
+03:00:04   OCSPrimaryUserAddress, TypeUserLocale.NativeName AS UserLocale, 
+03:00:04   NP.DNorPattern AS DN 
+03:00:04   FROM EndUser 
+03:00:04   LEFT OUTER JOIN TypeUserLocale ON EndUser.tkUserLocale=TypeUserLocale.Enum 
+03:00:04   LEFT OUTER JOIN EndUserNumPlanMap AS MAP ON EndUser.PKID=MAP.fkEndUser 
+03:00:04   LEFT OUTER JOIN NumPlan AS NP ON MAP.fkNumPlan=NP.PKID 
+03:00:04   WHERE EndUser.tkUserProfile=1 
+03:00:04   ORDER BY EndUser.PKID 
+03:00:04   
+03:00:07       SQL: SELECT FIRST 4354 EndUser.PKID, UserID, FirstName, MiddleName, LastName, 
+03:00:07   NickName, Title, EndUser.Status, Building, TelephoneNumber, Mobile, HomePhone, 
+03:00:07   MailID, Manager, Department, Site, AssocPC, 
+03:00:07   EnableEMCC, EnableMobileVoice, EnableMobility, UniqueIdentifier, 
+03:00:07   OCSPrimaryUserAddress, TypeUserLocale.NativeName AS UserLocale, 
+03:00:07   NP.DNorPattern AS DN 
+03:00:07   FROM EndUser 
+03:00:07   LEFT OUTER JOIN TypeUserLocale ON EndUser.tkUserLocale=TypeUserLocale.Enum 
+03:00:07   LEFT OUTER JOIN EndUserNumPlanMap AS MAP ON EndUser.PKID=MAP.fkEndUser 
+03:00:07   LEFT OUTER JOIN NumPlan AS NP ON MAP.fkNumPlan=NP.PKID 
+03:00:07   WHERE EndUser.tkUserProfile=1 
+03:00:07   AND EndUser.PKID > '924d8d69-120b-c931-8ae5-910b650846cf'
+03:00:07   ORDER BY EndUser.PKID 
+03:00:07   
+03:00:09       EndUser retrieved 7637 records
+03:00:09     Generated 2132 Output Records
+03:00:09   Cisco Data Collected
+03:00:10   Extension(6,0) field is not numeric; value='*#4564'; RecNo=8. Record Rejected.
+03:00:10   Extension(6,0) field is not numeric; value='*#4975'; RecNo=18. Record Rejected.
+03:00:10   Extension(6,0) field is not numeric; value='*#8177'; RecNo=24. Record Rejected.
+03:00:10   Extension(6,0) field is not numeric; value='*#8916'; RecNo=27. Record Rejected.
+03:00:10   Extension(6,0) field is not numeric; value='*#8644'; RecNo=29. Record Rejected.
+03:00:10   Extension(6,0) field is not numeric; value='*#4312'; RecNo=39. Record Rejected.
+03:00:10   Extension(6,0) field is not numeric; value='*#4925'; RecNo=41. Record Rejected.
+03:00:10   Extension(6,0) field is not numeric; value='*#4363'; RecNo=47. Record Rejected.
+03:00:10   Extension(6,0) field is not numeric; value='*#7752'; RecNo=74. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#2937'; RecNo=95. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#8838'; RecNo=98. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#8233'; RecNo=100. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#6594'; RecNo=109. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#8894'; RecNo=111. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#8504'; RecNo=114. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#1613'; RecNo=125. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#7198'; RecNo=129. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#4867'; RecNo=131. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#8303'; RecNo=132. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#8589'; RecNo=133. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#8596'; RecNo=151. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#4092'; RecNo=153. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#6592'; RecNo=157. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#6586'; RecNo=158. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#4058'; RecNo=160. Record Rejected.
+03:00:11   Extension(6,0) field is not numeric; value='*#4222'; RecNo=167. Record Rejected.
+03:00:12   Extension(6,0) field is not numeric; value='*#4059'; RecNo=195. Record Rejected.
+03:00:12   Extension(6,0) field is not numeric; value='*#1167'; RecNo=199. Record Rejected.
+03:00:12   Extension(6,0) field is not numeric; value='*#4203'; RecNo=202. Record Rejected.
+03:00:12   Extension(6,0) field is not numeric; value='*#8622'; RecNo=211. Record Rejected.
+03:00:12   Extension(6,0) field is not numeric; value='*#8324'; RecNo=215. Record Rejected.
+03:00:12   Extension(6,0) field is not numeric; value='*#4991'; RecNo=221. Record Rejected.
+03:00:12   Extension(6,0) field is not numeric; value='*#4566'; RecNo=227. Record Rejected.
+03:00:12   Extension(6,0) field is not numeric; value='*#8670'; RecNo=228. Record Rejected.
+03:00:12   Extension(6,0) field is not numeric; value='*#4805'; RecNo=229. Record Rejected.
+03:00:12   Extension(6,0) field is not numeric; value='*#7739'; RecNo=238. Record Rejected.
+03:00:12   Extension(6,0) field is not numeric; value='*#8690'; RecNo=264. Record Rejected.
+03:00:13   Extension(6,0) field is not numeric; value='*#4309'; RecNo=278. Record Rejected.
+03:00:13   Extension(6,0) field is not numeric; value='*#4960'; RecNo=290. Record Rejected.
+03:00:13   Extension(6,0) field is not numeric; value='*#8433'; RecNo=301. Record Rejected.
+03:00:13   Extension(6,0) field is not numeric; value='*#8521'; RecNo=303. Record Rejected.
+03:00:13   Extension(6,0) field is not numeric; value='*#4641'; RecNo=315. Record Rejected.
+03:00:13   Extension(6,0) field is not numeric; value='*#8888'; RecNo=332. Record Rejected.
+03:00:13   Extension(6,0) field is not numeric; value='*#8167'; RecNo=354. Record Rejected.
+03:00:13   Extension(6,0) field is not numeric; value='*#4213'; RecNo=355. Record Rejected.
+03:00:13   Extension(6,0) field is not numeric; value='*#8294'; RecNo=367. Record Rejected.
+03:00:14   Extension(6,0) field is not numeric; value='*#1637'; RecNo=385. Record Rejected.
+03:00:14   Extension(6,0) field is not numeric; value='*#8119'; RecNo=389. Record Rejected.
+03:00:14   Extension(6,0) field is not numeric; value='*#8696'; RecNo=397. Record Rejected.
+03:00:14   Extension(6,0) field is not numeric; value='*#8846'; RecNo=398. Record Rejected.
+03:00:14   Extension(6,0) field is not numeric; value='*#8225'; RecNo=404. Record Rejected.
+03:00:14   Extension(6,0) field is not numeric; value='*#6601'; RecNo=418. Record Rejected.
+03:00:14   Extension(6,0) field is not numeric; value='*#8620'; RecNo=424. Record Rejected.
+03:00:14   Extension(6,0) field is not numeric; value='*#4647'; RecNo=442. Record Rejected.
+03:00:14   Extension(6,0) field is not numeric; value='*#4621'; RecNo=443. Record Rejected.
+03:00:14   Extension(6,0) field is not numeric; value='*#8309'; RecNo=451. Record Rejected.
+03:00:14   Extension(6,0) field is not numeric; value='*#4551'; RecNo=471. Record Rejected.
+03:00:15   Extension(6,0) field is not numeric; value='*#1122'; RecNo=474. Record Rejected.
+03:00:15   Extension(6,0) field is not numeric; value='*#4979'; RecNo=475. Record Rejected.
+03:00:15   Extension(6,0) field is not numeric; value='*#4345'; RecNo=476. Record Rejected.
+03:00:15   Extension(6,0) field is not numeric; value='*#8973'; RecNo=484. Record Rejected.
+03:00:15   Extension(6,0) field is not numeric; value='*#88931'; RecNo=502. Record Rejected.
+03:00:15   Extension(6,0) field is not numeric; value='*#8908'; RecNo=506. Record Rejected.
+03:00:15   Extension(6,0) field is not numeric; value='*#4202'; RecNo=507. Record Rejected.
+03:00:15   Extension(6,0) field is not numeric; value='*#9988'; RecNo=509. Record Rejected.
+03:00:15   Extension(6,0) field is not numeric; value='*#4953'; RecNo=525. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#8323'; RecNo=570. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#4307'; RecNo=572. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#8179'; RecNo=575. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#8892'; RecNo=576. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#4988'; RecNo=577. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#4889'; RecNo=578. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#8862'; RecNo=585. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#4218'; RecNo=587. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#8831'; RecNo=594. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#8485'; RecNo=595. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#7758'; RecNo=601. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#4300'; RecNo=603. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#8880'; RecNo=623. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#4205'; RecNo=627. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#8674'; RecNo=655. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#8200'; RecNo=668. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#4217'; RecNo=673. Record Rejected.
+03:00:16   Extension(6,0) field is not numeric; value='*#6584'; RecNo=674. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#8202'; RecNo=679. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#4393'; RecNo=680. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#8293'; RecNo=683. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#1852'; RecNo=684. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#8810'; RecNo=701. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#8609'; RecNo=708. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#1678'; RecNo=712. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#4590'; RecNo=731. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#8662'; RecNo=733. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#4308'; RecNo=758. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#7199'; RecNo=761. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#4826'; RecNo=774. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#7754'; RecNo=775. Record Rejected.
+03:00:17   Extension(6,0) field is not numeric; value='*#4815'; RecNo=787. Record Rejected.
+03:00:18   Extension(6,0) field is not numeric; value='*#8298'; RecNo=827. Record Rejected.
+03:00:18   Extension(6,0) field is not numeric; value='*#8283'; RecNo=842. Record Rejected.
+03:00:18   Extension(6,0) field is not numeric; value='*#8227'; RecNo=846. Record Rejected.
+03:00:18   Extension(6,0) field is not numeric; value='*#8147'; RecNo=851. Record Rejected.
+03:00:18   Extension(6,0) field is not numeric; value='*#8286'; RecNo=856. Record Rejected.
+03:00:18   Extension(6,0) field is not numeric; value='*#4593'; RecNo=858. Record Rejected.
+03:00:18   Extension(6,0) field is not numeric; value='*#8689'; RecNo=861. Record Rejected.
+03:00:18   Extension(6,0) field is not numeric; value='*#4357'; RecNo=871. Record Rejected.
+03:00:18   Extension(6,0) field is not numeric; value='*#4206'; RecNo=873. Record Rejected.
+03:00:18   Extension(6,0) field is not numeric; value='*#4254'; RecNo=880. Record Rejected.
+03:00:19   Extension(6,0) field is not numeric; value='*#6582'; RecNo=890. Record Rejected.
+03:00:19   Extension(6,0) field is not numeric; value='*#6523'; RecNo=942. Record Rejected.
+03:00:19   Extension(6,0) field is not numeric; value='*#4572'; RecNo=946. Record Rejected.
+03:00:19   Extension(6,0) field is not numeric; value='*#4597'; RecNo=947. Record Rejected.
+03:00:19   Extension(6,0) field is not numeric; value='*#8157'; RecNo=951. Record Rejected.
+03:00:19   Extension(6,0) field is not numeric; value='*#4227'; RecNo=952. Record Rejected.
+03:00:19   Extension(6,0) field is not numeric; value='*#1540'; RecNo=953. Record Rejected.
+03:00:19   Extension(6,0) field is not numeric; value='*#6606'; RecNo=954. Record Rejected.
+03:00:19   Extension(6,0) field is not numeric; value='*#4667'; RecNo=967. Record Rejected.
+03:00:20   Extension(6,0) field is not numeric; value='*#4998'; RecNo=981. Record Rejected.
+03:00:20   Extension(6,0) field is not numeric; value='*#4873'; RecNo=988. Record Rejected.
+03:00:20   Extension(6,0) field is not numeric; value='*#4936'; RecNo=991. Record Rejected.
+03:00:20   Progress: record #1,000
+03:00:20   Extension(6,0) field is not numeric; value='*#4228'; RecNo=1,012. Record Rejected.
+03:00:20   Extension(6,0) field is not numeric; value='*#8153'; RecNo=1,014. Record Rejected.
+03:00:20   Extension(6,0) field is not numeric; value='*#4387'; RecNo=1,018. Record Rejected.
+03:00:20   Extension(6,0) field is not numeric; value='*#8223'; RecNo=1,029. Record Rejected.
+03:00:20   Extension(6,0) field is not numeric; value='*#2908'; RecNo=1,039. Record Rejected.
+03:00:20   Extension(6,0) field is not numeric; value='*#8454'; RecNo=1,043. Record Rejected.
+03:00:20   Extension(6,0) field is not numeric; value='*#8146'; RecNo=1,056. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#8116'; RecNo=1,083. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#4067'; RecNo=1,096. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#4828'; RecNo=1,101. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#4061'; RecNo=1,103. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#4813'; RecNo=1,104. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#8688'; RecNo=1,105. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#4768'; RecNo=1,106. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#8313'; RecNo=1,112. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#8876'; RecNo=1,128. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#4207'; RecNo=1,133. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#4852'; RecNo=1,145. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#4817'; RecNo=1,148. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#8329'; RecNo=1,151. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#4215'; RecNo=1,155. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#8687'; RecNo=1,157. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#6605'; RecNo=1,159. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#4894'; RecNo=1,160. Record Rejected.
+03:00:21   Extension(6,0) field is not numeric; value='*#7756'; RecNo=1,175. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#7757'; RecNo=1,195. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#8247'; RecNo=1,224. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#1861'; RecNo=1,229. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#8326'; RecNo=1,235. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#7800'; RecNo=1,238. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#7190'; RecNo=1,245. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#4210'; RecNo=1,246. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#8173'; RecNo=1,247. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#4086'; RecNo=1,250. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#4231'; RecNo=1,258. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#1234'; RecNo=1,261. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#4303'; RecNo=1,268. Record Rejected.
+03:00:22   Extension(6,0) field is not numeric; value='*#8253'; RecNo=1,269. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#4853'; RecNo=1,281. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#4854'; RecNo=1,286. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#8143'; RecNo=1,287. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#7759'; RecNo=1,294. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#4935'; RecNo=1,295. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#8898'; RecNo=1,299. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#8996'; RecNo=1,309. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#4201'; RecNo=1,311. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#8893'; RecNo=1,314. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#4957'; RecNo=1,319. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#1210'; RecNo=1,373. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#4220'; RecNo=1,374. Record Rejected.
+03:00:23   Extension(6,0) field is not numeric; value='*#6583'; RecNo=1,376. Record Rejected.
+03:00:24   Extension(6,0) field is not numeric; value='*#4589'; RecNo=1,394. Record Rejected.
+03:00:24   Extension(6,0) field is not numeric; value='*#4560'; RecNo=1,404. Record Rejected.
+03:00:24   Extension(6,0) field is not numeric; value='*#8510'; RecNo=1,405. Record Rejected.
+03:00:24   Extension(6,0) field is not numeric; value='*#4943'; RecNo=1,422. Record Rejected.
+03:00:24   Extension(6,0) field is not numeric; value='*#8152'; RecNo=1,427. Record Rejected.
+03:00:24   Extension(6,0) field is not numeric; value='*#8599'; RecNo=1,430. Record Rejected.
+03:00:24   Extension(6,0) field is not numeric; value='*#4212'; RecNo=1,444. Record Rejected.
+03:00:24   Extension(6,0) field is not numeric; value='*#4301'; RecNo=1,456. Record Rejected.
+03:00:24   Extension(6,0) field is not numeric; value='*#7733'; RecNo=1,457. Record Rejected.
+03:00:25   Extension(6,0) field is not numeric; value='*#8251'; RecNo=1,488. Record Rejected.
+03:00:25   Extension(6,0) field is not numeric; value='*#3561'; RecNo=1,505. Record Rejected.
+03:00:25   Extension(6,0) field is not numeric; value='*#4306'; RecNo=1,508. Record Rejected.
+03:00:25   Extension(6,0) field is not numeric; value='*#8597'; RecNo=1,521. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#4676'; RecNo=1,567. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#6630'; RecNo=1,577. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#4204'; RecNo=1,587. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#7732'; RecNo=1,595. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#8994'; RecNo=1,600. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#4054'; RecNo=1,601. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#4837'; RecNo=1,603. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#4637'; RecNo=1,609. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#8844'; RecNo=1,612. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#8503'; RecNo=1,621. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#4598'; RecNo=1,629. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#8089'; RecNo=1,632. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#4563'; RecNo=1,634. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#6633'; RecNo=1,646. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#1211'; RecNo=1,647. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#8659'; RecNo=1,648. Record Rejected.
+03:00:26   Extension(6,0) field is not numeric; value='*#8859'; RecNo=1,657. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#4701'; RecNo=1,668. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#4221'; RecNo=1,681. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#4310'; RecNo=1,700. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#8522'; RecNo=1,711. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#4763'; RecNo=1,726. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#8904'; RecNo=1,732. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#4318'; RecNo=1,736. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#8325'; RecNo=1,746. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#4098'; RecNo=1,748. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#11234'; RecNo=1,752. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#8148'; RecNo=1,762. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#8698'; RecNo=1,770. Record Rejected.
+03:00:27   Extension(6,0) field is not numeric; value='*#8626'; RecNo=1,771. Record Rejected.
+03:00:29   Extension(6,0) field is not numeric; value='*#4923'; RecNo=1,930. Record Rejected.
+03:00:29   Extension(6,0) field is not numeric; value='*#4390'; RecNo=1,945. Record Rejected.
+03:00:29   Extension(6,0) field is not numeric; value='*#4934'; RecNo=1,965. Record Rejected.
+03:00:29   Extension(6,0) field is not numeric; value='*#8808'; RecNo=1,978. Record Rejected.
+03:00:29   Extension(6,0) field is not numeric; value='*#8840'; RecNo=1,979. Record Rejected.
+03:00:30   Extension(6,0) field is not numeric; value='*#4094'; RecNo=1,997. Record Rejected.
+03:00:30   Progress: record #2,000
+03:00:30   Extension(6,0) field is not numeric; value='*#4226'; RecNo=2,013. Record Rejected.
+03:00:30   Extension(6,0) field is not numeric; value='*#21234'; RecNo=2,014. Record Rejected.
+03:00:30   Extension(6,0) field is not numeric; value='*#4658'; RecNo=2,017. Record Rejected.
+03:00:30   Extension(6,0) field is not numeric; value='*#4383'; RecNo=2,021. Record Rejected.
+03:00:30   Extension(6,0) field is not numeric; value='*#4078'; RecNo=2,030. Record Rejected.
+03:00:30   Extension(6,0) field is not numeric; value='*#4386'; RecNo=2,035. Record Rejected.
+03:00:30   Extension(6,0) field is not numeric; value='*#8858'; RecNo=2,072. Record Rejected.
+03:00:30   Extension(6,0) field is not numeric; value='*#4219'; RecNo=2,075. Record Rejected.
+03:00:31   Extension(6,0) field is not numeric; value='*#2997'; RecNo=2,111. Record Rejected.
+03:00:31   Extension(6,0) field is not numeric; value='*#4848'; RecNo=2,113. Record Rejected.
+03:00:31   Extension(6,0) field is not numeric; value='*#8621'; RecNo=2,128. Record Rejected.
+03:00:31   Extension(6,0) field is not numeric; value='*#8207'; RecNo=2,132. Record Rejected.
+03:00:31   Cisco Import Completed:Imported 2,132 records
+03:00:34   AFTER: Record counts:
+03:00:34   Number of People: 4,995
+03:00:34   Number of Department(s): 174
+03:00:34   Number of Extensions: 5,720
+03:00:34   Number of AuthCodes: 0
+03:00:34   Number of Devices: 1,501
+03:00:34   
