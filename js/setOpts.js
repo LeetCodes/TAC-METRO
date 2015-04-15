@@ -55,9 +55,9 @@
 		      }  
 			  
 			if ( settings.font ) {
-			  $('#database').css( 'fontFamily', settings.font );
+			  $('#database table, #dbb, .noResults').css( 'fontFamily', settings.font );
 			} else {
-				$('#database').css('fontFamily', settings.font );
+				$('#database table, #dbb, .noResults').css('fontFamily', settings.font );
 		      }
 			  
            if ( settings.sideBar ) {

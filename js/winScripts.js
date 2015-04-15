@@ -173,7 +173,7 @@ function weatherMan(){
           title: 'Weather Forecast',
           width: '550px',
 	      height: '250px',
-          padding: 15,
+          padding: 10,
           content: function() {
             $(this).load("TACforecast.html");
 	      },
