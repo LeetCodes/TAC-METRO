@@ -19,7 +19,7 @@ $(function() {
               IconURL = Icon.replace(pattern, "$1k"), 
 			  weatherText = parsed_json.forecast.txt_forecast.forecastday[0].fcttext, 
               weatherLater =parsed_json.forecast.txt_forecast.forecastday[1].fcttext, 		
-htmlString="<dl class='horizontal'><dt><span class='text-center'><h2><b>"+ day +"</b></h2> <h3 class='fg-orange'>High: "+temperHi+"&deg;</h3><h3 class='fg-blue'>Low: "+temperLo+"&deg;</h3></span></dt><dd><h4 class='tertiary-text'><img id='wIcon' src='"+ IconURL +"' style='float:left;clear:none;' /> <small>"+date+"</small><br>"+weatherText +"</h4></dd><dd><h4 class='tertiary-text-secondary'><b>Later:</b> "+ weatherLater +"</h4> </dd><br> </dl>";
+htmlString="<dl class='horizontal'><dt><span class='text-center'><h2><b>"+ day +"</b></h2> <h3 class='fg-orange'>High: "+temperHi+"&deg;</h3><h3 class='fg-blue'>Low: "+temperLo+"&deg;</h3></span></dt><dd><p class='text-right'><small>"+date+"</small></p><h4 class='tertiary-text'><img id='wIcon' src='"+ IconURL +"' style='float:left;clear:none;' /> "+weatherText +"</h4></dd><dd><h4 class='tertiary-text-secondary'><b>Later:</b> "+ weatherLater +"</h4> </dd><br> </dl>";
           $("#weatherTXT").html(htmlString); 
             })
             .fail(function(){

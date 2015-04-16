@@ -1,7 +1,7 @@
 @import url('jqUI.css');
 
 html,body {
-	font-family: "Open Sans", Consolas, "Droid Sans", Roboto, Cabin, "Arial Black", Lobster, Arial, Sans-Serif;
+	font-family: Arial,"Open Sans","Noto Sans",Roboto,VT323,"Arial Black","Lobster Two",Consolas, sans-serif;
 	font-size: 11pt;
 	margin: 0px;
 	width: 100%;

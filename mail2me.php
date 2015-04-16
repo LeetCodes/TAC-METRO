@@ -228,7 +228,7 @@ $addys = "Email.txt";
 			h1, .h1{
 				 color:#202020;
 				display:block;
-				 font-family:Arial;
+				 font-family:'Arial Black';
 				 font-size:34px;
 				 font-weight:bold;
 				 line-height:100%;
