@@ -57,8 +57,8 @@
             <a class="dropdown-toggle" href="#"><i class="icon-link fg-blue on-right"></i>Internal Links</a>
             <ul class="dropdown-menu" data-role="dropdown">
         <li><a href="http://tac-wiki/wiki/index.php" title="TAC's Wiki knowledgebase" target="_NEW"><i class="icon-wordpress fg-black on-right"></i> TAC Wikibase</a> </li>
-		<li><a href="http://tac-alert01/CDRMS.php"> <i class="icon-address-book fg-darkPink on-right"></i> CDRMS Clients</a></li>
-        <li ><a href="http://tac-alert01/Attach.php"><i class="icon-upload-2 fg-lightBlue on-right"></i> Attach An Item</a></li>
+		<li><a href="http://tac-alert01/CDRMS.php" target="_NEW" title="Look up CDRMS information"> <i class="icon-address-book fg-darkPink on-right"></i> CDRMS Clients</a></li>
+        <li ><a href="http://tac-alert01/Attach.php" target="_NEW" title="Attach an image for TAC tickets"><i class="icon-upload-2 fg-lightBlue on-right"></i> Attach An Item</a></li>
 		<li><a href="http://tac-alert01/attachments.php" title="Attachment File Listing" target="_NEW"><i class="icon-attachment fg-steel on-right"></i>TAC Attachment Listing </a> </li>
         <li><a href="http://tac-alert01/tickadd.php" title="Add a Ticket back into the Queue" target="_NEW"><i class="icon-plus fg-emerald on-right"></i> TAC's Ticket Adder</a> </li>
   
@@ -68,9 +68,9 @@
 		<li id="GenRes">
            <a class="dropdown-toggle" href="#"><i class="icon-new-tab fg-amber on-right"></i>General Resources</a>
           <ul class="dropdown-menu" data-role="dropdown">
-        <li><a href="http://thesource.isi-info.com"><i class="icon-earth fg-cobalt on-right"></i> The Source</a></li>
+        <li><a href="http://thesource.isi-info.com" target="_NEW" title="The Source at ISI"><i class="icon-earth fg-cobalt on-right"></i> The Source</a></li>
         <li><a href="https://isi-info.webex.com/mw0401l/mywebex/default.do?siteurl=isi-info&service=9" title="Start a WebEx Support Session" target="_NEW"><i class="icon-phone fg-lime on-right"></i> WebEx Support Center</a> </li>
-        <li><a href="http://badger/EngWiki/Default.aspx"><i class="icon-cone fg-orange on-right"></i> The Engineering Wiki</a></li>
+        <li><a href="http://badger/EngWiki/Default.aspx" target="_NEW" title="The Engineering Wiki"><i class="icon-cone fg-orange on-right"></i> The Engineering Wiki</a></li>
         <li><a href="http://tac-alert01/tbyc.php" title="Ticket Creation Statistics" target="_NEW"><i class="icon-user-2 fg-indigo"></i> Search Tickets by Creator</a> </li>
         <li><a href="http://tac-alert01/search.php" title="Ticket  Search by Client" target="_NEW"><i class="icon-user-3 fg-cyan"></i> Search Tickets by Customer</a> </li>			
 		  </ul>

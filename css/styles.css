@@ -20,6 +20,11 @@ html,body,*, *:after, *:before {
 #bodyWrapper{
 overflow: visible;
 }
+#database{
+clear: both;
+padding: 5px;
+margin: 10px auto;
+}
 
 @-moz-keyframes spin {
   100% { -moz-transform: rotate(360deg); }
