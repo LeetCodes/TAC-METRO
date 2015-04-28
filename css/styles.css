@@ -24,6 +24,14 @@ overflow: visible;
 clear: both;
 padding: 5px;
 margin: 10px auto;
+overflow: hidden;
+}
+#dbContent{
+overflow: hidden;
+}
+
+#dbb{
+overflow: auto;
 }
 
 @-moz-keyframes spin {
@@ -61,7 +69,7 @@ animation: spin 1s linear infinite;
 .content{
 max-height: 99%;
 overflow: auto;
-padding: 10px;
+padding: 5px;
 }
 
 

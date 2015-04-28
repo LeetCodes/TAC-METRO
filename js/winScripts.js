@@ -310,7 +310,7 @@ function getDB(){
  
    if ($.isEmptyObject(json)){
 	          METRO_AUTO_REINIT = true;
-      $("#database").empty().html("<span class='text-center'><h1 class='noResults'>Great Job,"+ $USER +"!</h1> <h3 class='subheader noResults'> All tickets have been called back.</h3> </span>");
+      $("#database").empty().html("<span class='text-center'><h1 class='noResults'>Great Job, "+ $USER +"!</h1> <h3 class='subheader noResults'> All tickets have been called back.</h3> </span>");
   // console.log(json);
 	} else{
     $("#database").html("<table id='Table' class='table bg-transparent'><THEAD><tr id='trr'><td>Ticket</td><td>Opened</td><td>ETA</td><td>Priority</td><td>Site</td><td>Comments</td><td>Contact Preference</td><td><i class='icon-cancel fg-red' title='Remove Ticket'></i></td></tr></THEAD><TBODY id='dbb'>");
@@ -319,7 +319,10 @@ function getDB(){
         var Deletelink = "<div class='deleteLink toolbar transparent fg-hover-red' title='Delete ticket #"+ticket+"?'><button><i class='icon-remove'></i></button></div>";
           $("#dbb").append("<tr id="+ticket+"><td>"+ticket+"</td><td>"+date+"</td><td>"+ETA+"</td><td>"+Priority+"</td><td>"+Site+"</td><td>"+Comments+"</td><td>"+Contact+"</td><td>"+Deletelink+"</td></tr>");
   // console.log(json);
-
+  // EXPAND DIV DYNAMICALLY WHEN AJAX REFRESHES
+        $("#dbContent").animate({
+            height: $("#database").height()
+        }, 400);
      });
        $("#database").append("</tbody></table>");
     }
